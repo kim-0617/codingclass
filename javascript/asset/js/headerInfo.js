@@ -16,12 +16,12 @@ const header_template = `
     <li><a href="javascript12.html">제이쿼리</a></li>
 </ul>
 <ul class="effect">
-    <li><a href="effect/searchEffect.html">검색 효과</a></li>
-    <li><a href="effect/quizEffect.html">퀴즈 효과</a></li>
-    <li><a href="effect/mouseEffect.html">마우스 효과</a></li>
-    <li><a href="effect/sliderEffect.html">슬라이드 효과</a></li>
-    <li><a href="effect/parallaxEffect.html">패랠렉스 효과</a></li>
-    <li><a href="effect/gameEffect.html">게임 효과</a></li>
+    <li><a href="/javascript/effect/searchEffect.html">검색 효과</a></li>
+    <li><a href="/javascript/effect/quizEffect.html">퀴즈 효과</a></li>
+    <li><a href="/javascript/effect/mouseEffect.html">마우스 효과</a></li>
+    <li><a href="/javascript/effect/sliderEffect.html">슬라이드 효과</a></li>
+    <li><a href="/javascript/effect/parallaxEffect.html">패랠렉스 효과</a></li>
+    <li><a href="/javascript/effect/gameEffect.html">게임 효과</a></li>
 </ul>
 `;
 
