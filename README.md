@@ -1,7 +1,7 @@
 # codingclass
 
-## 메인
-https://kim-0617.github.io/codingclass/index.html   
+## 메인 페이지
+https://kim-0617.github.io/codingclass/index.html     
 
 ## 자바스크립트 
 https://kim-0617.github.io/codingclass/javascript/index.html   
