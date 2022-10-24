@@ -45,18 +45,16 @@
                 <table>
                     <colgroup>
                         <col style="width: 5%;">
-                        <col>
-                        <col>
-                        <col style="width: 5%;">
-                        <col style="width: 11%;">
-                        <col style="width: 5%;">
+                        <col style="width: 20%;">
+                        <col style="width: 50%;">
+                        <col style="width: 15%;">
+                        <col style="width: 10%;">
                     </colgroup>
                     <thead>
                         <tr>
                             <th>번호</th>
                             <th>속성</th>
                             <th>설명</th>
-                            <th>보기</th>
                             <th>중요</th>
                             <th>비고</th>
                         </tr>
@@ -1159,5 +1157,11 @@
         <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
     </footer>
     <!-- // footer -->
+
+    <script>
+        document.querySelectorAll('.table table tr td:nth-child(4)').forEach(td => {
+            td.style.display = 'none';
+        });
+    </script>
 </body>
 </html>

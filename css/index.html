@@ -1016,7 +1016,6 @@
                                         <th>속성</th>
                                         <th>설명</th>
                                         <th>중요</th>
-                                        <th>보기</th>
                                         <th>비고</th>
                                     </tr>
                                 </thead>
@@ -7375,7 +7374,11 @@
                 // 클릭한 버튼에 맞는 인덱스에 해당하는 컨텐츠를 보여준다.
                 tabCont[index].style.display = 'block';
             })
-        })
+        });
+
+        document.querySelectorAll('.subCont1 table tr td:nth-child(5)').forEach(td => {
+            td.style.display = 'none';
+        });
     </script>
 </body>
 
