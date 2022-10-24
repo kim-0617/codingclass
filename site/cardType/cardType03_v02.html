@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v02</title>
+    <style>
+        @import url('https://webfontworld.github.io/score/SCoreDream.css');
+
+        .SCore {
+            font-family: "SCoreDream";
+            font-weight: 500;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section>p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .card__inner{
+            display: flex;
+            justify-content: center;
+        }
+        .card{
+            width: 385px;
+            background-color: #fff;
+            padding: 30px 26px;
+            border-right: 1px solid #eeeeee;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .card:last-child{
+            border-right: 0;
+        }
+        .card img{
+            border-radius: 10px;
+            margin-bottom: 19px;
+            box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.1);
+        }
+        .card .tit{
+            font-size: 20px;
+            font-weight: 300;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.4;
+            text-align: left;
+            margin-bottom: 10px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            padding-right: 20px;
+        }
+        .card .desc{
+            font-size: 16px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.7;
+            letter-spacing: normal;
+            text-align: left;
+            color: #666;
+            margin-bottom: 30px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical;
+        }
+        .card .logo{
+            width: 100.8px;
+            height: 28px;
+            border-radius: 50px;
+            background-color: #d9d9d9;
+            position: absolute;
+            right: 35.7px;
+            top: 36px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #7b7b7b;
+            line-height: 28px;
+        }
+        .author{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        .author .name{
+            text-align: right;
+            padding-right: 12.3px;
+            line-height: 1.17;
+            height: 40px;
+        }
+        .author .name span{
+            color: #dd2a2a;
+            display: block;
+        }
+
+        .author div[class ^= 'picture']{
+            width: 40px;
+            height: 40px;
+        }
+
+        .author .picture_01{
+            background-image: url('img/card_bg03_pic01.jpg');
+        }
+
+        .author .picture_02{
+            background-image: url('img/card_bg03_pic02.jpg');
+        }
+
+        .author .picture_03{
+            background-image: url('img/card_bg03_pic03.jpg');
+        }
+    </style>
+</head>
+
+<body>
+    <section id="cardType03" class="card__wrap SCore section blue">
+        <div class="card__inner container">
+            <article class="card">
+                <img src="./img/card_bg03_01.jpg" alt="img01">
+                <div class="logo">Architects</div>
+                <h3 class="tit">건축은 건물이나 다른 구조물을 계획하고 설계하고 건설하는 과정과 그 결과..</h3>
+                <p class="desc">
+                    건축적인, 미학적인 고려가 전체적으로 기능성에 종속되어야 한다는 개념이 대중성, 
+                    회의론과 만났을 때, 그것은 비트루비우스의 '유용성을...
+                </p>
+                <div class="author">
+                    <p class="name">
+                        <span>건축 박사</span>
+                        Hesperioidea
+                    </p>
+                    <div class="picture_01"></div>
+                </div>
+            </article>
+            <article class="card">
+                <img src="./img/card_bg03_02.jpg" alt="img02">
+                <div class="logo">Architects</div>
+                <h3 class="tit">건축은 건물이나 다른 구조물을 계획하고 설계하고 건설하는 과정과 그 결과..</h3>
+                <p class="desc">
+                    건축적인, 미학적인 고려가 전체적으로 기능성에 종속되어야 한다는 개념이 대중성, 
+                    회의론과 만났을 때, 그것은 비트루비우스의 '유용성을...
+                </p>
+                <div class="author">
+                    <p class="name">
+                        <span>건축 박사</span>
+                        Hesperioidea
+                    </p>
+                    <div class="picture_02"></div>
+                </div>
+            </article>
+            <article class="card">
+                <img src="./img/card_bg03_03.jpg" alt="img03">
+                <div class="logo">Architects</div>
+                <h3 class="tit">건축은 건물이나 다른 구조물을 계획하고 설계하고 건설하는 과정과 그 결과..</h3>
+                <p class="desc">
+                    건축적인, 미학적인 고려가 전체적으로 기능성에 종속되어야 한다는 개념이 대중성, 
+                    회의론과 만났을 때, 그것은 비트루비우스의 '유용성을...
+                </p>
+                <div class="author">
+                    <p class="name">
+                        <span>건축 박사</span>
+                        Hesperioidea
+                    </p>
+                    <div class="picture_03"></div>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+h1 {
+  text-align: center;
+  height: 90vh;
+  line-height: 90vh;
+  color: #fcedd8;
+  background: #d52e3f;
+  font-family: 'Niconne', cursive;
+  font-weight: 700;
+  text-shadow: 2px 2px 0px #4b4384,
+    4px 4px 0px #6489ff,
+    6px 6px 0px #bcaced,
+    8px 8px 0px #5e2dff,
+    10px 10px 0px #62cefc,
+    12px 12px 0px #7f8eff,
+    14px 14px 0px #5846fb,
+    16px 16px 0px #4525fb,
+    18px 18px 0px #3300ff;
+}
+
+p {
+  text-align: center;
+  font-family: "Helvetica";
+  font-size: 0.8rem;
+}
+
+a {
+  color: #d52e3f;
+  text-decoration: none;
+  font-family: 'Niconne', cursive;
+  font-size: 1.2rem;
+
+}

@@ -1,0 +1,122 @@
+/* notice */
+#notice {
+    margin-bottom: 50px;
+}
+
+.notice__inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.news1 {
+    display: flex;
+    width: 44%;
+    padding: 25px;
+    background-color: #f5f5f5;
+}
+
+.news1 .cont{
+    width: 70%;
+}
+
+.news1 .icon {
+    width: 30%;
+    background: url(../img/n1.png) no-repeat center / cover;
+}
+
+.news1 .cont h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+    margin-left: -5px;
+}
+
+.news1 .cont p {
+    font-size: 12px;
+    color: #222;
+    margin-bottom: 40px;
+}
+
+.news1 .cont a {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.news1 .cont a::before {
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: url('../img/small01.png') no-repeat center/cover;
+    margin-right: 10px;
+}
+
+.news2 {
+    display: flex;
+    width: 44%;
+    padding: 25px;
+    background-color: #f5f5f5;
+}
+
+.news2 .cont{
+    width: 70%;
+}
+
+.news2 .icon {
+    width: 30%;
+    background: url(../img/n2.png) no-repeat center / cover;
+}
+
+.news2 .cont h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.news2 .cont p {
+    font-size: 12px;
+    color: #222;
+    margin-bottom: 40px;
+}
+
+.news2 .cont a {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.news2 .cont a::before {
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: url('../img/small02.png') no-repeat center/cover;
+    margin-right: 10px;
+}
+
+.news2 .cont a>span {}
+
+.modal{
+    position: absolute;
+    top: 45%;
+    left: 35%;
+    width: 500px;
+    height: 500px;
+    padding: 30px;
+    background-color: rgba(237, 113, 113, 0.616);
+    color: #000;
+}
+
+.modal .xbutton{
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

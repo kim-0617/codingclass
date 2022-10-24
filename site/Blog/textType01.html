@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/base16/solarized-light.min.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김성현</span>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <nav class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초문법</a></li>
+                <li><a href="block.html">블록구조 / 인라인구조</a></li>
+                <li><a href="web.html">웹표준 / 웹접근성 / 웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li class="active"><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </nav>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">텍스트 레이아웃 01</h2>
+                <p class="t_desc">
+                    이번 유형은 텍스트 유형입니다. 카드 안에 텍스트의 내용이 주를 이루는 와중에 로고가 들어갑니다.
+                </p>
+                <div class="t_frame">
+                    <iframe width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fpm3ghQhBqbBolleXCZYmYa%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D2280%253A1708" allowfullscreen></iframe>
+                </div>
+
+                <h3 class="tit_2" style="margin-top: 30px;">html</h3>
+                <p class="t_desc2">
+                    html 구조입니다. 내용이 6부분이라서 내용이 좀 많습니다. 각각의 카드부분에는 로고, 제목, 내용, 더보기링크로 구성되어 있습니다.
+                </p>
+                <details>
+                    <summary>코드보기</summary>
+                    <div class="t_code">
+<pre><code class="language-html">&lt;section id="textType01" class="text__wrap nexon section"&gt;
+    &lt;h2&gt;텍스트 유형 01&lt;/h2&gt;
+    &lt;p&gt;강렬한 색감은 사람을 이끈다 👏&lt;/p&gt;
+    &lt;div class="text__inner container"&gt;
+        &lt;article class="text"&gt;
+            &lt;div class="icon"&gt;&lt;span class = "ir"&gt;this is image&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;강렬한 빨강&lt;/h3&gt;
+            &lt;p&gt;
+                빨간색은 너무도 강렬한 색입니다. 주의를 기해주세요. 빨강은 피, 태양 정렬, 열정, 주의, 식욕 증진의 효과가 있습니다.
+            &lt;/p&gt;
+            &lt;a href="#"&gt;더보기&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="text"&gt;
+            &lt;div class="icon"&gt;&lt;span class = "ir"&gt;this is image&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;시원한 파랑&lt;/h3&gt;
+            &lt;p&gt;
+                파랑색은 보기만 해도 시원해지는 색이죠? 그렇습니다. 파랑은 바다, 청량감, 시원함, 식욕 감퇴등의 효과가 있습니다.
+            &lt;/p&gt;
+            &lt;a href="#"&gt;더보기&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="text"&gt;
+            &lt;div class="icon"&gt;&lt;span class = "ir"&gt;this is image&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;청초한 녹색&lt;/h3&gt;
+            &lt;p&gt;
+                녹색은 자연의 색이죠. 슈렉이나 헐크 말고 인간과 관련된 녹색은 없을걸요? 녹색은 편안함, 식욕 감퇴등의 효과가 있습니다.
+            &lt;/p&gt;
+            &lt;a href="#"&gt;더보기&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="text"&gt;
+            &lt;div class="icon"&gt;&lt;span class = "ir"&gt;this is image&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;깨끗한 흰색&lt;/h3&gt;
+            &lt;p&gt;
+                흰색은 모든 색의 시작점이라고 생각합니다. 굉장히 중요한 색이지요. 세상에 흰색보다 깨끗한 색이 있을까요?
+            &lt;/p&gt;
+            &lt;a href="#"&gt;더보기&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="text"&gt;
+            &lt;div class="icon"&gt;&lt;span class = "ir"&gt;this is image&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;우아한 보라&lt;/h3&gt;
+            &lt;p&gt;
+                보라색은 빨강색과 파랑색을 섞었을 때 나오는 색깔이죠. 보라색은 그 자체만으로 우아하고 엘레강스한 느낌을 내죠
+            &lt;/p&gt;
+            &lt;a href="#"&gt;더보기&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="text"&gt;
+            &lt;div class="icon"&gt;&lt;span class = "ir"&gt;this is image&lt;/span&gt;&lt;/div&gt;
+            &lt;h3&gt;암울한 검정&lt;/h3&gt;
+            &lt;p&gt;
+                여러분들은 검정색을 보면 무슨감정을 느끼십니까? 검정은 예로부터 주검, 쓸쓸, 고독을 나타내곤 했었죠
+            &lt;/p&gt;
+            &lt;a href="#"&gt;더보기&lt;/a&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+                    </div>
+                </details>
+
+                <h3 class="tit_2" style="margin-top: 30px;">css</h3>
+                <p class="t_desc2" style="margin-bottom: 30px;">
+                    css 부분은 항상드리는 말씀이지만 간격을 잘 맞추고 기획한 레이아웃에 맞게 배치해주면 됩니다.
+                    로고는 div 태그로 background 처리 했기 때문에 ir 효과를 사용하였습니다. 아 참! hover 했을 때 배경색이 변하는 효과도 주었습니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">#textType01>h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+#textType01>p {
+    font-size: 50px;
+    color: #000;
+}
+
+.text__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.text {
+    width: 29%;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+.text:hover {
+    background-color: #f5f5f5;
+}
+
+.text .icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    background: url('./img/icon.svg') no-repeat;
+    background-position: 18px 17px;
+}
+
+.text:nth-child(1) .icon{background-color: #FFCACA;}
+.text:nth-child(2) .icon{background-color: #A1D2FF; background-position: -32px 17px;}
+.text:nth-child(3) .icon{background-color: #9BFFC9; background-position: -82px 17px;}
+.text:nth-child(4) .icon{background-color: #F1EBEB; background-position: -132px 17px;}
+.text:nth-child(5) .icon{background-color: #EFAFFF; background-position: -182px 17px;}
+.text:nth-child(6) .icon{background-color: #525252; background-position: -232px 17px;}
+
+.text h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.text p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.text a {
+    text-decoration: underline;
+}
+</code></pre>
+                </div>
+
+                <h3 class="tit_2" style="margin-top: 30px;">결과</h3>
+                <div class="t_frame" style="min-height: 800px; padding-top: 0;">
+                    <iframe src="https://kim-0617.github.io/coding/site/textType/textType01.html" frameborder="0"></iframe>
+                </div>
+                <div class="t_link" style="display: flex;">
+                    <a href="https://kim-0617.github.io/coding/site/textType/textType01.html" target="_blank">실제 사이트 보기</a>
+                    <a href="https://github.com/kim-0617/coding/blob/main/site/textType/textType01.html" target="_blank">깃허브 소스 보기</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- // main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- // footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

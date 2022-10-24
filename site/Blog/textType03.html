@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/base16/solarized-light.min.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김성현</span>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <nav class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초문법</a></li>
+                <li><a href="block.html">블록구조 / 인라인구조</a></li>
+                <li><a href="web.html">웹표준 / 웹접근성 / 웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li class="active"><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </nav>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">텍스트 레이아웃 03</h2>
+                <p class="t_desc">
+                    텍스트 레이아웃 03번째 입니다. 이번에는 보기에는 간단해 보입니다. 텍스트 카드가 3개 연달아 겹쳐 있으니까요.
+                    그런데 그 밑에 아이콘, 이름, 별점 부분의 레이아웃이 저는 좀 어려웠네요, 쉬운 방법을 알면 제보해주세요. 그 위아래로
+                    선도 넣어야 해서 더 그랬던 것 같습니다.
+                </p>
+                <div class="t_frame">
+                    <iframe width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fpm3ghQhBqbBolleXCZYmYa%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D2294%253A1964" allowfullscreen></iframe>
+                </div>
+
+                <h3 class="tit_2" style="margin-top: 30px;">html</h3>
+                <p class="t_desc2">
+                    html 구조입니다. 하도 안되서 위 중간 아래 이렇게 레이아웃을 구체적으로 잡았습니다. 위 부분엔 설명 부분, 중간 부분엔
+                    아이콘, 이름, 별점 부분, 밑에 부분엔 자세히 보기 부분입니다.
+                </p>
+                <details>
+                    <summary>코드보기</summary>
+                    <div class="t_code">
+<pre><code class="language-html">&lt;section id="textType03" class="text__wrap nexon section"&gt;
+    &lt;h2&gt;스터디 후기&lt;/h2&gt;
+    &lt;p&gt;웹디자이너, 웹퍼블리셔, 프론트앤드 개발자 멤버를 소개합니다.&lt;/p&gt;
+    &lt;div class="text__inner container"&gt;
+        &lt;!-- 01 --&gt;
+        &lt;div class="text"&gt;
+            &lt;div class="top"&gt;
+                &lt;p class="desc"&gt;
+                    불과 3달전만 해도 여러 원인들로 인해 자
+                    존감이 밑바닥이였던 저에게 이 스터디는
+                    너무 소중한 시간이었어요. 매일 마음속
+                    으로 울고싶다를 외쳤던 저였는데 이제는
+                    조금이나마 이겨낼 수 있을 것 같네요.
+                    다음에 선생님 만났을 때는 많이 발전해
+                    있는 제가 되었으면 좋겠네요...
+                &lt;/p&gt;
+            &lt;/div&gt;
+
+            &lt;div class="middle"&gt;
+                &lt;div class="icon"&gt;&lt;span class="ir"&gt;this is image&lt;/span&gt;&lt;/div&gt;
+                &lt;div class="name"&gt;
+                    &lt;p&gt;이태용 웹스 &lt;span&gt;24기&lt;/span&gt;&lt;/p&gt;
+                    &lt;div class="star"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class="bot"&gt;
+                &lt;a href="#"&gt;자세히 보기&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 02 --&gt;
+        &lt;div class="text"&gt;
+            &lt;div class="top"&gt;
+                &lt;p class="desc"&gt;
+                    진심 학교나 학원보다 더 많이 배운거라
+                    고 생각하고, 무지하고 말안듣고 자존감
+                    바닥인 저를 팩폭도 해주시고, 버리지 않
+                    아주셔서 감사...합니다 쌤!!!!!!!!
+                    회사에서 잘리지 않고,,,, 존버하겠습니
+                    다!!!!!!!!!!!
+                &lt;/p&gt;
+            &lt;/div&gt;
+
+            &lt;div class="middle"&gt;
+                &lt;div class="icon"&gt;&lt;span class="ir"&gt;this is image&lt;/span&gt;&lt;/div&gt;
+                &lt;div class="name"&gt;
+                    &lt;p&gt;이희진 웹스 &lt;span&gt;24기&lt;/span&gt;&lt;/p&gt;
+                    &lt;div class="star"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class="bot"&gt;
+                &lt;a href="#"&gt;자세히 보기&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- 03 --&gt;
+        &lt;div class="text"&gt;
+            &lt;div class="top"&gt;
+                &lt;p class="desc"&gt;
+                    제가 게을러서 의도치 않게 자꾸 말을 안
+                    듣는 학생이 되었었지만 정말 선생님 말
+                    씀 틀린거 하나도 없었다는거 잘 알고있
+                    습니다,,, ㅎㅎ
+                    아 그리고 마지막 하고 싶은 말은 저 새
+                    벽 5~6시에 자는 ㄹㅇ올빼미형인간인
+                    데.... 쌤이랑 두달 공부했다고 ....
+                &lt;/p&gt;
+            &lt;/div&gt;
+
+            &lt;div class="middle"&gt;
+                &lt;div class="icon"&gt;&lt;span class="ir"&gt;this is image&lt;/span&gt;&lt;/div&gt;
+                &lt;div class="name"&gt;
+                    &lt;p&gt;정승연 웹스 &lt;span&gt;24기&lt;/span&gt;&lt;/p&gt;
+                    &lt;div class="star"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class="bot"&gt;
+                &lt;a href="#"&gt;자세히 보기&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+                    </div>
+                </details>
+
+                <h3 class="tit_2" style="margin-top: 30px;">css</h3>
+                <p class="t_desc2" style="margin-bottom: 30px;">
+                    영역을 구체적으로 나눴기 때문에 레이아웃을 나눠야 할 곳마다 flex를 써서 정렬해 주었습니다. 이 방법 말고 다른방법 있으면
+                    제보 부탁드립니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-css"> /* textType 03 */
+body{
+    background-color: #F6F8FD;
+}
+
+.text__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.text {
+    width: 29%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.top {
+    height: 195px;
+    border-bottom: 1px solid #f5f5f5d7;
+    margin-bottom: 20px;
+}
+
+.top .desc {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.middle {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.middle .icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 20px;
+    background: url('./img/icon2.svg') no-repeat;
+    background-position: 17px 19px;
+}
+
+.text:nth-child(1) .middle .icon{background-color: #EDEEFC;}
+.text:nth-child(2) .middle .icon{background-color: #F7E2E1; background-position: -33px 19px;}
+.text:nth-child(3) .middle .icon{background-color: #E4FEC9; background-position: -83px 19px;}
+
+.middle .name {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.middle .name p {
+    font-size: 24px;
+}
+
+.middle .name p span {
+    font-size: 18px;
+}
+
+.middle .star {
+    width: 100%;
+    height: 25px;
+    background: url(./img/5star.png) no-repeat;
+}
+
+.text:nth-child(2) .middle .star{
+    background: url(./img/4star.png) no-repeat;
+}
+
+.bot {
+    border-top: 1px solid #f5f5f5d7;
+}
+
+.bot a {
+    display: block;
+    margin: 0 auto;
+    width: 130px;
+    height: 30px;
+    border-radius: 50px;
+    color: #fff;
+    background-color: #4B57E3;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 20px;
+}
+</code></pre>
+                </div>
+
+                <h3 class="tit_2" style="margin-top: 30px;">결과</h3>
+                <div class="t_frame" style="min-height: 800px; padding-top: 0;">
+                    <iframe src="https://kim-0617.github.io/coding/site/textType/textType03.html" frameborder="0"></iframe>
+                </div>
+                <div class="t_link" style="display: flex;">
+                    <a href="https://kim-0617.github.io/coding/site/textType/textType03.html" target="_blank">실제 사이트 보기</a>
+                    <a href="https://github.com/kim-0617/coding/blob/main/site/textType/textType03.html" target="_blank">깃허브 소스 보기</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- // main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- // footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

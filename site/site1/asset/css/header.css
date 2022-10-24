@@ -1,0 +1,151 @@
+/* headerType */
+.header__inner {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    background: #fff;
+    backdrop-filter: blur(10px);
+}
+
+.header__logo {
+    width: 20%;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.header__logo em {
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.header__menu {
+    width: 60%;
+    text-align: center;
+}
+
+.header__menu li {
+    display: inline;
+}
+
+.header__menu li.active a{
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.header__menu li a {
+    padding: 13px 30px;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+}
+
+.header__menu li a:hover {
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.header__member {
+    width: 20%;
+    text-align: right;
+}
+
+.header__member a {
+    font-size: 16px;
+    border: 1px solid #000;
+    padding: 10px 30px;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+
+.header__member a:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.ham {
+    display: none;
+}
+
+@media(max-width:1385px){
+    #headerType{
+        width: 96%;
+        margin: 0 auto;
+    }
+
+    .header__menu {
+        display: none;
+    }
+
+    .header__member{
+        width: 30%;
+        text-align: center;
+    }
+
+    .ham {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 10000;
+    }
+    
+    .ham::after{
+        content: '';
+        display: block;
+        width: 24px;
+        height: 24px;
+        position: fixed;
+        right: 20px;
+        background: url('../img/menu.png') no-repeat center / cover;
+    }
+
+    .header__menu.show{
+        display: block;
+        width: auto;
+        position: fixed;
+        right: 0;
+        top: 70px;
+        background-color: rgba(0,0,0,0.3);
+    }
+
+    .header__menu ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header__menu li {
+        padding: 20px;
+    }
+
+    .header__menu li a{
+        color: #fff;
+    }
+}
+
+@media(max-width:1000px){
+    .header__inner {
+        padding: 50px 20px;
+    }
+
+    .header__menu.show{
+        top: 100px;
+    }
+}
+
+@media(max-width:768px){
+    .header__member{
+        width: 50%;
+    }
+}

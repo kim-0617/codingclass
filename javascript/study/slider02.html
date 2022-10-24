@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이더 이펙트 02</title>
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">이미지 슬라이더 02</h2>
+                <p class="t_desc2">
+                    sliderEffect02번 입니다. 이미지가 좌로 이동하는 유형입니다. silder__inner 부분을 추가해서 flex로 가로로 정렬 시킨 뒤, 
+                    부모박스에 overflow : hidden을 주어서 slider__img 영역에서만 img가 나올 수 있도록 할 겁니다. 마치 이미지가 좌로 천천히 이동하는
+                    그런 느낌이요. html,css는 크게 추가하지 않고 앞서 말씀드린 부분만 변동이 있습니다. 이번시간에는 이미지 슬라이더 애니메이션을 주는데
+                    js, GSAP, jQuery 등을 이용해서 다양한 방법으로 애니메이션을 표현하는 방법을 알려드리겠습니다.
+                </p>
+            <div class="t_frame" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-0617.github.io/coding/javascript/effect/sliderEffect02.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://kim-0617.github.io/coding/javascript/effect/sliderEffect02.html" target="_blank">실제 사이트 보기</a>
+                <a href="https://github.com/kim-0617/coding/blob/main/javascript/effect/sliderEffect02.html" target="_blank">원본 소스 보기</a>
+            </div>
+            <hr>
+
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">js</h3>
+            <p class="t_desc">
+                기본적으로 js로 표현할 줄 알아야겠죠? 이미지가 왼쪽으로 이동하는 효과는 뭘까요? 바로 transform : translateX(-imgWidth) 입니다.
+                - 방향으로 이미지의 크기만큼 움직이면 한장씩 정해진 초마다 왼쪽으로 이동하는 효과를 표현할 수 있겠죠? currentIndex를 증가시키면서
+                계속적으로 표현하기 위해서는 우리 01번째 유형에서 어떻게 하는지 살펴봤었죠?, 제가 이번에는 3가지 방법을 소개해 드렸으니 참고해주세요. <br>
+                1. 지속적으로 증가하는 currentIndex % 이미지 장 수 (이건 설명드렸었죠?)<br>
+                2. if(currentIndex === 5) currentIndex = 0; => 이미지장수의 크기 만큼 도달하면 다시 처음부터 로직을 재개할 수 있도록 (if문이 어디에 들어갔는지 보세요)
+                3. 2번을 3항연산자로 바꾼것 <br>
+                아무거나 쓰시면 됩니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const sliderInner = document.querySelector('.slider__inner'); // 움직이는 영역
+const slider = document.querySelectorAll('.slider'); // 이미지
+
+let currentIndex = 0;
+let sliderCount = slider.length;
+sliderInner.style.transition = "all 0.6s ease-in"
+
+setInterval(() => {
+    sliderInner.style.transform = `translateX(${-800 * currentIndex}px)`;
+    // currentIndex = (currentIndex+1) % slider.length - 1;
+    // currentIndex++;
+    // if(currentIndex === 5) currentIndex = 0;
+    currentIndex < sliderCount - 1 ? currentIndex++ : currentIndex = 0;
+}, 1000);
+</code></pre>
+            </div>
+            <!-- // js -->
+
+            <h3 class="t_tit2">GSAP</h3>
+            <p class="t_desc">
+                GSAP은 우리가 css로 애니메이션을 표현하면 복잡해질수록 프로그램이 무거워지는데, 이건 상당히 가볍습니다.
+                애니메이션을 주는 방법도 간단한데요, cdn으로 간단히 추가시키고 gsap.to("target", {duration : ?, 효과}); 방식으로 사용하시면
+                간단하게 사용해볼 수 있겠죠?
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const slider = document.querySelectorAll('.slider'); // 이미지
+let currentIndex = 0;
+let sliderCount = slider.length;
+
+setInterval(() => {
+    gsap.to(".slider__inner", {
+        duration : 0.6,
+        x : -800 * currentIndex,
+    });
+    
+    currentIndex = (currentIndex+1) % sliderCount;
+}, 1000);
+</code></pre>
+            </div>
+            <!-- // GSAP -->
+
+            <h3 class="t_tit2">jQuery</h3>
+            <p class="t_desc">
+                jQuery는 $라는 jQuery wrapper를 이용해서 모든걸 할 수가 있죠?. $(선택자).animate로 애니메이션을 주는데, 
+                여기서는 translateX 효과가 먹히질 않아서 left로 그 효과를 대신했습니다. 근데 left를 쓰려면 position이 있어야 하니까요
+                $(선택자).css "position", "relative"); 한줄로 줄 수 있겠죠?
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">let currentIndex = 0;
+
+setInterval(() => {
+    $(".slider__inner").css("position", "relative");
+    $(".slider__inner").animate({
+        left : -800 * currentIndex
+    }, 600);
+    currentIndex = (currentIndex+1) % $(".slider").length;
+}, 1000);
+</code></pre>
+            </div>
+            <!-- // jQuery -->
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

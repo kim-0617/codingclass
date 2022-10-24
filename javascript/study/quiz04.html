@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈 이펙트 04</title>
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">퀴즈만들기!</h2>
+                <p class="t_desc2">
+                    이번 시간에는 유형 4번입니다. 실제 시험 문제처럼 동일하게 객관식으로 준비 하였고, 아직 한문제 밖에 없습니다. ^_^ <br>
+                    달라진점은 input태그를 이용해서 객관식 답을 선택할 수 있도록 추가했고, js쪽에서도 문제 출력과, 정답확인 부분을 함수로 따로 뺐습니다.
+                </p>
+            <div class="t_frame" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-0617.github.io/coding/javascript/effect/quizEffect04.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/kim-0617/coding/blob/main/javascript/effect/quizEffect04.html" target="_blank">원본 소스 보기</a>
+            </div>
+            <hr>
+
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">추가된 html 부분입니다. quiz__selects안에 객관식 문제와 보기란을 추가했습니다.</p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;div class="quiz__selects"&gt;
+    &lt;!-- input과 label을 연결할 때 id값이 필요하다. --&gt;
+    &lt;label for="select1"&gt;
+        &lt;input type="radio" name="select" value="1" id="select1" class="select"&gt;
+        &lt;span class="choice"&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label for="select2"&gt;
+        &lt;input type="radio" name="select" value="2" id="select2" class="select"&gt;
+        &lt;span class="choice"&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label for="select3"&gt;
+        &lt;input type="radio" name="select" value="3" id="select3" class="select"&gt;
+        &lt;span class="choice"&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label for="select4"&gt;
+        &lt;input type="radio" name="select" value="4" id="select4" class="select"&gt;
+        &lt;span class="choice"&gt;&lt;/span&gt;
+    &lt;/label&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+            <!-- // html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">추가된 css 입니다. input:radio 버튼을 치워버리고, span에 가상요소를 추가해서 checkbox를 커스터마이징 했습니다.</p>
+            <div class="t_code">
+<pre><code class="language-css">/* 보기를 둘러싼 영역 */
+.quiz__selects {
+    margin: 5px 0;
+} 
+
+/* 레이블 선택 */
+.quiz__selects label {
+    display: flex;
+}
+
+/* radio버튼 치워버림 */
+.quiz__selects label input {
+    position: absolute;
+    left: -9999px;
+}
+
+/* 객관식 선택 보기 적어둔 영역 */
+.quiz__selects label span {
+    font-size: 20px;
+    font-family: "Cafe24Dangdanghae";
+    padding: 10px;
+    display: flex; /* 이거 없으면 만들어진 체크박스와 보기가 한줄에 안들어온다. 왜? width가 100%니까*/
+    align-items: center;
+    line-height: 1.3;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* 체크 박스 대신하는 영역 */
+.quiz__selects label span::before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    margin-right: 15px;
+    box-shadow: inset 0px 0px 0px 4px rgb(234, 129, 37);
+    /* x축, y축, blur, 거리(채워짐 정도), 색깔 */
+    transition: all 0.25s;
+    flex-shrink: 0;
+}
+
+/* 클릭했을 때, 영역 채워지기 */
+/* 이건 span 전체에다 주는거고 */
+.quiz__selects label input:checked+span {
+    background-color: rgba(235, 147, 70, 0.5);
+}
+
+/* 이건 클릭했을 때 span 가상요소에만 주는거다 */
+.quiz__selects label input:checked+span::before {
+    box-shadow: inset 0px 0px 0px 10px rgb(234, 129, 37);
+}
+</code></pre>
+            </div>
+            <!-- // css -->
+
+            <h3 class="t_tit2">js</h3>
+            <p class="t_desc">추가한 quiz__selects부분을 추가로 선택해주고, 문제 출력과 정답확인 부분을 함수로 관리하겠습니다.</p>
+            <div class="t_code">
+<pre><code class="language-js"> // 선택자
+const quizType = document.querySelector('.quiz__type'); // 퀴즈 종류
+const quizNumber = document.querySelector('.quiz__question .number') // 퀴즈 번호
+const quizAsk = document.querySelector('.quiz__question .ask'); // 퀴즈 질문
+const quizConfirm = document.querySelector('.quiz__answer .confirm'); // 정답 확인 버튼
+const quizResult = document.querySelector('.quiz__answer .result'); // 정답 결과
+const quizView = document.querySelector('.quiz__view'); // 정답 표시
+const quizSelects = document.querySelector('.quiz__selects'); // 객관식 보기
+const quizChoice = quizSelects.querySelectorAll('.choice'); // 답 넣을 span태그
+const quizSelect = quizSelects.querySelectorAll('.select'); // input태그
+
+// 문제정보
+const quizInfo = [
+    {
+        answerType: "웹디자인 기능사 2022년 01회",
+        answerNum: 1,
+        answerAsk: "분신, 화신이라는 의미로 채팅, 온라인 게임 등 네트워크 환경에서 자신을 대신하여 커뮤니케이션에 참여하는 가상의 그림 또는 아이콘을 뜻하는 인터넷 용어는?",
+        answerChoice: ["아바타", "쿠키", "포탈", "허브"],
+        answerResult: "1",
+        answerEx: "분신, 화신이라는 의미로 채팅, 온라인 게임 등 네트워크 환경에서 자신을 대신하여 커뮤니케이션에 참여하는 가상의 그림 또는 아이콘을 뜻하는 인터넷 용어는 아바타 입니다.",
+    }
+];
+
+function updateQuiz() {
+    // 문제 출력
+    quizType.textContent = quizInfo[0].answerType;
+    quizNumber.textContent = quizInfo[0].answerNum + ". ";
+    quizAsk.textContent = quizInfo[0].answerAsk;
+    quizResult.textContent = quizInfo[0].answerEx;
+
+    // 보기 출력
+    // quizChoice.forEach((el, index) => {
+    //     el.textContent = quizInfo[0].answerChoice[index];
+    // });
+    for (let i = 0; i &lt; 4; i++) {
+        quizChoice[i].textContent = quizInfo[0].answerChoice[i];
+    }
+
+    // 해설 숨기기
+    quizResult.style.display = 'none';
+}
+updateQuiz();
+
+// 정답 확인
+function answerQuiz(){
+    // 사용자가 선택한 정답 === 문제 정답
+    // 사용자가 클릭한 input박스 가져와야함 --> checked
+    let is_checked = false;
+    for(let i = 0; i &lt; 4; i++){
+        if(quizSelect[i].checked){
+            is_checked = true;
+            if(quizSelect[i].value === quizInfo[0].answerResult){
+                quizView.classList.add('like');
+            }
+            else{
+                quizView.classList.add('dislike');
+                quizResult.style.display = 'block';
+                quizConfirm.style.display = 'none';
+            }
+        }
+    }
+    if(!is_checked){
+        alert("정답을 선택해주세요.");
+    }
+}
+
+quizConfirm.addEventListener('click', answerQuiz);
+</code></pre>
+            </div>
+            <!-- // js -->
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

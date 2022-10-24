@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 배열메서드</title>
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+    <link rel="stylesheet" href="../asset/css/style.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">padStart() / padEnd()</h2>
+            <p class="t_desc">
+                pad* 메서드는 문자열이 정해진 길이만큼 되지 않는다면 2번째 인자로 준 문자열을 채우는 메서드입니다. 001, 002,
+                이런식으로 숫자를 만들 때 유용하겠죠?
+            </p>
+            <p class="t_box">
+                pad*() 메서드 <br>
+                //"문자열".padStart(길이) <br>
+                //"문자열".padStart(길이, 문자열) <br> // 길이만큼 공간을 확보합니다. 그리고 문자열의 부족한 공간 앞쪽에 2번째 인자로 준 문자열을 채우는겁니다.
+                //"문자열".padEnd(길이) <br>
+                //"문자열".padEnd(길이, 문자열) // start와 마찬가지로 뒤에 채우는거에요
+            </p>
+
+            <hr>
+            <h3 class="t_tit2">padStart() 소개</h3>
+            <p class="t_desc">
+                문자열.padStart("길이", '부족할 때 채울 문자')는 앞에 채워주는거에요, 문자열의 길이가 첫 번째 인자로 준 길이만큼 안된다면
+                부족한 길이만큼 두번째 인자로 채우게 됩니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const str1 = "456";
+const currentStr1 = str1.padStart(1,"0"); // 456 
+const currentStr2 = str1.padStart(2,"0"); // 456 
+const currentStr3 = str1.padStart(3,"0"); // 456 
+const currentStr4 = str1.padStart(4,"0"); // 0456 
+const currentStr5 = str1.padStart(5,"0"); // 00456 
+const currentStr6 = str1.padStart(6,"0"); // 000456 
+const currentStr7 = str1.padStart(6,"1"); // 111456 
+const currentStr8 = str1.padStart(6,"12"); // 121456 
+const currentStr9 = str1.padStart(6,"123"); // 123456 
+const currentStr10 = str1.padStart(6,"1234"); // 123456 
+const currentStr11 = str1.padStart(6); // '   456' 
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result01">
+                        456<br>
+                        456<br>
+                        456<br>
+                        0456<br>
+                        00456<br>
+                        000456<br>
+                        111456<br>
+                        121456<br>
+                        123456<br>
+                        123456<br>
+                        '   456'
+                    </div>
+                </details>
+            </div>
+
+            <hr>
+            <h3 class="t_tit2">padEnd() 소개</h3>
+            <p class="t_desc">
+                문자열.padEnd("길이", '부족할 때 채울 문자')는 뒤에 채워주는거에요, 문자열의 길이가 첫 번째 인자로 준 길이만큼 안된다면
+                부족한 길이만큼 두번째 인자로 채우게 됩니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const str1 = "456";
+const currentStr12= str1.padEnd(1,"0"); // 456 
+const currentStr13= str1.padEnd(2,"0"); // 456 
+const currentStr14= str1.padEnd(3,"0"); // 456 
+const currentStr15 = str1.padEnd(4,"0"); // 4560 
+const currentStr16 = str1.padEnd(5,"0"); // 45600 
+const currentStr17 = str1.padEnd(6,"0"); // 456000 
+const currentStr18 = str1.padEnd(6,"1"); // 456111 
+const currentStr19 = str1.padEnd(6,"12"); // 456121 
+const currentStr20 = str1.padEnd(6,"123"); // 456123 
+const currentStr21 = str1.padEnd(6,"1234"); // 456123 
+const currentStr22 = str1.padEnd(6); // '   456'
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result01">
+                        456<br>
+                        456<br>
+                        456<br>
+                        4560<br>
+                        45600<br>
+                        456000<br>
+                        456111<br>
+                        456121<br>
+                        456123<br>
+                        456123<br>
+                        '   456'
+                    </div>
+                </details>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

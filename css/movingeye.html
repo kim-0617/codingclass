@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dog_animation</title>
+    <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="stylesheet" href="asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">간단한 애니메이션 효과</h2>
+            <p class="t_desc2">
+                안녕하세요. 이번엔 자바스크립트도 사용해서 눈을 움직여보는 효과 입니다.
+            </p>
+            <iframe height="500" style="width: 100%;" scrolling="no" title="Moving EYE2" src="https://codepen.io/kim-0617/embed/wvjPqKW?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/kim-0617/pen/wvjPqKW">
+                Moving EYE2</a> by kim-0617 (<a href="https://codepen.io/kim-0617">@kim-0617</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+            </iframe>
+
+            <hr>
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">wrapper 클래스 > card 클래스 > me 클래스 > eye 클래스 ^ text 클래스 구조입니다. 텍스트 안에 원하시는 짧은 텍스트 넣어주세요</p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;div class="wrapper"&gt;
+    &lt;div class="card"&gt;
+      &lt;div class="me"&gt;
+        &lt;div class="eye"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    
+      &lt;div class="text"&gt;ABCDE&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</code></pre>
+            </div>
+            <!-- // html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                준비된 사람과 눈을 background 처리하고 position으로 위치를 잡아줍니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+    padding: 0;
+    box-sizing : border-box;
+}
+  
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+  
+.wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform : translate(-50%, -50%);
+    width: 369px;
+    height: 547px;
+    transform-style : preserve-3d;
+    transform : translate(-50%, -50%) perspective(600px);
+}
+  
+.me {
+    position: absolute;
+    width: 369px;
+    height: 547px;
+    transform : translatez(80px) scale(0.8);
+}
+  
+.me::before, .me::after {
+    position: absolute;
+    content : '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    background : url(http://www.supah.it/dribbble/006/profile.png) no-repeat 0 0;
+}
+  
+.me::after {
+    height: 30px;
+    top: auto;
+    bottom: -15px;
+    filter: blur(15px);
+    background-size : 100% 30px;
+    border-radius: 100px;
+}
+  
+.eye, .eye::before {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    top: 175px;
+    left: 119px;
+    z-index: -1;
+    background: url(http://www.supah.it/dribbble/006/eye.png) no-repeat center;
+}
+  
+.eye::before {
+    content : '';
+    top: -3px;
+    left: 99px;
+}
+  
+.text {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+    width: 390px;
+    height: 595px;
+    transform: translatez(150px) translatex(-11px) translatey(-26px) scale(0.55);
+    border : 3px solid #fff;
+    text-align: center;
+    font-size: 35px;
+    line-height: 1000px;
+    color: #fff;
+    opacity : 0.3;
+    border-radius: 15px;
+    background : linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.36) 39%, rgba(255,255,255,0) 51%, #000 100%)
+}
+  
+.text::after {
+    content : "eye moving";
+    width: 100%;
+    position: absolute;
+    bottom: 22px;
+    left: 0;
+    z-index: 1;
+    line-height: 1;
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 20px;
+    text-indent: 20px;
+}
+</code></pre>
+            </div>
+            <!-- // css -->
+
+            <h3 class="t_tit2">js</h3>
+            <p class="t_desc">
+                사용할 태그들을 변수에 담아주고 requestAnimatmionFrame()을 통해 계속해서 animate()를 호출하면서
+                x,y 값을 감지한 다음 mousemove 이벤트가 발생하면 x,y 값이 변하는데 그 값이 계속해서 호출되고 있는 animate 함수에 반영이 되서
+                eye.style.transform = `translate(${-x}px, ${-y}px)`; , wrap.style.transform = `translate(-50%, -50%)  이 코드가 실시간으로 실행됩니다.
+                보너스로 키보드 이벤트도 해봤는데 어떠셨나요?
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const wrap = document.querySelector('.wrapper');
+const eye = document.querySelector('.eye');
+const speed = 1; // 0 ~ 1사이
+let x = 0; // translate할 거리
+let y = 0;
+let followX = 0; // 마우스 움직인 거리
+let followY = 0;
+
+function animate() {
+    x += (followX - x) * speed;
+    y += (followY - y) * speed;
+    eye.style.transform = `translate(${-x}px, ${-y}px)`;
+    wrap.style.transform = `translate(-50%, -50%) perspective(600px) rotateX(${-y}deg) rotateY(${-x}deg)`;
+    requestAnimationFrame(animate);
+}
+
+window.addEventListener('mousemove',(e) => {
+    let mouseX = Math.max(-100, Math.min(100, window.innerWidth / 2 - e.clientX));
+    let mouseY = Math.max(-100, Math.min(100, window.innerHeight / 2 - e.clientY));
+    followX = (mouseX * 12) / 100;
+    followY = (mouseY * 10) / 100;
+});
+
+window.addEventListener('keydown', (e) => {
+    switch(e.keyCode) {
+    case 37:
+        followX = 12;
+        break;
+    case 38:
+        followY = 10;
+        break;
+    case 39:
+        followX = -12;
+        break;
+    case 40:
+        followY = -10;
+        break;
+    }
+});
+
+animate();
+</code></pre>
+            </div>
+            <!-- // js -->
+
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="./asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

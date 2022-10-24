@@ -1,0 +1,77 @@
+/* slider */
+#sliderType{
+    height: 400px;
+}
+
+.slider__wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.slider__img {
+    position: relative;
+    width: 100%;
+}
+
+.slider {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.slider::before {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    padding: 5px 10px;
+}
+
+.slider:nth-child(1)::before {
+    content: '이미지1';
+}
+
+.slider:nth-child(2)::before {
+    content: '이미지2';
+}
+
+.slider:nth-child(3)::before {
+    content: '이미지3';
+}
+
+.slider:nth-child(4)::before {
+    content: '이미지4';
+}
+
+.slider:nth-child(5)::before {
+    content: '이미지5';
+}
+
+.slider:nth-child(1) {
+    z-index: 5;
+}
+
+.slider:nth-child(2) {
+    z-index: 4;
+}
+
+.slider:nth-child(3) {
+    z-index: 3;
+}
+
+.slider:nth-child(4) {
+    z-index: 2;
+}
+
+.slider:nth-child(5) {
+    z-index: 1;
+}
+
+@media(max-width : 800px) {
+    .slider__img {
+        width: 400px;
+        height: 225px;
+    }
+}

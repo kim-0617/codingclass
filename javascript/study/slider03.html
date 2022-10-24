@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이더 이펙트 03</title>
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">이미지 슬라이더 03</h2>
+                <p class="t_desc2">
+                    sliderEffect03번 입니다. 이미지가 움직이는건 똑같은데, 이번에는 연속적으로 부자연스러움 없이
+                    자연스럽게 이미지가 반복적으로 보여지는걸 보여드릴게요. setTimeOut으로 어떻게 하는지 보시면 됩니다.
+                    html, css는 sliderEffect 02번이랑 다를게 없습니다. 이미지 바꿔준게 전부이니까요.
+                </p>
+            <div class="t_frame" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-0617.github.io/coding/javascript/effect/sliderEffect03.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://kim-0617.github.io/coding/javascript/effect/sliderEffect03.html" target="_blank">실제 사이트 보기</a>
+                <a href="https://github.com/kim-0617/coding/blob/main/javascript/effect/sliderEffect03.html" target="_blank">원본 소스 보기</a>
+            </div>
+            <hr>
+
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">js</h3>
+            <p class="t_desc">
+                순서를 짚어보죠 <br>
+                1. 사용할 태그를 변수에 저장 <br>
+                2. 이미지가 부드럽게 넘어가기 위해서 첫번째 이미지를 만들어서 cloneNode() // 인자로 true를 주면 밑에있는 태그 모두 복사 <br>
+                3. appendChild() 해서 추가시켜주면 되겠죠? <br>
+                4. 1초마다 setInterval()에 넘겨줄 콜백 sliderEffect()를 정의합니다. <br>
+                5. 이 함수는 여태 해왔던 슬라이더 이펙터와 마찬가지로 currentIndex를 증가시키면서 translateX로 왼쪽으로 이미지를 계속 밀겁니다. <br>
+                6. -4000px 만큼 밀면 이미지가 아까 appendChild로 추가해줬던 이미지 1로 오겠죠? 그 때 if문을 통과하면서 <br>
+                7. 0.7초 대기했다가 transition 0s 로 되면서 순식간에 translateX(0px), 즉 처음에 이미지로 돌아옵니다 (0초 만에요!) <br>
+                8. 그리고 다시 1초뒤에 setInterval이 호출되면서 transition 0.6s 로 되고 정상적으로 -imgWidth만큼 밀리게 될겁니다. (우리가 img.offsetWidth로 구했죠?) <br>
+                9. 이 과정이 계속 되겠죠?
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const sliderWrap = document.querySelector('.slider__wrap');
+const sliderImg = document.querySelector('.slider__img');
+const sliderInner = document.querySelector('.slider__inner');
+const slider = document.querySelectorAll('.slider');
+
+let currentIndex = 0;
+let sliderCount = slider.length;
+let sliderWidth = sliderImg.offsetWidth; // 이미지 가로 값 구하는 메서드
+let sliderClone = sliderInner.firstElementChild.cloneNode(true); // 첫번째 이미지 복사
+sliderInner.appendChild(sliderClone); // 첫번째 이미지를 마지막에 넣어줌
+
+function sliderEffect() {
+    currentIndex++;
+    sliderInner.style.transition = "all 0.6s";
+    sliderInner.style.transform = `translateX(${-sliderWidth * currentIndex}px)`;
+
+    // 마지막 사진에 왔을 때
+    if(currentIndex === sliderCount){
+        setTimeout(() => {
+            sliderInner.style.transition = "0s";
+            sliderInner.style.transform = `translateX(0px)`;
+        },700);
+        currentIndex = 0;
+    }
+    
+}
+setInterval(sliderEffect, 1000);
+</code></pre>
+            </div>
+            <!-- // js -->
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

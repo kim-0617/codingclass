@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/base16/solarized-light.min.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김성현</span>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <nav class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초문법</a></li>
+                <li><a href="block.html">블록구조 / 인라인구조</a></li>
+                <li><a href="web.html">웹표준 / 웹접근성 / 웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li class="active"><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </nav>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">카드 레이아웃 02</h2>
+                <p class="t_desc">
+                    카드 레이아웃 02번 입니다. 이번엔 카드의 수가 많아졌습니다. 위 아래로 나뉘는 형태인데요. 역시나 웹 표준을 지켜서 코딩 하였고.
+                    화살표와 같은 의미없는 그림은 aria-hidden = "true" 속성으로 페이지를 읽을 때 읽히지 않도록 하였습니다. 
+                    이것만 잘 할 수 있다면 카드유형은 마스터 할 수 있습니다.
+                </p>
+                <div class="t_frame">
+                    <iframe width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fpm3ghQhBqbBolleXCZYmYa%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D161%253A3" allowfullscreen></iframe>
+                </div>
+
+                <h3 class="tit_2" style="margin-top: 30px;">html</h3>
+                <p class="t_desc2">
+                    html 구조입니다. 카드가 3개에서 8개로 늘었으나 구조는 동일합니다.
+                    카드의 너비값만 설정해주고 정렬에만 신경써주면 되겠죠? <br>
+                    코드가 너무 많아서 보시려면 코드 보기를 클릭해주세요.
+                </p>
+                <details>
+                    <summary>코드 보기</summary>
+                    <div class="t_code">
+<pre><code class="language-html">&lt;section id="cardType02" class="card__wrap gmark section gray"&gt;
+    &lt;h2&gt;포트폴리오 구경하기&lt;/h2&gt;
+    &lt;p&gt;
+        웹디자이너, 웹 퍼블리셔, 프론트앤드 개발자 포트폴리오입니다. &lt;br&gt;
+        열심히 만들었으니 소중히 봐주세요!🦁
+    &lt;/p&gt;
+
+    &lt;div class="card__inner container"&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card_bg02_01.jpg" alt="김가* 포트폴리오"&gt;
+            &lt;h3 class="tit"&gt;김가* 포트폴리오&lt;/h3&gt;
+            &lt;p class="desc"&gt;스터디를 통해 만들어진 포트폴리오입니다. 리액트 뷰를 통해 만들었으며 자바스크립트를 이용하여 만들... 스터디를 통해 만들어진 포트폴리오입니다. 리액트 뷰를 통해 만들었으며 자바스크립트를 이용하여 만들 &lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card_bg02_02.jpg" alt="이가* 포트폴리오"&gt;
+            &lt;h3 class="tit"&gt;이가* 포트폴리오인데 넘쳐버렸습니다.&lt;/h3&gt;
+            &lt;p class="desc"&gt;스터디를 통해 만들어진 포트폴리오입니다. 리액트 뷰를 통해 만들었으며 자바스크립트를 이용하여 만들... 스터디를 통해 만들어진 포트폴리오입니다. 리액트 뷰를 통해 만들었으며 자바스크립트를 이용하여 만들 &lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card_bg02_03.jpg" alt="박가* 포트폴리오"&gt;
+            &lt;h3 class="tit"&gt;박가* 포트폴리오&lt;/h3&gt;
+            &lt;p class="desc"&gt;스터디를 통해 만들어진 포트폴리오입니다. 리액트 뷰를 통해 만들었으며 자바스크립트를 이용하여 만들... 스터디를 통해 만들어진 포트폴리오입니다. 리액트 뷰를 통해 만들었으며 자바스크립트를 이용하여 만들 &lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card_bg02_04.jpg" alt="최가* 포트폴리오"&gt;
+            &lt;h3 class="tit"&gt;최가* 포트폴리오&lt;/h3&gt;
+            &lt;p class="desc"&gt;스터디를 통해 만들어진 포트폴리오입니다. 리액트 뷰를 통해 만들었으며 자바스크립트를 이용하여 만들... 스터디를 통해 만들어진 포트폴리오입니다. 리액트 뷰를 통해 만들었으며 자바스크립트를 이용하여 만들 &lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card_bg02_05.jpg" alt="남가* 포트폴리오"&gt;
+            &lt;h3 class="tit"&gt;남가* 포트폴리오&lt;/h3&gt;
+            &lt;p class="desc"&gt;스터디를 통해 만들어진 포트폴리오입니다. 리액트 뷰를 통해 만들었으며 자바스크립트를 이용하여 만들... 스터디를 통해 만들어진 포트폴리오입니다. 리액트 뷰를 통해 만들었으며 자바스크립트를 이용하여 만들 &lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card_bg02_06.jpg" alt="유가* 포트폴리오"&gt;
+            &lt;h3 class="tit"&gt;유가* 포트폴리오&lt;/h3&gt;
+            &lt;p class="desc"&gt;스터디를 통해 만들어진 포트폴리오입니다. 리액트 뷰를 통해 만들었으며 자바스크립트를 이용하여 만들... 스터디를 통해 만들어진 포트폴리오입니다. 리액트 뷰를 통해 만들었으며 자바스크립트를 이용하여 만들 &lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card_bg02_07.jpg" alt="흉가* 포트폴리오"&gt;
+            &lt;h3 class="tit"&gt;흉가* 포트폴리오&lt;/h3&gt;
+            &lt;p class="desc"&gt;스터디를 통해 만들어진 포트폴리오입니다. 리액트 뷰를 통해 만들었으며 자바스크립트를 이용하여 만들... 스터디를 통해 만들어진 포트폴리오입니다. 리액트 뷰를 통해 만들었으며 자바스크립트를 이용하여 만들 &lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card_bg02_08.jpg" alt="오가* 포트폴리오"&gt;
+            &lt;h3 class="tit"&gt;오가* 포트폴리오&lt;/h3&gt;
+            &lt;p class="desc"&gt;스터디를 통해 만들어진 포트폴리오입니다. 리액트 뷰를 통해 만들었으며 자바스크립트를 이용하여 만들... 스터디를 통해 만들어진 포트폴리오입니다. 리액트 뷰를 통해 만들었으며 자바스크립트를 이용하여 만들 &lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+                    </div>
+                </details>
+                
+                <h3 class="tit_2" style="margin-top: 30px;">css</h3>
+                <p class="t_desc2" style="margin-bottom: 30px;">
+                    css 부분 입니다. card에 적절한 width 값과 flex로 정렬한 후, 적절한 간격을 배치하시면 됩니다.
+                    그리고 더보기란은 background-image로 작업해서 position : absolute로 작업했습니다.
+                    그런데 ir효과라는 개념이 처음 등장했습니다. 이것이 뭘까요?
+                </p>
+                <i>ir 효과?</i>
+                <p class="t_box">
+                    ir 효과란 img tag의 alt 속성을 작성하는 것과 비슷합니다. 웹표준을 지키기위해 이미지가 다운로드 되는 동안 페이지가 읽혔을 때, 적절한 텍스트를 일게 하는 것이죠.
+                    더보기 란에 적절한 텍스트를 넣어주고 눈에는 보이지 않는 곳으로 치워버렸습니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">/* ir 효과 (이미지 대체 효과 === alt) */
+.ir {
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+/* cardType02 */
+.card__inner{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.card__inner .card{
+    width: 24%;
+    position: relative;
+}
+.card__inner .card:first-child{
+    margin-bottom: 50px;
+}
+.card__inner .card img{
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.card__inner .card .tit{
+    font-size: 28px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 20px;
+}
+.card__inner .card .desc{
+    font-size: 18px;
+    font-weight: 300;
+    color: #666;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+}
+.card__inner .card .more{
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-image: url('./img/arrow.svg');
+    position: absolute;
+    right: 0;
+    top: 230px;
+    border-radius: 5px;
+}
+</code></pre>
+                </div>
+
+                <h3 class="tit_2" style="margin-top: 30px;">결과</h3>
+                <div class="t_frame" style="min-height: 800px; padding-top: 0;">
+                    <iframe src="https://kim-0617.github.io/coding/site/cardType/cardType02.html" frameborder="0"></iframe>
+                </div>
+                <div class="t_link">
+                    <a href="https://kim-0617.github.io/coding/site/cardType/cardType02.html" target="_blank">실제 사이트 보기</a>
+                    <a href="https://github.com/kim-0617/coding/blob/main/site/cardType/cardType02.html" target="_blank">깃허브 소스 보기</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- // main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- // footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

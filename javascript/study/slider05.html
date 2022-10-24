@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이더 이펙트 05</title>
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">이미지 슬라이더 05</h2>
+                <p class="t_desc2">
+                    sliderEffect05번 입니다. 4번에서 닷메뉴를 추가해서 이동할 때 마다 닷메뉴에 불이들어오고,
+                    닷 메뉴를 클릭해서도 이동할 수 있습니다.
+                </p>
+            <div class="t_frame" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-0617.github.io/coding/javascript/effect/sliderEffect05.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://kim-0617.github.io/coding/javascript/effect/sliderEffect05.html" target="_blank">실제 사이트 보기</a>
+                <a href="https://github.com/kim-0617/coding/blob/main/javascript/effect/sliderEffect05.html" target="_blank">원본 소스 보기</a>
+            </div>
+            <hr>
+
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">
+                닷메뉴 부분을 추가했습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;div class="slider__dot"&gt;
+    &lt;!-- &lt;a href="#" class="dot active"&gt;이미지1&lt;/a&gt;
+    &lt;a href="#" class="dot"&gt;이미지2&lt;/a&gt;
+    &lt;a href="#" class="dot"&gt;이미지3&lt;/a&gt;
+    &lt;a href="#" class="dot"&gt;이미지4&lt;/a&gt;
+    &lt;a href="#" class="dot"&gt;이미지5&lt;/a&gt; --&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+            <!-- html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                닷 메뉴에 적용한 css 입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">.slider__dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+}
+
+.slider__dot .dot {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 3px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 50%;
+    text-indent: -9999px;
+    transition: all 0.3s;
+}
+
+.slider__dot .dot.active {
+    background: rgba(255,255,255,0.9);
+}
+</code></pre>
+            </div>
+            <!-- css -->
+            
+            <h3 class="t_tit2">js</h3>
+            <p class="t_desc">
+                4번에서 했던 next, perv 버튼을 이용해서 넘기는건 똑같습니다. 닷메뉴를 추가해 주었기 때문에
+                스크립트로 생성해주겠습니다. a태그를 생성해서 slider__dot의 첫번째 자식에 active를 추가 시켜서
+                불을 켜주고 닷 버튼 클릭 이벤트를 설치해서 클릭했을 때, 해당하는 인덱스에 active가 붙을 수 있도록
+                해 줍니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const sliderWrap = document.querySelector('.slider__wrap');
+const sliderImg = document.querySelector('.slider__img');
+const sliderInner = document.querySelector('.slider__inner');
+const slider = document.querySelectorAll('.slider');
+const sliderBtn = document.querySelector('.slider__btn');
+const sliderBtnPrev = sliderBtn.querySelector('.prev');
+const sliderBtnNext = sliderBtn.querySelector('.next');
+const sliderDot = document.querySelector('.slider__dot');
+
+let currentIndex = 0;
+let sliderCount = slider.length;
+let sliderWidth = sliderImg.offsetWidth; // 이미지 가로 값
+
+let dotIndex = "";
+function init() {
+    slider.forEach((el, index) => dotIndex += `<a href="#" class="dot">이미지${index + 1}</a>`);
+    sliderDot.innerHTML = dotIndex;
+
+    // 첫 번째 닷 버튼한테 활성화 표시
+    sliderDot.firstElementChild.classList.add('active');
+}
+init();
+
+// 이미지 이동
+function gotoSlider(num) {
+    sliderInner.style.transition = "all 400ms";
+    sliderInner.style.transform = `translateX(${-sliderWidth * num}px)`;
+    currentIndex = num;
+    
+    // 두 번째 이미지 => 두 번째 닷 클래스 추가
+    const sliderDotAs = sliderDot.querySelectorAll('a');
+    sliderDotAs.forEach((a) => a.classList.remove('active'));
+    sliderDotAs[num].classList.add('active');
+}
+
+// 버튼 클릭
+document.querySelectorAll('.slider__btn a').forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+        let prevIndex = (currentIndex + sliderCount - 1) % sliderCount;
+        let nextIndex = (currentIndex + 1) % sliderCount;
+
+        if(btn.classList.contains("prev")) {
+            gotoSlider(prevIndex);
+        }
+        else if(btn.classList.contains("next")) {
+            gotoSlider(nextIndex);
+        }
+    });
+});
+
+// 닷 버튼 클릭
+document.querySelectorAll('.slider__dot .dot').forEach((a, index) => {
+    a.addEventListener('click', () => {
+        gotoSlider(index);
+    });
+});
+</code></pre>
+            </div>
+            <!-- // js -->
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

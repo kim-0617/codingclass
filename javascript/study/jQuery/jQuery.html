@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="/javascript/asset/css/dracula.css">
+    <link rel="stylesheet" href="/javascript/asset/css/style.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김성현</span>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">jQuery 소개 - write less, do more</h2>
+            <p class="t_desc">
+                제이쿼리는 자바스크립트 언어를 간편하게 사용할 수 있도록 단순화시킨 오픈 소스 기반의 자바스크립트 라이브러리입니다.
+                제이쿼리를 이용하면 문서 객체 모델(DOM)과 이벤트에 관한 처리를 손쉽게 구현할 수 있습니다.
+                또한, Ajax 응용 프로그램 및 플러그인도 제이쿼리를 활용하여 빠르게 개발할 수 있습니다.
+                css변경, 애니메이션 처리, 이벤트 핸들링을 슬로건과 마찬가지로 기존의 자바스크립트 코드로 작성하는 것보다 훨씬 적은 코드로
+                크로스 브라우징 이슈까지 해결해주니 얼마나 편리합니까? 근데 요즘에는 잘 안쓰이는 추세이죠. 3점대 버전 까지 나온것같은데
+                그 이후로 안나오는 것 같죠? 홈페이지도 계속 그대로인 것 같아요.
+            </p>
+
+            <hr>
+            <h3 class="tit_2" style="margin-top: 40px;">사용준비</h3>
+            <p class="t_desc2">
+                사용법에는 대표적으로 2가지가 있습니다. <br>
+                1. cdn으로 연결한다. <br>
+                2. download 해서 script : src로 가져온다.
+            </p>
+            <h3 class="tit_2">1번 방법</h3>
+            <p class="t_desc">
+                가장 간편한 방법이죠? jQuery 홈페이지에 가셔서 download 버튼을 클릭하시고, 밑으로 내려보시면 google cdn이 있습니다.
+                (물론 MS나 다른 cdn이 있는데 가장 첫번째 있는 구글cdn을 사용하겠습니다)
+                본인에 맞는 버전의 cdn을 복사에서 쓰시면 되겠죠?
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"&gt;&lt;/script&gt;
+</code></pre>
+            </div> <br>
+            <h3 class="tit_2">2번 방법</h3>
+            <p class="t_desc">
+                파일로 관리하고 싶다 하시면 download 버튼을 클릭하셔서 처음에 나오는 Download the compressed, production jQuery 3.6.1 버튼을 클릭하셔서
+                ctrl + s 저장하시면 파일로 다운받아서 쓰실 수 있습니다. 후에 cdn이랑 같은 방식으로 파일이 속한 경로를 script : src로 지정해주면 되겠죠?
+            </p>
+
+            <hr>
+            <h3 class="tit_2">jQuery가 잘 연결되었는지 어떻게 아나요?</h3>
+            <div class="t_code">
+<pre><code class="language-js">$(document).ready(function() {
+    console.log('jQuery 시작'); // jQuery 시작 이라고 콘솔에 나오면 잘 된거겠죠?
+});
+</code></pre>
+            </div>
+
+            <hr>
+            <h3 class="tit_2">jQuery 기본 형식</h3>
+            <p class="t_desc">
+                밑의 두개의 구문($(document), $(function))은 같은 구문입니다. 편하신걸 쓰세요. ready 메서드는 자바스크립트의 load 이벤트와 유사한 기능을 가지고 있습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;jQuery 기본형식&lt;/title&gt;
+    &lt;script src="당신이 선택한 jQuery 사용방법" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"&gt;
+        // integrity와 crossorigin 속성은 스크립트 해킹등을 방지하기 위한 속성입니다.
+    &lt;/script&gt;
+    &lt;script&gt;
+        $(document).ready(function() {
+            // 실행문; 
+        });
+
+        $(funtion() {
+            // 실행문 ;
+        });
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+            </div>
+
+            <hr>
+            <h3 class="tit_2">마치며...</h3>
+            <p class="t_desc2">
+                on(), html(), after()와 같은 다양한 메서드들이 있습니다. 기회가 되면 소개할 자리가 있을겁니다.
+                안녕히 계세요 🙋‍♂️
+            </p>
+        </div>
+    </main>
+    <!-- // main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- // footer -->
+    <script src="/javascript/asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

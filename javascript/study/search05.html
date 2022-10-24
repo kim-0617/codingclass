@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서치 이펙트 05</title>
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit"></h2>
+                <p class="t_desc2">
+                    searchEffect05번 입니다. 
+                </p>
+            <div class="t_frame" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-0617.github.io/coding/javascript/effect/searchEffect05.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://kim-0617.github.io/coding/javascript/effect/searchEffect05.html" target="_blank">실제 사이트 보기</a>
+                <a href="https://github.com/kim-0617/coding/blob/main/javascript/effect/searchEffect05.html" target="_blank">원본 소스 보기</a>
+            </div>
+            <hr>
+
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">
+                
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;main id="main"&gt;
+    &lt;div class="search__wrap"&gt;
+        &lt;span&gt;filter()를 이용하여 속성의 중요도 보여주기&lt;/span&gt;
+        &lt;h1&gt;CSS 속성 검색하기&lt;/h1&gt;
+        
+        &lt;div class="search__click"&gt;
+            &lt;ul&gt;
+                &lt;li data-star="0"&gt;&lt;a href="#"&gt;👎🏿👎🏿👎🏿👎🏿👎🏿&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-star="1"&gt;&lt;a href="#"&gt;👍👎🏿👎🏿👎🏿👎🏿&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-star="2"&gt;&lt;a href="#"&gt;👍👍👎🏿👎🏿👎🏿&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-star="3"&gt;&lt;a href="#"&gt;👍👍👍👎🏿👎🏿&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-star="4"&gt;&lt;a href="#"&gt;👍👍👍👍👎🏿&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-star="5"&gt;&lt;a href="#"&gt;👍👍👍👍👍&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#"&gt;1개 이상&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;2개 이상&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;3개 이상&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;4개 이상&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+
+        &lt;div class="search__info"&gt;
+            &lt;div&gt;CSS 속성 갯수 : &lt;span class="num"&gt;0&lt;/span&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="search__list"&gt;
+            &lt;ul class="line"&gt;&lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+            </div>
+            <!-- // html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                search__click 부분이 추가 되었습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">.search__click {
+    margin-bottom: 30px;
+}
+
+.search__click li {
+    display: inline;
+}
+
+.search__click li a {
+    display: inline-block;
+    border: 1px solid var(--htmlColor);
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 10px 0;
+}
+
+.search__click li a:hover {
+    background-color: var(--htmlColor);
+    color: #fff;
+}
+</code></pre>
+            </div>
+            <!-- // css -->
+
+            <h3 class="t_tit2">js</h3>
+            <p class="t_desc">
+                전반적인 설명을 해보죠..
+                1. updateList()라는 함수를 정의했습니다. 이건 인자로 들어온 list를 search__list에 뿌려줍니다. 그리고 list의 length 만큼 search__info에 뿌려줍니다.<br>
+                2. 기본적으로 cssProperty를 인자로 주어서 처음엔 전체 속성들이 표시되게 해줍니다.<br>
+                3. 두 가지 경우의 수가 있는데, 첫번째로는 각 중요도에 해당하는 속성을 표시하는 기능, 각 중요도 이상되는 속성들을 표시하는 기능입니다.<br>
+                4. 전자의 기능은 cssProperty의 star 속성값과 인덱스 값, 그러니까 searchClick의 0번째 인덱스는 별이 0개, 1번째 인덱스는 별이 1개... 이런식이겠죠<br>
+                5. 어쨌건 그 둘을 비교해서 같은걸 filter로 잡아냅니다. filter는 배열을 return 하는데, 그 배열을 updateList의 인자로 전달해 주면 그 해당하는 속성만 보여지겠죠..<br>
+                6. 후자의 기능은 동일하게 구현하는데 다른 부분은 filter의 비교하는 부분이 일치 연산자에서 비교 연산자로 바뀝니다. 그렇게 하면 해당 data.star 값 이상에 해당하는 속성을 가져오겠죠?<br>
+                7. 끝입니다.<br>
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">// 출력하기
+const searchInfo = document.querySelector('span.num');
+const searchList = document.querySelector('.search__list ul');
+const searchGrade = document.querySelectorAll('.search__click ul li a');
+const starData = [
+    '👎🏿👎🏿👎🏿👎🏿👎🏿',
+    '👍👎🏿👎🏿👎🏿👎🏿',
+    '👍👍👎🏿👎🏿👎🏿',
+    '👍👍👍👎🏿👎🏿',
+    '👍👍👍👍👎🏿',
+    '👍👍👍👍👍',
+];
+
+function updateList(list) {
+    let listCSS = "";
+
+    for(const data of list) {
+        // listCSS += `<li>${data.name} : ${data.desc} <em>${starData[data.star]}</em></li>`;
+        listCSS += `<li>${data.name} : ${data.desc} <em>${searchGrade[data.star].innerText}</em></li>`;
+    }
+    searchList.innerHTML = listCSS;
+    searchInfo.innerHTML = list.length;
+}
+
+updateList(cssProperty);
+
+// 클릭하기
+const searchClick = document.querySelectorAll('.search__click ul li');
+const searchClick2 = document.querySelectorAll('.search__click ul')[1].querySelectorAll('li');
+
+searchClick.forEach((star, idx) => {
+    star.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = idx || star.dataset.star;
+        const filterList = cssProperty.filter((data) => {
+            return data.star == target;
+        });
+        updateList(filterList);
+    });
+});
+
+searchClick2.forEach((star, idx) => {
+    star.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = idx + 1;
+        const filterList = cssProperty.filter((data) => {
+            return data.star >= target;
+        });
+        updateList(filterList);
+    });
+});
+</code></pre>
+            </div>
+            <!-- // js -->
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 조건문</title>
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+    <link rel="stylesheet" href="../asset/css/style.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">prettier</h2>
+            <p class="t_desc">
+                prettier는 코드를 예쁘게 정렬해주는 도구입니다. vscode에서 prettier 검색 후 첫 번째에 나오는 extension을 다운받아 줄게요.
+                다운받아 줬으면 vscode를 다시 시작해주세요! 정렬을 아무렇게나 한 상태에서 ctrl + s를 누르면 자동으로 정렬이 됩니다.
+            </p>
+            <img src="https://github.com/kim-0617/coding/blob/main/error/asset/img/prettier_install.png?raw=true" alt="install">
+            <hr>
+            
+            <h3 class="t_tit2">안되는 경우..</h3>
+            <i>01</i>
+            <p class="t_desc">
+                1. ctrl + , 누르고 설정에 들어가서 format이라고 검색합니다.  format <br>
+                2. settings.json 파일에 들어가서 editor.formatOnSave라는 항목에 true가 적용되어 있는지 확인하고, 안되어 있으면 true로 바꿔줍니다.
+            </p>
+
+            <hr>
+            <p class="t_desc">- formatonsave</p>
+            <img src="https://github.com/kim-0617/coding/blob/main/error/asset/img/formatonsave.png?raw=true" alt="formatonsave" style="margin-bottom: 20px;">
+            <p class="t_desc">- settings.json 파일에서 확인</p>
+            <img src="https://github.com/kim-0617/coding/blob/main/error/asset/img/formatonsave_settings.png?raw=true" alt="settings.json confirm" style="margin-bottom: 20px;">
+            <p class="t_desc">- settings.json 파일 찾는법</p>
+            <img src="https://github.com/kim-0617/coding/blob/main/error/asset/img/settingsjson.png?raw=true" alt="settings.json" style="margin-bottom: 20px;">
+
+            <hr>
+            <i>02</i>
+            <p class="t_desc">
+                1. settings.json파일에 다음의 코드를 추가 시켜줍니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">"editor.defaultFormatter": "esbenp.prettier-vscode",
+"[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

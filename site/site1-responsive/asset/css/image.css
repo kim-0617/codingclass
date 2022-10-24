@@ -1,0 +1,135 @@
+/* imageType */
+.image__inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.image {
+    width: 49%;
+    height: 370px;
+    color: #fff;
+    padding: 200px 30px 30px 30px;
+    box-sizing: border-box;
+    transition: all .7s ease;
+}
+
+.image:hover{
+    transform: scale(1.05);
+}
+
+.image.img1 {
+    background: url('../img/imgType01_01.jpg') no-repeat center;
+}
+
+.image.img2 {
+    background: url('../img/imgType01_02.jpg') no-repeat center;
+}
+
+.image__title {
+    font-size: 32px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.image__desc {
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.image__btn {
+    font-size: 16px;
+    color: #fff;
+    background-color: #99420F;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+.image__btn:hover{
+    background-color: #fff;
+    color: #99420F;
+}
+
+.image__btn.yellow {
+    background-color: #464444;
+}
+
+.image__btn.yellow:hover{
+    background-color: #fff;
+    color: #464444;
+}
+
+/* parallax */
+#imageType h2{
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+#imageType p{
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+#imageType .img1 {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 0.5s 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+#imageType .img2 {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.5s 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+#imageType.parallax h2{
+    opacity: 1;
+}
+
+#imageType.parallax p {
+    opacity: 1;
+}
+
+#imageType.parallax .img1 {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+#imageType.parallax .img1:hover {
+    transform: scale(1.05);
+}
+
+#imageType.parallax .img2 {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+#imageType.parallax .img2:hover {
+    transform: scale(1.05);
+}
+
+@media(max-width:600px){
+    .image__inner {
+        flex-direction: column;
+    }
+
+    .image {
+        width: 100%;
+        padding: 205px 20px 20px 20px;
+    }
+
+    .image:first-child {
+        margin-bottom: 20px;
+    }
+    
+    .image__title {
+        font-size: 24px;
+    }
+}

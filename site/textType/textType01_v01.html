@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text01</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+        .nexon {
+            font-family: 'NexonLv1Gothic';
+            font-weight: 400;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section>p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .ir {
+            display: block;
+            overflow: hidden;
+            font-size: 0;
+            line-height: 0;
+            text-indent: -9999px;
+        }
+
+        /* textType 01 */
+        #textType01>h2 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+
+        #textType01>p {
+            font-size: 50px;
+            color: #000;
+        }
+
+        .text__inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .text {
+            width: 29%;
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+
+        .text:hover {
+            background-color: #f5f5f5;
+        }
+
+        .text .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            background: url('./img/icon.svg') no-repeat;
+            background-position: 18px 17px;
+        }
+
+        .text:nth-child(1) .icon{background-color: #FFCACA;}
+        .text:nth-child(2) .icon{background-color: #A1D2FF; background-position: -32px 17px;}
+        .text:nth-child(3) .icon{background-color: #9BFFC9; background-position: -82px 17px;}
+        .text:nth-child(4) .icon{background-color: #F1EBEB; background-position: -132px 17px;}
+        .text:nth-child(5) .icon{background-color: #EFAFFF; background-position: -182px 17px;}
+        .text:nth-child(6) .icon{background-color: #525252; background-position: -232px 17px;}
+
+        .text h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .text p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .text a {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="textType01" class="text__wrap nexon section">
+        <h2>텍스트 유형 01</h2>
+        <p>강렬한 색감은 사람을 이끈다 👏</p>
+        <div class="text__inner container">
+            <article class="text">
+                <div class="icon"><span class = "ir">this is image</span></div>
+                <h3>강렬한 빨강</h3>
+                <p>
+                    빨간색은 너무도 강렬한 색입니다. 주의를 기해주세요. 빨강은 피, 태양 정렬, 열정, 주의, 식욕 증진의 효과가 있습니다.
+                </p>
+                <a href="#">더보기</a>
+            </article>
+            <article class="text">
+                <div class="icon"><span class = "ir">this is image</span></div>
+                <h3>시원한 파랑</h3>
+                <p>
+                    파랑색은 보기만 해도 시원해지는 색이죠? 그렇습니다. 파랑은 바다, 청량감, 시원함, 식욕 감퇴등의 효과가 있습니다.
+                </p>
+                <a href="#">더보기</a>
+            </article>
+            <article class="text">
+                <div class="icon"><span class = "ir">this is image</span></div>
+                <h3>청초한 녹색</h3>
+                <p>
+                    녹색은 자연의 색이죠. 슈렉이나 헐크 말고 인간과 관련된 녹색은 없을걸요? 녹색은 편안함, 식욕 감퇴등의 효과가 있습니다.
+                </p>
+                <a href="#">더보기</a>
+            </article>
+            <article class="text">
+                <div class="icon"><span class = "ir">this is image</span></div>
+                <h3>깨끗한 흰색</h3>
+                <p>
+                    흰색은 모든 색의 시작점이라고 생각합니다. 굉장히 중요한 색이지요. 세상에 흰색보다 깨끗한 색이 있을까요?
+                </p>
+                <a href="#">더보기</a>
+            </article>
+            <article class="text">
+                <div class="icon"><span class = "ir">this is image</span></div>
+                <h3>우아한 보라</h3>
+                <p>
+                    보라색은 빨강색과 파랑색을 섞었을 때 나오는 색깔이죠. 보라색은 그 자체만으로 우아하고 엘레강스한 느낌을 내죠
+                </p>
+                <a href="#">더보기</a>
+            </article>
+            <article class="text">
+                <div class="icon"><span class = "ir">this is image</span></div>
+                <h3>암울한 검정</h3>
+                <p>
+                    여러분들은 검정색을 보면 무슨감정을 느끼십니까? 검정은 예로부터 주검, 쓸쓸, 고독을 나타내곤 했었죠
+                </p>
+                <a href="#">더보기</a>
+            </article>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 이펙트 01</title>
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">페럴랙스 효과 02</h2>
+            <p class="t_desc2">
+                페럴랙스는 효과 02입니다. 이번엔 위의 메뉴가 아닌 사이드메뉴 형태의 스크롤 페럴랙스 효과를
+                만들어 보겠습니다. 
+            </p>
+            <div class="t_frame" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-0617.github.io/coding/javascript/effect/parallaxEffect02.html"
+                    frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://kim-0617.github.io/coding/javascript/effect/parallaxEffect02.html" target="_blank">실제
+                    사이트 보기</a>
+                <a href="https://github.com/kim-0617/coding/blob/main/javascript/effect/parallaxEffect02.html"
+                    target="_blank">원본 소스 보기</a>
+            </div>
+            <hr>
+
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">
+                01번과 바뀐것은 메뉴의 id값을 parallax__nav -> parallax__dot 으로 변경했습니다. 그게 다에요 
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-html">>&lt;nav id="parallax__dot"&gt;
+    &lt;ul&gt;
+        &lt;li class="active"&gt;&lt;a href="#section1"&gt;&lt;span&gt;메뉴1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section2"&gt;&lt;span&gt;메뉴2&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section3"&gt;&lt;span&gt;메뉴3&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section4"&gt;&lt;span&gt;메뉴4&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section5"&gt;&lt;span&gt;메뉴5&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section6"&gt;&lt;span&gt;메뉴6&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section7"&gt;&lt;span&gt;메뉴7&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section8"&gt;&lt;span&gt;메뉴8&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section9"&gt;&lt;span&gt;메뉴9&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
+                </div>
+            </details>
+            <!-- // html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                별로 변경된것은 없습니다.
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-css">/* parallax__nav */
+#parallax__nav {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 2000;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px 35px;
+    border-radius: 50px;
+}
+
+#parallax__nav li {
+    display: inline;
+    margin: 0 5px;
+}
+
+
+#parallax__nav li a {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding: 5px 20px;
+    text-align: center;
+}
+
+#parallax__nav li.active a {
+    background: #fff;
+    color: #000;
+    border-radius: 20px;
+    box-sizing: content-box;
+}
+
+#parallax__cont {
+    max-width: 1600px;
+    width: 98%;
+    margin: 0 auto;
+    /* background-color: rgba(255, 255, 255, 0.1); */
+}
+
+.content__item {
+    position: relative;
+    width: 1000px;
+    max-width: 70vw;
+    margin: 30vw auto;
+    text-align: left;
+    margin-right: 0;
+    padding-top: 10vw;
+    /* background-color: rgba(255, 255, 255, 0.3); */
+}
+
+.content__item:nth-child(even) {
+    margin-left: 0;
+    text-align: right;
+}
+
+.content__item__num {
+    position: absolute;
+    left: -5vw;
+    top: -13vw;
+    opacity: 0.07;
+    font-size: 35vw;
+    font-family: Lato;
+    font-weight: 100;
+    z-index: -2;
+}
+
+.content__item:nth-child(even) .content__item__num {
+    left: auto;
+    right: -5vw;
+}
+
+.content__item__title {
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.content__item__imgWrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    background: #000;
+    z-index: -1;
+}
+
+.content__item__img {
+    position: absolute;
+    background: url(../asset/img/effect_img01.jpg) no-repeat center / cover;
+    width: 110%;
+    height: 110%;
+    left: -5%;
+    top: -5%;
+    filter: saturate(0%);
+    transition: all 1s;
+}
+
+.content__item:nth-child(2) .content__item__img {
+    background: url(../asset/img/effect_img10.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(3) .content__item__img {
+    background: url(../asset/img/effect_img03.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(4) .content__item__img {
+    background: url(../asset/img/effect_img04.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(5) .content__item__img {
+    background: url(../asset/img/effect_img05.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(6) .content__item__img {
+    background: url(../asset/img/effect_img06.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(7) .content__item__img {
+    background: url(../asset/img/effect_img07.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(8) .content__item__img {
+    background: url(../asset/img/effect_img08.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(9) .content__item__img {
+    background: url(../asset/img/effect_img09.jpg) no-repeat center / cover;
+}
+
+.content__item__desc {
+    font-size: 4vw;
+    line-height: 1.4;
+    margin-top: -5vw;
+    margin-left: -4vw;
+    word-break: keep-all;
+}
+
+.content__item:nth-child(even) .content__item__desc {
+    margin-left: auto;
+    margin-right: -4vw;
+}
+
+#parallax__info {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#parallax__info li,
+.scrollTop {
+    line-height: 1.4;
+}
+
+@media(max-width : 800px) {
+    #parallex__cont {
+        margin-top: 70vw;
+    }
+
+    #parallax__nav {
+        padding: 10px;
+        right: auto;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    #parallax__nav li {
+        display: block;
+        margin: 5px;
+    }
+
+    #parallax__nav li a {
+        font-size: 14px;
+        padding: 5px;
+        border-radius: 5px;
+        height: auto;
+        line-height: 1;
+    }
+
+    #parallax__info {
+        left: 10px;
+        bottom: 10px;
+    }
+}
+
+#parallax__dot{
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10000;
+    background: rgba(0,0,0,0.4);
+    padding: 20px 10px;
+    border-radius: 30px;
+}
+
+#parallax__dot span{
+    display: none;
+}
+
+#parallax__dot li{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin: 12px 8px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(255,255,255,0);
+    transition: box-shadow 0.2s ease;
+}
+
+#parallax__dot li a{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+#parallax__dot li.active{
+    box-shadow: 0 0 0 2px rgba(255,255,255,1);
+}
+
+#parallax__dot li.active a{
+    transform: scale(0.4);
+}
+</code></pre>
+                </div>
+            </details>
+            <!-- // css -->
+
+            <h3 class="t_tit2">js</h3>
+            <p class="t_desc">
+                이번엔 더 간단하죠? scrollTop 값 정보를 똑같이 적어줄게요. 메뉴를 클릭했을 때, 기본동작을 막아주고 스크롤 이동할 때 스무스 효과를 줄게요.
+                그리고 저번에 했던거 있죠? scrollTop값과 offsetTop값 비교해서 해당 섹션에 위치하면 active 효과를 줘야겠죠?
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">document.querySelectorAll('#parallax__dot a').forEach((el) => {
+    el.addEventListener("click", e => {
+        e.preventDefault();
+
+        document.querySelector(el.getAttribute('href')).scrollIntoView({behavior : "smooth",});
+    });
+});
+
+window.addEventListener('scroll', () => {
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+    document.querySelector('#parallax__info span').innerText = scrollTop;
+    document.querySelectorAll('.content__item').forEach((el, index) => {
+        if(scrollTop >= el.offsetTop - window.innerHeight/2) {
+            document.querySelectorAll('#parallax__dot li').forEach((li) => {
+                li.classList.remove('active');
+            });
+
+            document.querySelector(`#parallax__dot li:nth-child(${index + 1})`).classList.add('active');
+        }
+    });
+});
+</code></pre>
+                </div>
+            </details>
+            <!-- // js -->
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

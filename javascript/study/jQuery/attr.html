@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="/javascript/asset/css/dracula.css">
+    <link rel="stylesheet" href="/javascript/asset/css/style.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김성현</span>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">jQuery 속성 선택자</h2>
+            <p class="t_desc">
+                jQuery의 속성 선택자를 소개해드릴게요. 속성 선택자는 css의 속성 선택자와 흡사합니다.
+            </p>
+            
+            <hr>
+            <h3 class="tit_2">jQuery 속성 선택자</h3>
+            <table class="t_table">
+                <colgroup>
+                    <col style="width: 25%;">
+                    <col style="width: 25%;">
+                    <col style="width: 50%;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>선택자 종류</th>
+                        <th colspan="2">설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">요소 [속성]</td>
+                        <td class="ce">$('span[class]')</td>
+                        <td>span 요소중 클래스 속성이 있는 요소 선택.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소 [속성 = "값"]</td>
+                        <td class="ce">$('span[class = "abc"]')</td>
+                        <td>span 요소중 클래스 속성이 abc인 요소 선택.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소 [속성 != "값"]</td>
+                        <td class="ce">$('span[class != "abc"]')</td>
+                        <td>span 요소중 클래스 속성이 abc가 아닌 요소 선택.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소 [속성 ~= "값"]</td>
+                        <td class="ce">$('span[class ~= "abc"]')</td>
+                        <td>
+                            span 요소 중 class가 'abc'를 포함하는 요소를 선택합니다.
+                            'abc' 앞뒤로 연결된 문자가 없어야 합니다. 'bg abc'는 선택되나
+                            'bg_abc'는 선택되지 않습니다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소 [속성 *= "값"]</td>
+                        <td class="ce">$('span[class *= "abc"]')</td>
+                        <td>
+                            span 요소 중 class가 abc를 포함하는 요소를 모두 선택합니다. 'bg abc', 'bg_abc' 모두 선택 됩니다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소 [속성 |= "값"]</td>
+                        <td class="ce">$('span[class |= "abc"]')</td>
+                        <td>span 요소 중 class가 'abc'나 'abc-'로 시작하는 요소를 선택 합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소 [속성 ^= "값"]</td>
+                        <td class="ce">$('span[class ^= "abc"]')</td>
+                        <td>span 요소 중 class가 'abc'로 시작하는 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소 [속성 $= "값"]</td>
+                        <td class="ce">$('span[class $= "abc"]')</td>
+                        <td>span요소 중 class가 'abc'로 끝나는 요소를 선택합니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 class="t_tit2">코드</h3>
+            <div class="t_code">
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;속성 선택자&lt;/title&gt;
+    &lt;style&gt;
+        li {
+            margin: 5px;
+        }
+    &lt;/style&gt;
+    &lt;script src="jquery-3.3.1.min.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        $(document).ready(function() {
+            $(".list1 &gt; li[class='list_1']").css("border", "2px solid red");
+            $(".list1 &gt; li[class!='list_1']").css("border", "2px solid orange");
+            $(".list2 &gt; li[class~='list']").css("background", "yellow");
+            $(".list2 &gt; li[class*='list']").css("border", "2px solid green");
+            $(".list3 &gt; li[class|='list']").css("border", "2px solid blue");
+            $(".list4 &gt; li[class^='list']").css("border", "2px solid navy");
+            $(".list4 &gt; li[class$='bg']").css("background", "purple");
+        });
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;ul class="list1"&gt;
+        &lt;li class="list_1"&gt;내용1_1&lt;/li&gt;
+        &lt;li class="list_2"&gt;내용1_2&lt;/li&gt;
+        &lt;li class="list_3"&gt;내용1_3&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul class="list2"&gt;
+        &lt;li class="list bg"&gt;내용2_1&lt;/li&gt;
+        &lt;li class="list_1"&gt;내용2_2&lt;/li&gt;
+        &lt;li class="list_2"&gt;내용2_3&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul class="list3"&gt;
+        &lt;li class="list"&gt;내용3_1&lt;/li&gt;
+        &lt;li class="list-1"&gt;내용3_2&lt;/li&gt;
+        &lt;li class="list-bg"&gt;내용3_3&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul class="list4"&gt;
+        &lt;li class="list-1"&gt;내용4_1&lt;/li&gt;
+        &lt;li class="list"&gt;내용4_2&lt;/li&gt;
+        &lt;li class="list bg"&gt;내용4_3&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt; 
+</code></pre>
+            </div>
+            <h3 class="t_tit2">결과</h3>
+            <img src="https://github.com/kim-0617/coding/blob/main/javascript/asset/img/jquery02.png?raw=true" alt="jquery" style="width: 100%;">
+
+            <hr>
+            <h3 class="tit_2">마치며...</h3>
+            <p class="t_desc2">
+                on(), html(), after()와 같은 다양한 메서드들이 있습니다. 기회가 되면 소개할 자리가 있을겁니다.
+                안녕히 계세요 🙋‍♂️
+            </p>
+        </div>
+    </main>
+    <!-- // main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- // footer -->
+    <script src="/javascript/asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

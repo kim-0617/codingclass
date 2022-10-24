@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dog_animation</title>
+    <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="stylesheet" href="asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">간단한 애니메이션 효과 02</h2>
+            <p class="t_desc2">
+                안녕하세요. 바로 이어가 보겠습니다. 이번엔 원의 회전 효과 애니메이션인데요, 마치 지구가 태양을 돌듯 회전하는 효과입니다.
+            </p>
+            <div class="t_frame" style="min-height: 1000px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="animation02" src="https://codepen.io/kim-0617/embed/zYWVMQp?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/kim-0617/pen/zYWVMQp">
+                    animation02</a> by kim-0617 (<a href="https://codepen.io/kim-0617">@kim-0617</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+            
+            <hr>
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">원 두개가 돌겁니다. 그 밖에는 중심이 될 원입니다.</p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;div class = "loading"&gt;
+    &lt;span class= "circle1"&gt;&lt;/span&gt;
+    &lt;span class= "circle2"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;span class="circle3"&gt;&lt;/span&gt;
+</code></pre>
+            </div>
+            <!-- // html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                애니메이션 간단하게 주면 됩니다. rotate(0) => rotate(360deg) 이렇게 무한히 반복하면 원이 loading을 중심으로
+                계속 돌게 되겠죠?
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">body{
+    height: 100vh;
+    background-image : linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+}
+
+.loading{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 150px;
+    animation : loading 0.5s linear infinite;
+}
+
+.circle3{
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: red;
+    position: absolute;
+    top: 45%;
+    left: 48%;
+}
+
+.loading .circle1{
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #000;
+    margin-bottom: 40px;
+}
+
+.loading .circle2{
+    display: block;
+    margin-top: 110px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #000;
+}
+
+@keyframes loading{
+    0%{transform : translate(-50%, -50%) rotate(0deg);}
+    100%{transform : translate(-50%, -50%) rotate(360deg);}
+}
+</code></pre>
+            </div>
+            <!-- // css -->
+
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="./asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

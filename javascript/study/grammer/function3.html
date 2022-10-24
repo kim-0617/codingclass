@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 함수</title>
+    <link rel="stylesheet" href="../../asset/css/dracula.css">
+    <link rel="stylesheet" href="../../asset/css/style.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- // header -->
+    
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">함수 (Function)</h2>
+            <p class="t_desc">
+                함수 3번으로 돌아 왔습니다. 이번시간에는 좀 더 심층적인 함수의 세계에 빠져보시죠.
+            </p>
+            
+            <hr>
+            <h3 class="t_tit2">20. 함수 유형 : 즉시 실행 함수</h3>
+            <p class="t_desc">함수를 선언과 즉시 실행시킬 수 있습니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">(function () {
+    // document.write("함수가 실행되었습니다.")
+})();
+
+(() =&lt; {
+    // document.write("함수가 실행되었습니다.")
+})();
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="simple13">
+                        함수가 실행되었습니다. <br>
+                    </div>
+                </details>
+            </div>
+            <!-- 20 -->
+
+            <hr>
+            <h3 class="t_tit2">21. 함수 유형 : 파라미터 함수</h3>
+            <p class="t_desc">디폴트 매개변수를 설정할 수 있습니다. 매개변수에 값이 없으면 설정한 값으로 설정됩니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">function func(str = "함수가 실행되었습니다.") {
+    document.write(str);
+}
+// func();
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="simple21">
+                        함수가 실행되었습니다. <br>
+                    </div>
+                </details>
+            </div>
+            <!-- 21 -->
+
+            <hr>
+            <h3 class="t_tit2">22. 함수 유형 : 아규먼트 함수</h3>
+            <p class="t_desc">함수는 arguments라고 하는 특수한 배열을 갖습니다. 이는 함수의 매개변수를 담고 있습니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">function func(a, b) {
+    document.write(arguments[0]);
+    document.write(arguments[1]);
+}
+// func("함수가 실행되었습니다.", "함수가 실행되었습니다.");
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="simple21">
+                        함수가 실행되었습니다. <br>
+                        함수가 실행되었습니다.
+                    </div>
+                </details>
+            </div>
+            <!-- 22 -->
+
+            <hr>
+            <h3 class="t_tit2">23. 함수 유형 : 재귀함수</h3>
+            <p class="t_desc">함수본인을 본인 내부에서 실행하는 형태입니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">function func(num) {
+    if(num &lt;= 1){
+        document.write('함수가 실행되었습니다.', num);
+    }
+    else {
+        document.write('함수가 실행되었습니다.', num);
+        func(num - 1);
+    }
+}
+func(10);
+
+// function animation() {
+//     document.write('함수가 실행되었습니다.');
+//     requestAnimationFrame(animation);
+// }
+// animation();
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="simple21">
+                        함수가 실행되었습니다. 10 <br>
+                        함수가 실행되었습니다. 9 <br>
+                        함수가 실행되었습니다. 8 <br>
+                        함수가 실행되었습니다. 7 <br>
+                        함수가 실행되었습니다. 6 <br>
+                        함수가 실행되었습니다. 5 <br>
+                        함수가 실행되었습니다. 4 <br>
+                        함수가 실행되었습니다. 3 <br>
+                        함수가 실행되었습니다. 2 <br>
+                        함수가 실행되었습니다. 1
+                    </div>
+                </details>
+            </div>
+            <!-- 23 -->
+
+            <hr>
+            <h3 class="t_tit2">24. 함수 유형 : 콜백함수</h3>
+            <p class="t_desc">다른 함수의 인수값으로 함수를 전달합니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">function func() {
+    document.write("함수가 실행되었습니다.1");
+}
+function callback(str) {
+    document.write("함수가 실행되었습니다.2");
+    str();
+}
+
+callback(func);
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="simple21">
+                        함수가 실행되었습니다.2 <br>
+                        함수가 실행되었습니다.1
+                    </div>
+                </details>
+            </div>
+            <!-- 24 -->
+
+            <hr>
+            <h3 class="t_tit2">25. 함수 유형 : 콜백함수 : 반복문</h3>
+            <p class="t_desc">다른 함수의 인수값으로 함수를 전달합니다. + 반복문</p>
+            <div class="t_code">
+<pre><code class="language-js">function func(index) {
+    document.write("함수가 실행되었습니다." + index);
+}
+function callback(num) {
+    for(let i = 1; i &lt;= 10; i++){
+        num(i)
+    }
+}
+
+callback(func);
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="simple21">
+                        함수가 실행되었습니다.1 <br>
+                        함수가 실행되었습니다.2 <br>
+                        함수가 실행되었습니다.3 <br>
+                        함수가 실행되었습니다.4 <br>
+                        함수가 실행되었습니다.5 <br>
+                        함수가 실행되었습니다.6 <br>
+                        함수가 실행되었습니다.7 <br>
+                        함수가 실행되었습니다.8 <br>
+                        함수가 실행되었습니다.9 <br>
+                        함수가 실행되었습니다.10
+                    </div>
+                </details>
+            </div>
+            <!-- 25 -->
+
+            <hr>
+            <h3 class="t_tit2">26. 함수 유형 : 콜백함수 : 동기 / 비동기</h3>
+            <p class="t_desc">비동기 상황의 콜백함수를 살펴보겠습니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">function funcA(callback) {
+    setTimeout(() =&lt; {
+        console.log("funcA가 실행되었습니다.");
+        callback();
+    }, 1000);
+}
+function funcB() {
+    console.log("funcB가 실행되었습니다.");
+}
+
+// funcA(function() {
+//     funcB();
+// });
+funcA(funcB);
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="simple21">
+                        funcA가 실행되었습니다. <br>
+                        funcB가 실행되었습니다.
+                    </div>
+                </details>
+            </div>
+            <!-- 26 -->
+
+            <hr>
+            <h3 class="t_tit2">27. 함수 유형 : 내부함수 : 스코프, 클로저</h3>
+            <p class="t_desc">함수안의 함수, 내부함수를 살펴보죠</p>
+            <div class="t_code">
+<pre><code class="language-js">function func() {
+    function funcA() {
+        document.write("함수가 실행되었습니다.");
+    };
+    funcA();
+    function funcB(){
+        document.write("함수가 실행되었습니다.");
+    };
+    funcB();
+}
+
+func();
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="simple27">
+                        함수가 실행되었습니다. <br>
+                        함수가 실행되었습니다.
+                    </div>
+                </details>
+            </div>
+            <!-- 27 -->
+
+            <hr>
+            <h3 class="t_tit2">29. 함수 유형 : 클래스 : 함수의 집합체</h3>
+            <p class="t_desc">클래스는 함수들의 모임입니다. 좀 더 편하게 쓸 수 있겠죠?</p>
+            <div class="t_code">
+<pre><code class="language-js">class Study {
+    constructor(num, name, job) {
+        this.num = num;
+        this.name = name;
+        this.job = job;
+    }
+    result() {
+        document.write(`${this.num}. 내 이름은 ${this.name} 이고, 직업은 ${this.job} 입니다.`);
+    }
+}
+
+const info1 = new Study(1, 'kim', 'millionaire');
+const info2 = new Study(2, 'lee', 'billionaire')
+info1.result();
+info2.result();
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="simple29">
+                        1. 내 이름은 kim 이고, 직업은 millionaire 입니다.<br>
+                        2. 내 이름은 lee 이고, 직업은 billionaire 입니다.
+                    </div>
+                </details>
+            </div>
+            <!-- 29 -->
+
+            <hr>
+            <h3 class="t_tit2">30. 함수 유형 : 클래스 : 상속</h3>
+            <p class="t_desc">클래스의 확장성을 위해 다른 클래스로부터 상속을 받을 수 있습니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">class Study {
+    constructor(num, name, job) {
+        this.num = num;
+        this.name = name;
+        this.job = job;
+    }
+    result() {
+        document.write(`${this.num}. 내 이름은 ${this.name} 이고, 직업은 ${this.job} 입니다.`);
+    }
+}
+
+class Study2 extends Study {
+    constructor(num, name, job, age) {
+        super(num, name, job);
+        this.age = age;
+    }
+    result2() {
+        document.write(`${this.num}. 내 이름은 ${this.name} 이고, 직업은 ${this.job} 입니다. 나이는 ${this.age}살 이에요.`);
+    }
+}
+
+const info1 = new Study2(1, 'kim', 'billionaire', 27);
+info1.result();
+info1.result2();
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="simple30">
+                        1. 내 이름은 kim 이고, 직업은 billionaire 입니다.<br>
+                        1. 내 이름은 kim 이고, 직업은 billionaire 입니다. 나이는 27살 이에요.
+                    </div>
+                </details>
+            </div>
+            <!-- 30 -->
+        </div>
+    </main>
+    <!-- //main -->
+    
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+</body>
+</html>

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>페럴랙스 이펙트 03</title>
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">페럴랙스 효과 03</h2>
+            <p class="t_desc2">
+                페럴랙스는 효과 03입니다. 이번엔 맨 밑쪽으로 내렸을 때, 맨 위로 갈 수 있는 버튼 하나 만들어 주었구요,
+                스크롤을 밑으로 내릴 땐 메뉴를 감추고, 위로 올렸을 때만 메뉴가 나오는 메뉴 효과를 주었습니다.
+            </p>
+            <div class="t_frame" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-0617.github.io/coding/javascript/effect/parallaxEffect03.html"
+                    frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://kim-0617.github.io/coding/javascript/effect/parallaxEffect03.html" target="_blank">실제
+                    사이트 보기</a>
+                <a href="https://github.com/kim-0617/coding/blob/main/javascript/effect/parallaxEffect03.html"
+                    target="_blank">원본 소스 보기</a>
+            </div>
+            <hr>
+
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">
+                변경된게 없습니다. 맨 위로 가는 parallax__top 버튼 하나 만들어 줬습니다.
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-html">&lt;nav id="parallax__nav"&gt;
+    &lt;ul&gt;
+        &lt;li class="active"&gt;&lt;a href="#section1"&gt;메뉴1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section2"&gt;메뉴2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section3"&gt;메뉴3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section4"&gt;메뉴4&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section5"&gt;메뉴5&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section6"&gt;메뉴6&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section7"&gt;메뉴7&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section8"&gt;메뉴8&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section9"&gt;메뉴9&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;main id="parallax__cont"&gt;
+    &lt;div id="contents"&gt;
+        &lt;section id="section1" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;01&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section1&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc"&gt;한번의 실패와 영원한 실패를 혼동하지 마라&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section1 --&gt;
+
+        &lt;section id="section2" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;02&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section2&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc"&gt;내일은 내일의 태양이 뜬다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section2 --&gt;
+
+        &lt;section id="section3" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;03&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section3&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc"&gt;하루에 3시간을 걸으면 7년 후에 지구를 한바퀴 돌 수 있다. &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section3 --&gt;
+
+        &lt;section id="section4" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;04&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section4&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc"&gt;행복은 습관이다,그것을 몸에 지니라 &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section4 --&gt;
+
+        &lt;section id="section5" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;05&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section5&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc"&gt;만약 우리가 할 수 있는 일을 모두 한다면 우리들은 우리자신에 깜짝 놀랄 것이다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section5 --&gt;
+
+        &lt;section id="section6" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;06&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section6&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc"&gt;자신을 내보여라. 그러면 재능이 드러날 것이다. &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section6 --&gt;
+
+        &lt;section id="section7" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;07&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section7&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc"&gt;겨울이 오면 봄이 멀지 않으리&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section7 --&gt;
+
+        &lt;section id="section8" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;08&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section8&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc"&gt;자신감 있는 표정을 지으면 자신감이 생긴다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section8 --&gt;
+
+        &lt;section id="section9" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;09&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section9&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc"&gt;길을 잃는 다는 것은 곧 길을 알게 된다는 것이다. &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section9 --&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;aside id="parallax__info"&gt;
+    &lt;div class="scroll"&gt;scrollTop : &lt;span&gt;0&lt;/span&gt;px&lt;/div&gt;
+    &lt;div class="info"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;#section1 offset() : &lt;span class="offset1"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section2 offset() : &lt;span class="offset2"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section3 offset() : &lt;span class="offset3"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section4 offset() : &lt;span class="offset4"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section5 offset() : &lt;span class="offset5"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section6 offset() : &lt;span class="offset6"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section7 offset() : &lt;span class="offset7"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section8 offset() : &lt;span class="offset8"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section9 offset() : &lt;span class="offset9"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/aside&gt;
+</code></pre>
+                </div>
+            </details>
+            <!-- // html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                항상 말씀드리지만 css는 background-image 넣고, 글씨 크기 조절하고, 간격 맞추고 적절한 위치에 배치해주면 끝입니다.
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-css">/* parallax__nav */
+#parallax__nav {
+    position: fixed;
+    right: 20px;
+    top: -200px;
+    z-index: 2000;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px 35px;
+    border-radius: 50px;
+    transition: top 0.4s ease;
+}
+
+#parallax__nav.show {
+    top: 20px;
+}
+
+#parallax__nav li {
+    display: inline;
+    margin: 0 5px;
+}
+
+#parallax__top {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -220px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    z-index: 10000;
+    cursor: pointer;
+    transition: bottom .4s ease;
+}
+
+#parallax__top.show {
+    bottom: 20px;
+}
+
+#parallax__top:hover {
+    background: #fff;
+    color: #000;
+}
+
+#parallax__nav li a {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding: 5px 20px;
+    text-align: center;
+}
+
+#parallax__nav li.active a {
+    background: #fff;
+    color: #000;
+    border-radius: 20px;
+    box-sizing: content-box;
+}
+
+#parallax__cont {
+    max-width: 1600px;
+    width: 98%;
+    margin: 0 auto;
+    /* background-color: rgba(255, 255, 255, 0.1); */
+}
+
+.content__item {
+    position: relative;
+    width: 1000px;
+    max-width: 70vw;
+    margin: 30vw auto;
+    text-align: left;
+    margin-right: 0;
+    padding-top: 10vw;
+    /* background-color: rgba(255, 255, 255, 0.3); */
+}
+
+.content__item:nth-child(even) {
+    margin-left: 0;
+    text-align: right;
+}
+
+.content__item__num {
+    position: absolute;
+    left: -5vw;
+    top: -13vw;
+    opacity: 0.07;
+    font-size: 35vw;
+    font-family: Lato;
+    font-weight: 100;
+    z-index: -2;
+}
+
+.content__item:nth-child(even) .content__item__num {
+    left: auto;
+    right: -5vw;
+}
+
+.content__item__title {
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.content__item__imgWrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    background: #000;
+    z-index: -1;
+}
+
+.content__item__img {
+    position: absolute;
+    background: url(../asset/img/effect_img01.jpg) no-repeat center / cover;
+    width: 110%;
+    height: 110%;
+    left: -5%;
+    top: -5%;
+    filter: saturate(0%);
+    transition: all 1s;
+}
+
+.content__item:nth-child(2) .content__item__img {
+    background: url(../asset/img/effect_img10.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(3) .content__item__img {
+    background: url(../asset/img/effect_img03.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(4) .content__item__img {
+    background: url(../asset/img/effect_img04.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(5) .content__item__img {
+    background: url(../asset/img/effect_img05.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(6) .content__item__img {
+    background: url(../asset/img/effect_img06.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(7) .content__item__img {
+    background: url(../asset/img/effect_img07.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(8) .content__item__img {
+    background: url(../asset/img/effect_img08.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(9) .content__item__img {
+    background: url(../asset/img/effect_img09.jpg) no-repeat center / cover;
+}
+
+.content__item__desc {
+    font-size: 4vw;
+    line-height: 1.4;
+    margin-top: -5vw;
+    margin-left: -4vw;
+    word-break: keep-all;
+}
+
+.content__item:nth-child(even) .content__item__desc {
+    margin-left: auto;
+    margin-right: -4vw;
+}
+
+#parallax__info {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#parallax__info li,
+.scrollTop {
+    line-height: 1.4;
+}
+
+@media(max-width : 800px) {
+    #parallex__cont {
+        margin-top: 70vw;
+    }
+
+    #parallax__nav {
+        padding: 10px;
+        right: auto;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    #parallax__nav li {
+        display: block;
+        margin: 5px;
+    }
+
+    #parallax__nav li a {
+        font-size: 14px;
+        padding: 5px;
+        border-radius: 5px;
+        height: auto;
+        line-height: 1;
+    }
+
+    #parallax__info {
+        left: 10px;
+        bottom: 10px;
+    }
+}
+</code></pre>
+                </div>
+            </details>
+            <!-- // css -->
+
+            <h3 class="t_tit2">js</h3>
+            <p class="t_desc">
+                자 js 부분인데요? 순서대로 가보겠습니다. <br>
+                1. window.addEventListener('scroll', scrollProgress) 해주면 setInterval이 마우스를 스크롤 할 때 마다 호출 되겠죠? <br>
+                2. 스크롤을 움직이면 nowScroll = true가 실행되면서 if문이 실행됩니다. 이게 없으면 false로 해놓은걸 돌릴수가없어서 hasScroll이 실행되지 못하겠죠? <br>
+                3. 트리거 변수가 없다면 하루종일 scrollTop === lastScroll 이 되서 메뉴는 나오지도 않습니다. <br>
+                4. 저기 nowScroll = false; 이게 없어도 마찬가지입니다. <br>
+                5. 자 이제 hasScroll 부분인데요? 그전에 hasScroll 함수의 실행됐던 scrollTop 값이 lastScroll 값에 저장 되있겠죠? <br>
+                6. 자 이제 스크롤을 위로 하는 순간 hasScroll이 실행되면서 lastScroll(전에 봤던 값) > scrollTop(올렸다면 더 작겠죠? 이 값이) <br>
+                7. 그러면 어떻게 되요? show가 붙으니까 메뉴가 나오겠죠? 끝입니다.
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">// window.addEventListener('scroll', () => {
+//     let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+//     document.querySelector('#parallax__info span').innerText = scrollTop;
+
+//     // 01
+//     // if(scrollTop > 0){
+//     //     document.querySelector('#parallax__nav').classList.add('show');
+//     // }
+//     // else{
+//     //     document.querySelector('#parallax__nav').classList.remove('show');
+//     // }
+
+//     // 02
+//     // if(scrollTop > (document.documentElement.scrollHeight - window.innerHeight) - 200){
+//     //     document.querySelector('#parallax__top').classList.add('show');
+//     // }
+//     // else{
+//     //     document.querySelector('#parallax__top').classList.remove('show');
+//     // }
+// });
+
+// top 버튼
+document.querySelector('#parallax__top').addEventListener('click', () => {
+    window.scrollTo({left : 0, top : 0, behavior : "smooth"});
+})
+
+// 03
+let nowScroll = true;
+let lastScroll = 0;
+
+function scrollProgress() {
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+    document.querySelector('#parallax__info span').innerText = scrollTop;
+
+    if(scrollTop > (document.documentElement.scrollHeight - window.innerHeight) - 200){
+        document.querySelector('#parallax__top').classList.add('show');
+    }
+    else{
+        document.querySelector('#parallax__top').classList.remove('show');
+    }
+    nowScroll = true;
+    setInterval(() => {
+        console.log("실행 : ", nowScroll)
+        if(nowScroll){
+            hasScroll();
+            nowScroll = false;
+        }
+    }, 1000);
+}
+
+function hasScroll() {
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+    console.log("현재 값",scrollTop, "이전 값", lastScroll)
+    if(scrollTop < lastScroll){
+        document.querySelector('#parallax__nav').classList.add('show');
+    }
+    else{
+        document.querySelector('#parallax__nav').classList.remove('show');
+    }
+    lastScroll = scrollTop;
+}
+
+window.addEventListener('scroll', scrollProgress);
+</code></pre>
+                </div>
+            </details>
+            <!-- // js -->
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

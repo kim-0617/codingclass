@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이더 이펙트 04</title>
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">이미지 슬라이더 04</h2>
+                <p class="t_desc2">
+                    sliderEffect04번 입니다. 4번은 자동적으로 움직이는것이 아닌 prev, next 버튼을 만들어 두어서
+                    버튼을 클릭할 때 마다 적절한 동작을 취하도록 합니다.
+                </p>
+            <div class="t_frame" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-0617.github.io/coding/javascript/effect/sliderEffect04.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://kim-0617.github.io/coding/javascript/effect/sliderEffect04.html" target="_blank">실제 사이트 보기</a>
+                <a href="https://github.com/kim-0617/coding/blob/main/javascript/effect/sliderEffect04.html" target="_blank">원본 소스 보기</a>
+            </div>
+            <hr>
+
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">
+                next와 prev 버튼을 추가해줬습니다. slider__inner의 형제로 추가했습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;div class="slider__btn"&gt;
+    &lt;a href="#" class="prev" role="button" aria-label="왼쪽 이미지"&gt;prev&lt;/a&gt;
+    &lt;a href="#" class="next" role="button" aria-label="오른쪽 이미지"&gt;next&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+            <!-- html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                버튼에 적용한 css 입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">.slider__btn a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    line-height: 50px;
+    transition: all 0.2s;
+    padding: 10px;
+    box-sizing: content-box;
+}
+
+.slider__btn a:hover {
+    border-radius: 50%;
+    background: rgba(241, 96, 86, 1);
+}
+
+.slider__btn a.prev {
+    left: 0px;
+}
+
+.slider__btn a.next {
+    right: 0px;
+}
+</code></pre>
+            </div>
+            <!-- css -->
+            
+            <h3 class="t_tit2">js</h3>
+            <p class="t_desc">
+                후.. 순서를 짚어보죠 <br>
+                1. 사용할 태그들을 적절한 선택자에 저장합니다. <br>
+                2. 버튼을 클릭할 때 마다 작동할 콜백함수 gotoSlider를 정의합니다. <br>
+                3. 이 함수는 여태까지 해왔던 이미지 슬라이더 유형과 마찬가지로 이미지를 translateX 로 밀어버립니다. <br>
+                4. 예를들어 -이미지의 크기 * currentIndex 하면 currentIndex가 3이라면 4번째 이미지를 보고있는 겁니다. <br>
+                5. sliderBtnPrev (이전버튼)에 클릭이벤트를 달았습니다. 클릭하면 이전이미지를 보여줍니다. <br>
+                6. 어떻게요? 현재 currentIndex가 0이면 4로 이동해야됩니다. 그래야 5번째 이미지를 볼 수 있어요. 그렇게 하려면 4를 더하면 되잖아요? <br>
+                7. sliderCount가 5잖아요 그래서 currentIndex + (sliderCount - 1)을 prev 인덱스에 저장합니다. <br>
+                8. 그런데 계속 눌러도 가야되니까 방금 값을 sliderCount로 나눈 나머지 값을 prev 인덱스에 저장하면 이게 되네요? <br>
+                9. sliderBtnNext 버튼은 지금까지 해왔던 그대로 1,2,3,4 0,1,2,3,4 ... 이렇게 가면되니까 (currentIndex + 1) % sliderCount 해주면 되잖아요?
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">// const sliderWrap = document.querySelector('.slider__wrap');
+const sliderImg = document.querySelector('.slider__img');
+const sliderInner = document.querySelector('.slider__inner');
+const slider = document.querySelectorAll('.slider');
+const sliderBtn = document.querySelector('.slider__btn');
+const sliderBtnPrev = sliderBtn.querySelector('.prev');
+const sliderBtnNext = sliderBtn.querySelector('.next');
+
+let currentIndex = 0;
+let sliderCount = slider.length;
+let sliderWidth = sliderImg.offsetWidth; 
+
+// 이미지 움직이는 영역
+function gotoSlider(num) {
+    sliderInner.style.transition = `all 400ms`;
+    sliderInner.style.transform = `translateX(${-sliderWidth * num}px)`;
+    currentIndex = num;
+}
+// 왼쪽 버튼 클릭
+sliderBtnPrev.addEventListener('click', () => {
+    /* 01
+    currentIndex--; 
+    if(currentIndex < 0) currentIndex = sliderCount - 1;
+    gotoSlider(currentIndex);
+    */
+
+    /* 02
+    --currentIndex < 0 ? gotoSlider(sliderCount - 1) : gotoSlider(currentIndex);
+    */
+    
+    /* 03*/
+    // 0(currentIndex) => 4(nextIndex)
+    // 4(currentIndex) => 3(nextIndex)
+    // 3(currentIndex) => 2(nextIndex)
+    // 2(currentIndex) => 1(nextIndex)
+    // 1(currentIndex) => 0(nextIndex)
+    // 0(currentIndex) => 4(nextIndex)
+    let prevIndex = (currentIndex + (sliderCount - 1)) % sliderCount;
+    gotoSlider(prevIndex);
+    
+});
+
+// 오른쪽 버튼 클릭
+sliderBtnNext.addEventListener('click', () => {
+    let nextIndex = (currentIndex + 1) % slider.length;
+    console.log(currentIndex, nextIndex)
+    gotoSlider(nextIndex);
+});
+</code></pre>
+            </div>
+            <!-- // js -->
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

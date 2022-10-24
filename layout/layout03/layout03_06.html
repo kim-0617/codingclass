@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+
+    <style>
+        * {
+            margin: 0;
+        }
+
+        body {
+            background-color: #E1F5FE;
+        }
+
+        #wrap {
+            width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-areas:
+                "header header"
+                "nav nav"
+                "aside section_a"
+                "aside section_b"
+                "aside section_c"
+                "footer footer"
+            ;
+            grid-template-rows: 100px 100px 260px 260px 260px 100px;
+            grid-template-columns: 25% 75%;
+        }
+
+        #header {
+            background-color: #B3E5FC;
+            grid-area: header;
+        }
+
+        #nav {
+            background-color: #81D4FA;
+            grid-area: nav;
+        }
+
+        #aside {
+            background-color: #4FC3F7;
+            grid-area: aside;
+        }
+
+        #section_a {
+            background-color: #29B6F6;
+            grid-area: section_a;
+        }
+
+        #section_b {
+            background-color: #03A9F4;
+            grid-area: section_b;
+        }
+
+        #section_c {
+            background-color: #039BE5;
+            grid-area: section_c;
+        }
+
+        #footer {
+            background-color: #0288D1;
+            grid-area: footer;
+        }
+
+        @media(max-width:1220px) {
+            #wrap {
+                width: 96%;
+                margin: 0 auto;
+                display: grid;
+                grid-template-areas:
+                    "header header header"
+                    "nav nav nav"
+                    "aside section_a section_a"
+                    "aside section_b section_c"
+                    "footer footer footer"
+                ;
+                grid-template-rows: 100px 100px 260px 520px 100px;
+                grid-template-columns: 25% 37.5% 37.5%;
+            }
+        }
+
+        @media(max-width:768px) {
+            #wrap {
+                width: 100%;
+                margin: 0 auto;
+                display: grid;
+                grid-template-areas:
+                    "header header"
+                    "nav nav"
+                    "aside section_a"
+                    "aside section_b"
+                    "footer footer"
+                ;
+                grid-template-rows: 100px 100px 520px 520px 100px;
+                grid-template-columns: 25% 75%;
+            }
+        }
+
+        @media(max-width:480px) {
+            #wrap {
+                width: 100%;
+                margin: 0 auto;
+                display: grid;
+                grid-template-areas:
+                    "header header"
+                    "nav nav"
+                    "aside aside"
+                    "section_a section_a"
+                    "section_b section_b"
+                    "section_c section_c"
+                    "footer footer"
+                ;
+                grid-template-rows: 100px 100px 200px 430px 150px 100px;
+                grid-template-columns: 25% 75%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="header"></div>
+        <div id="nav"></div>
+        <div id="aside"></div>
+        <div id="section_a"></div>
+        <div id="section_b"></div>
+        <div id="section_c"></div>
+        <div id="footer"></div>
+    </div>
+</body>
+
+</html>

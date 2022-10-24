@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 배열메서드</title>
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+    <link rel="stylesheet" href="../asset/css/style.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">자료형</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수 / 전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+                <li><a href="joinpushpop.html">배열 메서드</a></li>
+                <li><a href="Built-in Functions.html">내장 함수</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">replace() / replaceAll()</h2>
+            <p class="t_desc">
+                중요한 메서드 소개해드리겠습니다. replace() 메서드 입니다. 말 그대로 문자열을 교체해 주는 메서드입니다.
+                정규식을 활용할 수 있어서 활용도가 높은 편입니다. replaceAll() 은 새로나와서 IE에서 안된다고 하네요..
+            </p>
+            <p class="t_box">
+                replace() 메서드 <br>
+                str.replace("찾을문자열", "바꿀문자열"); // 찾을문자열이 존재하면 첫번째로 만나는 문자열을 바꿀문자열로 바꾼다 <br>
+                replaceAll() 메서드 <br>
+                str.replaceAll("찾을문자열", "바꿀문자열"); // 문자열 내부의 모든 찾을문자열을 바꿀문자열로 바꿔버린다.
+            </p>
+
+            <hr>
+            <h3 class="t_tit2">replace() 소개</h3>
+            <p class="t_desc">
+                str.replace("찾을문자열", "바꿀문자열") 메서드란 문자열 내에서 첫번째로 나오는 찾을 문자열을 바꿀문자열로 교체합니다.
+                하지만 정규식을 사용해서 g플래그를 주게되면 모두 바꾸는 효과를 낼 수 있어요
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const str1 = 'javascript reference';
+const currentStr1 = str1.replace('javascript', '자바스크립트'); // 자바스크립트 reference
+const currentStr2 = str1.replace('j', "J"); // Javascript reference
+const currentStr3 = str1.replace('e', "E"); // javascript rEference
+const currentStr4 = str1.replaceAll('e', "E"); // javascript rEfErEncE
+const currentStr5 = str1.replace(/e/g, "E"); // javascript rEfErEncE
+const currentStr6 = str1.replace(/e/gi, "E"); // javascript rEfErEncE
+
+const str2 = "https://www.naver.com/img01.jpg";
+const currentStr7 = str2.replace(/[1]/, 2); //"https://www.naver.com/img02.jpg";
+
+const str3 = '010-2000-1000';
+currentStr8 = str3.replace('-', ''); // 0102000-1000
+currentStr9 = str3.replaceAll("-", ''); // 01020001000
+currentStr10 = str3.replace(/-/g, ''); // 01020001000
+currentStr11 = str3.replace(/-/g, ' '); // 010 2000 1000
+currentStr12 = str3.replace(/-/g, '*'); // 010*2000*1000
+currentStr13 = str3.replace(/[1-9]/g, '*'); // 0*0-*000-*000
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result01">
+                        자바스크립트 reference<br>
+                        Javascript reference<br>
+                        javascript rEference<br>
+                        javascript rEfErEncE<br>
+                        javascript rEfErEncE<br>
+                        javascript rEfErEncE<br>
+                        "https://www.naver.com/img02.jpg"<br>
+                        0102000-1000<br>
+                        01020001000<br>
+                        01020001000<br>
+                        010 2000 1000<br>
+                        010*2000*1000<br>
+                        0*0-*000-*000
+                    </div>
+                </details>
+            </div>
+
+            <hr>
+            <h3 class="t_tit2">replaceAll() 소개</h3>
+            <p class="t_desc">
+                위에서 알려 드렸습니다. replaceAll() 역시 replace()와 사용 방법은 같습니다. 하지만 정규식만 잘 활용하면 사용할 필요 없겠죠?
+            </p>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dog_animation</title>
+    <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="stylesheet" href="asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">간단한 애니메이션 효과</h2>
+            <p class="t_desc2">
+                안녕하세요. 정육면체를 만들어 보겠습니다.
+            </p>
+            <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/kim-0617/embed/MWGvXyW?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/kim-0617/pen/MWGvXyW">
+                Untitled</a> by kim-0617 (<a href="https://codepen.io/kim-0617">@kim-0617</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+            </iframe>
+
+            <hr>
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">
+                면이 6개니까 6개 만들어 줄게요.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;div class="cube"&gt;
+    &lt;div&gt;레전드&lt;/div&gt;
+    &lt;div&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+</code></pre>
+            </div>
+            <!-- // html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                preserve-3d로 입체로 만들고 perspective로 원근감을 줍니다. 이후에 translatez로 z축까지 섬세하게
+                만져가면서 입체를 구성하겠습니다. rotate와 sacle로 커졌다 줄어졌다 하는 효과를 주었습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">body {
+	background-color: skyblue;
+	height: 100vh;
+	perspective: 1000px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.cube {
+	position: relative;
+	width: 100px; height: 100px;
+	transform-style: preserve-3d;
+	transform: rotatex(-20deg) rotatey(-140deg) translatez(0);
+	animation: rotate 8000ms linear infinite;
+}
+.cube div {
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 0; left: 0;
+	width: 100px; height: 100px;
+	opacity: 0.75;
+	color: #fff;
+}
+.cube div:nth-child(1){
+	background: #ffcc80;
+	transform: rotatex(90deg) translatey(-100px);
+	transform-origin: center top;
+	animation: top 4000ms ease-in-out 8000ms infinite;
+}
+.cube div:nth-child(2){
+	background: #ffb74d;	
+	transform-origin: center bottom;
+	transform: rotatex(-90deg) translatey(100px);
+	animation: bottom 4000ms ease-in-out 8000ms infinite;
+}
+.cube div:nth-child(3){
+	background: #ffa726;
+	transform-origin: left center;
+	transform: rotateY(-90deg) translateX(-100px);
+	animation: left 4000ms ease-in-out 8000ms infinite;
+}
+.cube div:nth-child(4){
+	background: #ff9800;
+	transform-origin: right center;
+	transform: rotateY(90deg) translateX(100px);
+	animation: right 4000ms ease-in-out 8000ms infinite;
+}
+.cube div:nth-child(5){
+	background: #fb8c00;
+	transform-origin: center center;
+	transform: rotateX(0deg);
+	animation: front 4000ms ease-in-out 8000ms infinite;
+}
+.cube div:nth-child(6){
+	background: #f57c00;
+	transform-origin: center center;
+	transform: rotateY(180deg) translatez(100px);
+	animation: back 4000ms ease-in-out 8000ms infinite;
+}
+
+@keyframes rotate {
+	0% {transform: rotatex(0) rotatey(0) rotatez(0) translatez(0) }
+	100% {transform: rotatex(360deg) rotatey(360deg) rotatez(360deg) translatez(0)}
+}
+
+@keyframes top {
+	0%   {transform: rotatex(90deg) translatey(-100px) translatez(0);}
+	50%  {transform: rotatex(90deg) translatey(-100px) translatez(100px);}
+	100% {transform: rotatex(90deg) translatey(-100px) translatez(0);}
+}
+
+@keyframes bottom {
+	0%   {transform: rotatex(-90deg) translatey(100px) translatez(0);}
+	50%  {transform: rotatex(-90deg) translatey(100px) translatez(100px);}
+	100% {transform: rotatex(-90deg) translatey(100px) translatez(0);}
+}
+
+@keyframes left {
+	0%   {transform: rotateY(-90deg) translateX(-100px) scaleY(1);}
+	50%  {transform: rotateY(-90deg) translateX(-100px) scaleY(3);}
+	100% {transform: rotateY(-90deg) translateX(-100px) scaleY(1);}
+}
+
+@keyframes right {
+	0%   {transform: rotateY(90deg) translateX(100px) scaleY(1);}
+	50%  {transform: rotateY(90deg) translateX(100px) scaleY(3);}
+	100% {transform: rotateY(90deg) translateX(100px) scaleY(1);}
+}
+
+@keyframes front {
+	0%   {transform: rotateX(0deg) scaleY(1);}
+	50%  {transform: rotateX(0deg) scaleY(3);}
+	100% {transform: rotateX(0deg) scaleY(1);}
+}
+
+@keyframes back {
+	0%   {transform: rotateY(180deg) translatez(100px) scaleY(1);}
+	50%  {transform: rotateY(180deg) translatez(100px) scaleY(3);}
+	100% {transform: rotateY(180deg) translatez(100px) scaleY(1);}
+}
+</code></pre>
+            </div>
+            <!-- // css -->
+
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="./asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

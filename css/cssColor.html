@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="asset/css/dracula.css">
+    <link rel="stylesheet" href="../html/asset/css/style.css">
+    <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/base16/solarized-light.min.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김성현</span>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <nav class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초문법</a></li>
+                <li><a href="block.html">블록구조 / 인라인구조</a></li>
+                <li><a href="web.html">웹표준 / 웹접근성 / 웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li class="active"><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </nav>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">CSS 색상 표현 방법</h2>
+                <p class="t_desc">
+                    CSS 색상 표현법에는 3가지 방법이 있습니다. <br>
+                    <i>1.</i> 색상 이름으로 표현하기 <br>
+                    <i>2.</i> RGB 속성 값으로 표현하기 <br>
+                    <i>3.</i> 16진수 색상 값으로 표현하기 
+                    <br><br>
+
+                    CSS3 에서 새롭게 추가된 방법이 있습니다. <br>
+                    <i>4.</i> RGBA 색상값으로 표현하기 <br>
+                    <i>5.</i> HSL 색상값으로 표현하기 <br>
+                    <i>6.</i> HSLA 색상값으로 표현하기 <br>
+                    <i>7.</i> opacity 속성으로 표현하기
+                </p>
+
+                <hr>
+                <h3 class="tit_2" style="margin-top: 40px;">1. 색상 이름으로 표현하기</h3>
+                <p class="t_box">
+                    /* 일상생활에서 사용하는 색상 이름으로 색을 표현합니다. */ <br>
+                    p {color : red;} <br>
+                    .container {background : silver;}
+                </p>
+
+                <hr>
+                <h3 class="tit_2" style="margin-top: 40px;">2. RGB 속성 값으로 표현하기</h3>
+                <p class="t_box">
+                    /* RGB 색상의 기본색(Red, Green, Blue)은 각각 0부터 255까지의 범위를 갖고, 이 수치들을 조절해서 색을 표현합니다. */ <br>
+                    p {color: rgb(0,0,255);} <br>
+                    .container {background : rgb(192,192,192);}
+                </p>
+
+                <hr>
+                <h3 class="tit_2" style="margin-top: 40px;">3. 16진수 색상 값으로 표현하기 </h3>
+                <p class="t_box">
+                    /* 16진수 색상값은 RGB 색상값을 각각 16진수로 변환한 것 입니다. 
+                    따라서 RGB 색상의 기본색(Red, Green, Blue)은 각각 00부터 FF까지의 범위에서 수치를 갖습니다. */ <br>
+                    p {color: #0000FF;} <br>
+                    .container {background : #C0C0C0;}
+                </p>
+
+                <hr>
+                <h3 class="tit_2" style="margin-top: 40px;">4. 16진수 색상 값으로 표현하기 </h3>
+                <p class="t_box">
+                    /* RGBA 색상값은 RGB 색상값에 알파(투명도) 채널 값을 더한 색상값 입니다. */ <br>
+                    p {background-color: rgba(0,255,0,0);} <br>
+                    .container {background-color: rgba(0,255,0,1);} /* 투명도 0.1 */
+                </p>
+
+                <hr>
+                <h3 class="tit_2" style="margin-top: 40px;">5. HSL 색상값으로 표현하기</h3>
+                <p class="t_box">
+                    /* HSL 색상값은 빛의 삼원색으로 색을 표현하는 RGB 색상값과는 달리 색상, 채도, 명도를 사용해서 색을 표현하는 방식입니다. */ <br>
+                    /* HSL 색상값에서 HSL은 각각 색상(Hue), 채도(Saturation), 명도(Lightness)를 의미합니다. */
+                    p {background-color: hsl(0, 100%, 50%);} <br>
+                    .container {background-color: hsl(360, 100%, 50%);} 
+                    /* 색상 값이 0 또는 360이면 빨간색(red)이 되며, 120이면 녹색(green), 240이면 파란색(blue)이 된다. */ 
+                </p>
+
+                <hr>
+                <h3 class="tit_2" style="margin-top: 40px;">6. HSLA 색상값으로 표현하기 </h3>
+                <p class="t_box">
+                    /* 1HSLA 색상값은 HSL 색상값에 알파(투명도) 채널 값을 더한 색상값이겠죠?*/ <br>
+                    p {background-color: hsla(0, 100%, 50%, 0);} <br>
+                    .container {background-color: hsla(0, 100%, 50%, 1);}
+                </p>
+
+                <hr>
+                <h3 class="tit_2" style="margin-top: 40px;">7. opacity 속성으로 표현하기 </h3>
+                <p class="t_box">
+                    /* opacity 속성은 색상에 대한 투명도를 설정해 줍니다. 
+                    opacity 속성값은 완전한 투명 상태인 0.0부터 투명도가 전혀 없는 1.0 사이의 값을 가진다.*/ <br>
+                    p {background-color: rgb(0,255,0); opacity:0} <br>
+                    .container {background-color: rgb(0,255,0); opacity:1}
+                </p>
+
+                <hr>
+                <h3 class="tit2">그럼 opacity와 alpha 값을 조절하는 차이는 무엇일까?</h3>
+                <p class="t_desc2">
+                    opacity 속성은 투명도를 설정했을 때 설정한 요소의 <i>모든 자식(child) 요소</i>까지 전부 같은 투명도로 설정합니다.
+                    하지만 알파 채널은 투명도를 설정한 요소에만 투명도를 설정한다는 차이점이 존재하죠.
+                </p>
+            </div>
+        </div>
+    </main>
+    <!-- // main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- // footer -->
+    <script src="asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

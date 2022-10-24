@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이더 이펙트 06</title>
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">이미지 슬라이더 06</h2>
+                <p class="t_desc2">
+                    sliderEffect 06번 입니다. 이번엔 닷메뉴를 추가한것 + 자연스럽게 계속 슬라이더가
+                    이어지도록 작업해 주겠습니다.
+                </p>
+            <div class="t_frame" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-0617.github.io/coding/javascript/effect/sliderEffect06.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://kim-0617.github.io/coding/javascript/effect/sliderEffect06.html" target="_blank">실제 사이트 보기</a>
+                <a href="https://github.com/kim-0617/coding/blob/main/javascript/effect/sliderEffect06.html" target="_blank">원본 소스 보기</a>
+            </div>
+            <hr>
+
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">
+                이전 코드와 달라진건 없습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">
+</code></pre>
+            </div>
+            <!-- html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                css도 마찬가지 입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">
+</code></pre>
+            </div>
+            <!-- css -->
+            
+            <h3 class="t_tit2">js</h3>
+            <p class="t_desc">
+                닷메뉴를 추가하고, 슬라이더를 움직이는 gotoSlider 함수까지는 동일합니다. 슬라이더를 넘기는게 자연스럽기 위해서는
+                맨 마지막 슬라이드와 처음 슬라이더를 복사해서 마지막 이미지는 첫번째에 첫번째 이미지는 마지막 이미지에 넣어줍니다. (insertBefore, appendChild)
+                그런 후, transitionend 이벤트를 달아서 슬라이더를 움직일 때 transition 이벤트가 발생하는데 그 이벤트가 끝나면 발동하는 이벤트입니다.
+                인덱스를 검사해서 마지막 이미지에 도달하면 첫번째 이미지로 돌려버리고 -1이 되면 (첫번째 이미지에서 prev버튼 클릭) 마지막 이미지로 보내버립니다.
+                그렇게 해서 앞,뒤 버튼을 클릭할 때 마다 이미지가 자연스럽게 움직이는 것 입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const sliderWrap = document.querySelector(".slider__wrap");            // 전체 이미지 슬라이드
+const sliderImg = document.querySelector(".slider__img");              // 보여지는 영역
+const sliderInner = document.querySelector(".slider__inner");          // 움직이는 영역
+const slider = document.querySelectorAll(".slider");                   // 이미지
+const sliderDot = document.querySelector(".slider__dot");              // 닷 메뉴
+const sliderBtn = document.querySelector(".slider__btn");              // 버튼
+const sliderBtnPrev = document.querySelector(".slider__btn .prev");    // 왼쪽 버튼
+const sliderBtnNext = document.querySelector(".slider__btn .next");    // 오른쪽 버튼
+
+let currentIndex = 0;
+let sliderLength = slider.length;
+let sliderWidth = slider[0].offsetWidth;
+let sliderFirst = slider[0];
+let sliderLast = slider[sliderLength - 1];
+let cloneFirst = sliderFirst.cloneNode(true);
+let cloneLast = sliderLast.cloneNode(true);
+let dotIndex = "";
+
+sliderInner.appendChild(cloneFirst);
+sliderInner.insertBefore(cloneLast, sliderFirst);
+
+function init() {
+    // 이미지 갯수만큼 닷 메뉴 생기게
+    for (let i = 0; i < sliderLength; i++) {
+        dotIndex += "<a href='#' class='dot'></a>";
+    }
+    sliderDot.innerHTML = dotIndex;
+    sliderDot.firstElementChild.classList.add("active");
+}
+
+init();
+
+function gotoSlider(direction) {
+    sliderInner.classList.add('transition');
+    posInitial = sliderInner.offsetLeft;
+    sliderBtnPrev.classList.add('disable');
+    sliderBtn.classList.add('disable');
+    
+    if (direction === -1) {
+        sliderInner.style.left = (posInitial + sliderWidth) + "px";
+        currentIndex--;
+    } else if (direction === 1) {
+        sliderInner.style.left = (posInitial - sliderWidth) + "px";
+        currentIndex++;
+    }
+    
+    console.log("posInitial : ", posInitial);
+}
+
+// 순간이동
+function checkIndex() {
+    sliderInner.classList.remove('transition');
+    console.log("currentIndex : ", currentIndex)
+    // 마지막 이미지
+    if (currentIndex === sliderLength) {
+        sliderInner.style.left = `${-(1 * sliderWidth)}px`;
+        currentIndex = 0;
+    }
+    // 처음 이미지
+    else if (currentIndex === -1) {
+        sliderInner.style.left = `${-(sliderLength * sliderWidth)}px`;
+        currentIndex = sliderLength - 1;
+    }
+
+    // 닷 버튼 엑티브 바꿔주기
+    document.querySelectorAll('.slider__dot a').forEach(b => {
+            b.classList.remove('active');
+    });
+    document.querySelectorAll('.slider__dot a')[currentIndex].classList.add('active');
+}
+
+sliderBtnPrev.addEventListener("click", () => {
+    gotoSlider(-1);
+    setTimeout(() => {
+        sliderBtn.classList.remove('disable');
+    }, 300);
+});
+sliderBtnNext.addEventListener("click", () => {
+    gotoSlider(1);
+    setTimeout(() => {
+        sliderBtn.classList.remove('disable');
+    }, 300);
+});
+
+sliderInner.addEventListener('transitionend', checkIndex);
+
+// 닷 버튼 클릭
+document.querySelectorAll('.slider__dot a').forEach((a, index) => {
+    a.addEventListener('click', e => {
+        document.querySelectorAll('.slider__dot a').forEach(b => {
+            b.classList.remove('active');
+        });
+        a.classList.add('active');
+        sliderInner.style.left = `${-((index + 1) * sliderWidth)}px`;
+        currentIndex = index;
+    });
+});
+</code></pre>
+            </div>
+            <!-- // js -->
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

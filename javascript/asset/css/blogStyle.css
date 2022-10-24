@@ -1,0 +1,165 @@
+/* container */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* 메인 영역 */
+#main .main_sample {
+    margin-top: 40px;
+    border-top: 1px dashed #dcdcdc;
+    padding-top: 40px;
+}
+
+#main .main_sample h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+#main .main_sample p {
+    margin-bottom: 10px;
+    color: #666;
+}
+
+#main .main_sample .result {
+    margin-top: 10px;
+    margin-bottom: 80px;
+    background: #5e84eb49;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* sample */
+.sample {
+    margin-bottom: 100px;
+}
+
+.sample .table {
+    margin-bottom: 10px;
+}
+
+.sample .table table {
+    width: 100%;
+    border: 1px solid #e6e6e6;
+}
+
+.sample .table tr th {
+    background-color: #f5f5f5;
+}
+
+.sample .table tr td {
+    border: 1px solid #e6e6e6;
+    text-align: center;
+    padding: 6px;
+}
+
+.sample .table tr td[class *="_P"] {
+    color: #fff;
+}
+
+.sample .table tr td[class *="_P"]:hover {
+    color: #000;
+    cursor: pointer;
+}
+
+.sample .table.left tr td{
+    text-align: left;
+}
+
+.sample .table.left tr td.ce{
+    text-align: center;
+}
+
+.sample .box {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.sample .view {
+    border: 1px solid #e6e6e6;
+    padding: 30px 20px 20px 20px;
+}
+
+#main .main_sample .sample h3.blue{
+    background: #a2cbfa;
+    padding: 10px 20px;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 0px;
+    color: #fff;
+} 
+
+.sample .sbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 400px;
+    height: 200px;
+    padding: 20px;
+    background-color: #a2cbfa;
+    border: 1px solid #4390e1;
+    margin: 20px auto;
+    text-align: center;
+    color: #fff;
+}
+
+.sample .sbox::after {
+    content: '';
+    width: 480px;
+    height: 280px;
+    border: 1px dashed #4390e1;
+    position: absolute;
+    left: -21px;
+    top: -21px;
+}
+
+.sample .sbox::before {
+    content: '';
+    width: 398px;
+    height: 198px;
+    border: 1px dashed #4390e1;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+.sample .sResult {
+    text-align: center;
+    padding-top: 10px;
+}
+.sample .button{
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+    border-top: none;
+}
+
+.sample .button a{
+    border: 1px solid #4390e1;
+    color: #0243f1;
+    border-radius: 40px;
+    margin: 5px;
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+.sample .button a:hover{
+    background-color: #4390e1;
+    color: #fff;
+}
+@media(max-width : 800px) {
+    .sample .table {
+        overflow-x: scroll;
+    }
+
+    .sample .table table {
+        width: 780px;
+    }
+
+    .sample .table tr td[class *="_P"] {
+        color: #000;
+    }
+}

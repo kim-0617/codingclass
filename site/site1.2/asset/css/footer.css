@@ -1,0 +1,41 @@
+#footerType {
+    width: 100%;
+    padding: 0px 0px 40px 0px;
+    background-color: #202020;
+    color: #555555;
+}
+
+.footer__inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 120px;
+}
+
+.footer__inner img {
+    width: 100px;
+    height: 70px;
+}
+
+.footer__inner .desc .menu {
+    display: flex;
+    justify-content: space-between;
+    ;
+    margin-bottom: 40px;
+}
+
+.footer__inner .desc .menu p {
+    color: #fff;
+    font-weight: bold;
+}
+
+.footer__inner .desc .menu span {
+    color: #555555;
+}
+
+.footer__inner .desc .one{
+    margin-bottom: 20px;
+}
+.footer__inner .desc .two{
+    margin-bottom: 20px;
+}
+.footer__inner .desc .three{}

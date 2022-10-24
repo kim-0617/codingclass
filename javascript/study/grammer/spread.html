@@ -1,0 +1,155 @@
+<div class="document">
+    <h2 class="t_tit">펼침 연산자란</h2>
+    <p class="t_desc2">
+        간단히 말해서, 배열에 포함된 항목을 목록으로 바꿔주는 연산자입니다. <br>
+        마침표 세 개(...)로 표시한다. 펼침 연산자는 단독으로 쓰일 수 없음에 주의해야 합니다.<br>
+        배열에 포함된 항목을 목록으로 바꿨다면 이를 배열이나 객체 등에 담아줘야 합니다. <br>
+    </p>
+
+    <h3 title="t_tit2">예시</h3>
+    <p class="t_box">
+        const arr = [1, 2, 3];<br>
+        const a = ...arr; // X <br>
+        const a = [...arr]; // O <br>
+    </p>
+
+    <h3 class="t_tit2">펼침연산자 복사</h3>
+    <p class="t_desc">...연산자로 객체를 복사할 수 있습니다. 배열도 마찬가지죠?</p>
+    <div class="t_code">
+<pre><code class="lanauage-js">const obj = {
+    a : 100,
+    b : 200,
+    c : 'javascript',
+}
+
+const spread = {...obj};
+
+document.write(spread.a);
+document.write(spread.b);
+document.write(spread.c);
+</code></pre>
+    </div>
+    <div class="t_result">
+        <details>
+            <summary>결과 확인하기</summary>
+            <div class="result01">100<br>200<br>javascript<br></div>
+        </details>
+    </div>
+    <!-- //result01 -->
+
+    <h3 class="t_tit2">펼침연산자 추가</h3>
+    <p class="t_desc">1번처럼 객체를 복사하고, 새로운 데이터를 삽입할 수 있겠죠?</p>
+    <div class="t_code">
+<pre><code class="lanauage-js">const obj = {
+    a : 100,
+    b : 200,
+    c : 'javascript',
+}
+
+const spread = {...obj, d:"jquery",};
+
+document.write(spread.a);
+document.write(spread.b);
+document.write(spread.c);
+document.write(spread.d);
+</code></pre>
+    </div>
+    <div class="t_result">
+        <details>
+            <summary>결과 확인하기</summary>
+            <div class="result02">100<br>200<br>javascript<br>jquery</div>
+        </details>
+    </div>
+    <!-- //result02 -->
+
+    <h3 class="t_tit2">펼침연산자 결합</h3>
+    <p class="t_desc">...객체, ...객체로 객체끼리의 결합을 할 수 있습니다. 배열도 마찬가지죠?</p>
+    <div class="t_code">
+<pre><code class="lanauage-js">const objA = {
+    a : 100,
+    b : 200,
+}
+
+const objB = {
+    c : 'javascript',
+    d : 'jquery',
+}
+
+const spread = {...objA, ...objB};
+document.write(spread.a);
+document.write(spread.b);
+document.write(spread.c);
+document.write(spread.d);
+</code></pre>
+    </div>
+    
+    <div class="t_result">
+        <details>
+            <summary>결과 확인하기</summary>
+            <div class="sample20_result">
+                100 <br>
+                200 <br>
+                javascript <br>
+                jquery
+            </div>
+        </details>
+    </div>
+    <!-- //result03 -->
+
+    <h3 class="t_tit2">비구조화 할당</h3>
+    <p class="t_desc">비구조화 할당이란 객체의 속성을 해체하여 그 값을 개별 변수에 담을 수 있게 하는 문법입니다.</p>
+    <div class="t_code">
+<pre><code class="lanauage-js">const obj = {
+    a : 100,
+    b : 200,
+    c : 'javascript',
+}
+
+const {a,b,c} = obj;
+
+document.write(a);
+document.write(b);
+document.write(c);
+</code></pre>
+    </div>
+    <div class="t_result">
+        <details>
+            <summary>결과 확인하기</summary>
+            <div class="sample22_result">
+                100 <br>
+                200 <br>
+                javascript
+            </div>
+        </details>
+    </div>
+    <!-- //result04 -->
+
+    <h3 class="t_tit2">비구조화 할당 : 변수명 변경</h3>
+    <p class="t_desc">비구조화 할당을 할 때, 꼭 객체의 정해진 키값을 써야하는 건 아닙니다.</p>
+    <div class="t_code">
+<pre><code class="lanauage-js">const obj = {
+    a : 100,
+    b : 200,
+    c : 'javascript',
+}
+
+const {a : name1, b : name2, c : name3} = obj;
+
+document.write(name1);
+document.write(name2);
+document.write(name3);
+</code></pre>
+    </div>
+    
+    <div class="t_result">
+        <details>
+            <summary>결과 확인하기</summary>
+            <div class="sample23_result">
+                100 <br>
+                200 <br>
+                javascript
+            </div>
+        </details>
+    </div>
+    <!-- //result05 -->
+</div>

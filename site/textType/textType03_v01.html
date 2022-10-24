@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text03</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+        .nexon {
+            font-family: 'NexonLv1Gothic';
+            font-weight: 400;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section>p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .ir {
+            display: block;
+            overflow: hidden;
+            font-size: 0;
+            line-height: 0;
+            text-indent: -9999px;
+        }
+
+        /* textType 03 */
+        body{
+            background-color: #F6F8FD;
+        }
+
+        .text__inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .text {
+            width: 29%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+
+        .top {
+            height: 195px;
+            border-bottom: 1px solid #f5f5f5d7;
+            margin-bottom: 20px;
+        }
+
+        .top .desc {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .middle {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .middle .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 20px;
+            background: url('./img/icon2.svg') no-repeat;
+            background-position: 17px 19px;
+        }
+
+        .text:nth-child(1) .middle .icon{background-color: #EDEEFC;}
+        .text:nth-child(2) .middle .icon{background-color: #F7E2E1; background-position: -33px 19px;}
+        .text:nth-child(3) .middle .icon{background-color: #E4FEC9; background-position: -83px 19px;}
+
+        .middle .name {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .middle .name p {
+            font-size: 24px;
+        }
+
+        .middle .name p span {
+            font-size: 18px;
+        }
+
+        .middle .star {
+            width: 100%;
+            height: 25px;
+            background: url(./img/5star.png) no-repeat;
+        }
+
+        .text:nth-child(2) .middle .star{
+            background: url(./img/4star.png) no-repeat;
+        }
+
+        .bot {
+            border-top: 1px solid #f5f5f5d7;
+        }
+
+        .bot a {
+            display: block;
+            margin: 0 auto;
+            width: 130px;
+            height: 30px;
+            border-radius: 50px;
+            color: #fff;
+            background-color: #4B57E3;
+            text-align: center;
+            line-height: 30px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="textType03" class="text__wrap nexon section">
+        <h2>스터디 후기</h2>
+        <p>웹디자이너, 웹퍼블리셔, 프론트앤드 개발자 멤버를 소개합니다.</p>
+        <div class="text__inner container">
+            <!-- 01 -->
+            <div class="text">
+                <div class="top">
+                    <p class="desc">
+                        불과 3달전만 해도 여러 원인들로 인해 자
+                        존감이 밑바닥이였던 저에게 이 스터디는
+                        너무 소중한 시간이었어요. 매일 마음속
+                        으로 울고싶다를 외쳤던 저였는데 이제는
+                        조금이나마 이겨낼 수 있을 것 같네요.
+                        다음에 선생님 만났을 때는 많이 발전해
+                        있는 제가 되었으면 좋겠네요...
+                    </p>
+                </div>
+
+                <div class="middle">
+                    <div class="icon"><span class="ir">this is image</span></div>
+                    <div class="name">
+                        <p>이태용 웹스 <span>24기</span></p>
+                        <div class="star"></div>
+                    </div>
+                </div>
+
+                <div class="bot">
+                    <a href="#">자세히 보기</a>
+                </div>
+            </div>
+
+            <!-- 02 -->
+            <div class="text">
+                <div class="top">
+                    <p class="desc">
+                        진심 학교나 학원보다 더 많이 배운거라
+                        고 생각하고, 무지하고 말안듣고 자존감
+                        바닥인 저를 팩폭도 해주시고, 버리지 않
+                        아주셔서 감사...합니다 쌤!!!!!!!!
+                        회사에서 잘리지 않고,,,, 존버하겠습니
+                        다!!!!!!!!!!!
+                    </p>
+                </div>
+
+                <div class="middle">
+                    <div class="icon"><span class="ir">this is image</span></div>
+                    <div class="name">
+                        <p>이희진 웹스 <span>24기</span></p>
+                        <div class="star"></div>
+                    </div>
+                </div>
+
+                <div class="bot">
+                    <a href="#">자세히 보기</a>
+                </div>
+            </div>
+            
+            <!-- 03 -->
+            <div class="text">
+                <div class="top">
+                    <p class="desc">
+                        제가 게을러서 의도치 않게 자꾸 말을 안
+                        듣는 학생이 되었었지만 정말 선생님 말
+                        씀 틀린거 하나도 없었다는거 잘 알고있
+                        습니다,,, ㅎㅎ
+                        아 그리고 마지막 하고 싶은 말은 저 새
+                        벽 5~6시에 자는 ㄹㅇ올빼미형인간인
+                        데.... 쌤이랑 두달 공부했다고 ....
+                    </p>
+                </div>
+
+                <div class="middle">
+                    <div class="icon"><span class="ir">this is image</span></div>
+                    <div class="name">
+                        <p>정승연 웹스 <span>24기</span></p>
+                        <div class="star"></div>
+                    </div>
+                </div>
+
+                <div class="bot">
+                    <a href="#">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

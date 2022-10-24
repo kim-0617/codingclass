@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="asset/css/dracula.css">
+    <link rel="stylesheet" href="../html/asset/css/style.css">
+    <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/base16/solarized-light.min.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김성현</span>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <nav class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초문법</a></li>
+                <li><a href="block.html">블록구조 / 인라인구조</a></li>
+                <li><a href="web.html">웹표준 / 웹접근성 / 웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li class="active"><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </nav>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">GSAP 소개</h2>
+                <p class="t_desc">
+                    GSAP는 GrennSock에서 만든 자바스크립트 애니메이션 라이브러리입니다.
+                    일반적으로 애니메이션 효과는 CSS로 처리하거나 제이쿼리(JQuery)에서 제공하는 메서드를 사용하는게 정석이죠?
+                    하지만 그 이상의 복잡한 애니메이션을 구현하려면 다른 도구의 힘을 빌려야 하는데  GSAP가 그 중 하나입니다.
+                    GSAP는 제이쿼리보다 20배 이상 퍼포먼스가 좋고 사용법도 간단하다고 주장하는데 그만큼 사용법도 복잡하고 헷갈리죠.
+                    그렇다면 GSAP로 애니메이션을 구현하기 전에 기초부터 배워봐야 겠죠?
+                </p>
+
+                <hr>
+                <h3 class="tit_2" style="margin-top: 40px;">사용준비</h3>
+                <p class="t_desc2">
+                    사용하려면 cdn을 이용해서 간단하게 사용해볼 수 있습니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-js">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"&gt;&lt;/script&gt;
+</code></pre>
+                </div>
+
+                <hr>
+                <h3 class="tit_2" style="margin-top: 40px;">사용법 익히기</h3>
+                <p class="t_desc2">
+                    가장 간단한 to("대상", {효과}) 메서드 부터 알아보겠습니다. to 메서드는 대상을 지정하고
+                    대상에 지정한 효과를 걸 수 있습니다. 다음은 .slider__inner 박스에 0.6s 동안 지정한 수치 만큼 translateX()
+                    한다는 효과를 주는 코드입니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-js">gsap.to(".slider__inner", {
+    duration : 0.6,
+    x : -800 * currentIndex,
+});
+</code></pre>
+                </div>
+                
+                <hr>
+                <h3 class="tit_2" style="margin-top: 40px;">마치며...</h3>
+                <p class="t_desc2">
+                    from(), fromTo(), set()와 같은 다양한 메서드들이 있습니다. 기회가 되면 소개할 자리가 있을겁니다.
+                    안녕히 계세요 🙋‍♂️
+                </p>
+            </div>
+        </div>
+    </main>
+    <!-- // main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- // footer -->
+    <script src="asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

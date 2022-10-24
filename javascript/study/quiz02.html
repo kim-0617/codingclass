@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈 이펙트 02</title>
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">퀴즈만들기!</h2>
+                <p class="t_desc2">
+                    웹 디자인 기능사 필기 기출문제를 JS를 이용해서 간단한 퀴즈 프로그램을 만들어 보겠습니다. <br>
+                    퀴즈의 답을 입력하고 정답 확인하기 버튼을 누르면 답이 나타나게 됩니다. <br>
+                    또한 답의 정답 여부에 따라 강아지의 표정도 바뀌니 주목해주세요! <br>
+                    2번까지만 클릭해주세요.
+                </p>
+            <div class="t_frame" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-0617.github.io/coding/javascript/effect/quizEffect02.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/kim-0617/coding/blob/main/javascript/effect/quizEffect02.html" target="_blank">원본 사이트 보기</a>
+            </div>
+            <hr>
+
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">
+                header, main, footer로 이루어져 있고, main .quiz__wrap 부분에 dog 클래스로 강아지를 표현합니다.
+                이번엔 객관식 유형이기 때문에 input 태그를 넣어줘서 사용자의 입력을 받습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;header id="header"&gt;
+    &lt;h1&gt;&lt;a href="../javascript01.html"&gt;Quiz &lt;/a&gt;&lt;em&gt;주관식 유형&lt;/em&gt;&lt;/h1&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="quizEffect01.html"&gt;1&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="active"&gt;&lt;a href="quizEffect02.html"&gt;2&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="quizEffect03.html"&gt;3&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="quizEffect04.html"&gt;4&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="quizEffect05.html"&gt;5&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="quizEffect06.html"&gt;6&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+&lt;!-- // header --&gt;
+
+&lt;main id="main"&gt;
+    &lt;div class="quiz__wrap"&gt;
+        &lt;div class="quiz"&gt;
+            &lt;span class="quiz__type"&gt;&lt;/span&gt;
+            &lt;h2 class="quiz__question"&gt;
+                &lt;span class="number"&gt;&lt;/span&gt;
+                &lt;div class="ask"&gt;&lt;/div&gt;
+            &lt;/h2&gt;
+            &lt;div class="quiz__view"&gt;
+                &lt;div class="true"&gt;정답입니다!&lt;/div&gt;
+                &lt;div class="false"&gt;틀렸습니다!&lt;/div&gt;
+                &lt;div class="dog"&gt;
+                    &lt;div class="head"&gt;
+                        &lt;div class="ears"&gt;&lt;/div&gt;
+                        &lt;div class="face"&gt;&lt;/div&gt;
+                        &lt;div class="eyes"&gt;
+                            &lt;div class="teardrop"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="nose"&gt;&lt;/div&gt;
+                        &lt;div class="mouth"&gt;
+                            &lt;div class="tongue"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="chin"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="body"&gt;
+                        &lt;div class="tail"&gt;&lt;/div&gt;
+                        &lt;div class="legs"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="quiz__answer"&gt;
+                &lt;input type="text" class="input" placeholder="정답을 적어주세요!"&gt;
+                &lt;button class="confirm"&gt;정답 확인하기&lt;/button&gt;
+                &lt;div class="result"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+&lt;!-- // main --&gt;
+
+&lt;footer id="footer"&gt;
+    &lt;a href="mailto:kkk5993@naver.com"&gt;kkk5993@naver.com&lt;/a&gt;
+&lt;/footer&gt;
+&lt;!-- // footer --&gt;
+</code></pre>
+            </div>
+            <!-- // html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                적용하는 css는 1번과 비슷하지만 이번에는 정답일 때와 오답일 때 애니메이션 효과를 넣어서 표현해봤습니다. <br> 
+                애니메이션은 animation: 애니메이션 이름 적용할 시간; 으로 선언하고, @keyframes 애니메이션 이름 으로 각 프레임마다 동작효과를 주시면 됩니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">#header {
+    background: #262626;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+    z-index: 10;
+}
+
+#header::before {
+    content: "";
+    border: 4px ridge #a3a3a3;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    box-sizing: border-box;
+    z-index: -1;
+}
+
+#header h1 {
+    padding: 3px 3px 6px 10px;
+    font-family: "DungGeunMo";
+    font-size: 30px;
+    color: rgb(234, 129, 37);
+}
+
+#header a{
+    color: #fff;
+}
+
+#header h1 em {
+    font-size: 16px;
+    font-style: normal;
+    color: #fff;
+}
+
+@media(max-width : 600px) {
+    #header h1 em {
+        display: none;
+    }
+}
+
+#header nav {
+    padding-right: 10px;
+}
+
+#header nav li {
+    display: inline;
+}
+
+#header nav li.active a {
+    color: #000;
+    background: #fff;
+}
+
+#header nav li a {
+    color: #fff;
+    padding: 0 10px;
+    border: 1px dashed #fff;
+    font-family: "DungGeunMo";
+}
+
+#footer {
+    background: #fff;
+    text-align: center;
+    padding: 20px;
+    padding: auto;
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 10000;
+}
+
+#footer a {
+    color: #000;
+    font-family: "DungGeunMo";
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
+
+/* quiz__wrap */
+.quiz__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 150px;
+}
+
+.quiz__wrap .quiz {
+    max-width: 500px;
+    width: 100%;
+    background-color: #fff;
+    border: 8px ridge #cacaca;
+    margin: 10px;
+}
+
+.quiz__type {
+    background-color: #cacaca;
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    border: 3px ridge #cacaca;
+    color: #3b3b3b;
+    font-family: "DungGeunMo";
+    padding: 4px;
+}
+
+.quiz__question {
+    border-top: 6px ridge #cacaca;
+    border-bottom: 6px ridge #cacaca;
+    padding: 20px;
+    font-family: "Cafe24Dangdanghae";
+    line-height: 1.3;
+}
+
+.quiz__question .number {
+    color: rgb(234, 129, 37);
+}
+
+.quiz__question .ask {
+    display: inline;
+}
+
+.quiz__answer {
+    border-top: 6px ridge #cacaca;
+    padding: 10px;
+    background-color: #f5f5f5;
+}
+
+.quiz__answer .input {
+    width: 100%;
+    border: 6px ridge #cacaca;
+    font-size: 22px;
+    padding: 13px 20px;
+    background-color: #fff;
+    font-family: "Cafe24Dangdanghae";
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.quiz__answer .confirm {
+    border: 6px ridge #cacaca;
+    width: 100%;
+    font-size: 22px;
+    padding: 13px 22px;
+    background-color: #d6d6d6;
+    font-family: "Cafe24Dangdanghae";
+    cursor: pointer;
+}
+
+.quiz__answer .result {
+    width: 100%;
+    font-size: 22px;
+    padding: 13px;
+    border: 6px ridge #cacaca;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: "Cafe24Dangdanghae";
+}
+
+.dog {
+    padding-top: 50px;
+}
+
+.quiz__view {
+    background-color: #f5f5f5;
+    font-family: "Cafe24Dangdanghae";
+    position: relative;
+    overflow: hidden;
+}
+
+.quiz__view .true { /* 정답일 때 효과, 평소에는 투명도를 0으로해서 감춤 */
+    width: 120px;
+    height: 120px;
+    background-color: rgb(234, 129, 37);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 120px;
+    position: absolute;
+    left: 70%;
+    top: 100px;
+    opacity: 0;
+    color: #fff;
+}
+
+.quiz__view .false {
+    width: 120px;
+    height: 120px;
+    background-color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 120px;
+    position: absolute;
+    right: 70%;
+    top: 100px;
+    opacity: 0;
+}
+
+.quiz__view.like .true { /* 정답을 맞추면 .true클래스 보여주고 애니메이션 적용 */
+    opacity: 1;
+    animation: wobble 0.6s;
+}
+
+.quiz__view.dislike .false {
+    opacity: 1;
+    animation: wobble 0.6s;
+}
+
+@keyframes wobble { /* 애니메이션 효과 적용 (translateX : x축으로 이동, rotate : 회전) */
+    0% {
+        transform: translateX(0) rotate(0deg)
+    }
+
+    15% {
+        transform: translateX(-25%) rotate(-5deg)
+    }
+
+    30% {
+        transform: translateX(20%) rotate(3deg)
+    }
+
+    45% {
+        transform: translateX(-25%) rotate(-3deg)
+    }
+
+    60% {
+        transform: translateX(10%) rotate(2deg)
+    }
+
+    75% {
+        transform: translateX(-5%) rotate(-1deg)
+    }
+
+    100% {
+        transform: translateX(0) rotate(0deg)
+    }
+}
+</code></pre>
+            </div>
+            <!-- // css -->
+
+            <h3 class="t_tit2">js</h3>
+            <p class="t_desc">태그들을 선택해주고, 정답 확인하기 버튼을 클릭했을 때 event를 걸어줍니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">// 선택자
+    const quizType = document.querySelector('.quiz__type'); // 퀴즈 종류
+    const quizNumber = document.querySelector('.quiz__question .number') // 퀴즈 번호
+    const quizAsk = document.querySelector('.quiz__question .ask'); // 퀴즈 질문
+    const quizInput = document.querySelector('.quiz__answer .input'); // 사용자 정답
+    const quizConfirm = document.querySelector('.quiz__answer .confirm'); // 정답 확인  버튼
+    const quizResult = document.querySelector('.quiz__answer .result'); // 정답 결과
+    const quizView = document.querySelector('.quiz__view'); // 정답 표시
+
+    // 문제 정보
+    const answerType = "웹디자인기능사";
+    const answerNum = "2";
+    const answerAsk = "기업의 새로운 이념 구축에 필요한 이미지와 커뮤니케이션 시스템을 의도적, 계획적으로 만들어 내는 기억이미지 통합 전략은 무엇인가요?"
+    let answerResult = "CIP";
+
+    // 문제 출력
+    quizType.textContent = answerType;
+    quizNumber.textContent = answerNum + ".";
+    quizAsk.textContent = answerAsk;
+    quizResult.textContent = "정답은 : "  + answerResult + " 입니다.";
+
+    // 정답 숨기기
+    quizResult.style.display = 'none';
+
+    // 정답 확인, 클릭했을 때 이벤트 발생
+    quizConfirm.addEventListener('click',() => {   
+        // 사용자 정답
+        const userWord = quizInput.value.toLowerCase().trim(); // 소문자로, 공백제거
+        answerResult = answerResult.toLowerCase().trim(); // 소문자로, 공백제거
+        
+        // 사용자 정답이랑 문제정답이 같은가
+        if(userWord === answerResult){
+            // 정답
+            quizView.classList.add('like');
+            quizResult.style.display = 'block';
+        }
+        else{
+            // 오답
+            quizView.classList.add('dislike');
+        }
+        quizInput.style.display = 'none'; // 정답 버튼을 클릭하면 입력창 없애주고..
+        quizConfirm.style.display = 'none'; // 버튼도 없애준다..
+    })
+</code></pre>
+            </div>
+            <!-- // js -->
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

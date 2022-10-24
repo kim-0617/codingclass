@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dog_animation</title>
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+    <link rel="stylesheet" href="../asset/css/style.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">SVG를 이용한 TEXT 에니메이션</h2>
+            <p class="t_desc2">
+                안녕하세요. SVG를 이용한 텍스트 애니메이션을 보여드릴게요.
+            </p>
+
+            <hr>
+            <h3 class="t_tit2">SVG가 무엇일까?</h3>
+            <p class="t_box">
+                SVG는 Scalable Vector Graphics의 약자로서, 번역을 하게되면 확장이 가능한 벡터 그래픽이라는 뜻 입니다.
+                픽셀과는 다르게 벡터 기반으로 이미지를 표현하고, 크기를 키우고 줄여도 이미지가 깨지지않고 용량이 적기 때문에 웹에서 자주 사용하는 이미지 형식입니다.
+            </p>
+
+            <hr>
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">
+                1. SVG의 viewBox 란 SVG요소가 그려지는 영역에서, SVG의 크기를 확대 축소 또 위치를 조정 할 수 있는 속성입니다. <br>
+                2. viewBox 가 없어도 SVG를 화면에 출력할 수 있지만 이는 요소의 크기가 고정되어 viewBox를 이용해 반응형으로 만들어 주는 것 입니다. <br>
+                3. 위 &lt;svg viewBox="0 0 1320 300"&gt; 은 순서대로 &lt;min-x&gt;, &lt;min-y&gt;, &lt;width&gt;, &lt;height&gt; 의 순서입니다. <br>
+                4. &lt;text&gt; 태그는 SVG 그래픽 내에 텍스트를 마크업 할 때 사용하는 태그입니다. <br>
+                5. x축으로 50%, y축으로 50%, 요소의 위치에서 y축을 따라 40px 이동, 텍스트를 중앙 정렬해주는 속성 순 입니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;svg viewBox="0 0 1320 300"&gt;
+    &lt;text x="50%" y="50%" dy="40px" text-anchor="middle"&gt;
+        COGHODING
+    &lt;/text&gt;
+&lt;/svg&gt;
+</code></pre>
+            </div>
+            <!-- // html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                텍스트 애니메이션을 설정해줍니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">@font-face {
+    font-family: 'Tmon';
+    font-weight: normal;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/tmon/Tmon.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/tmon/Tmon.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/tmon/Tmon.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/tmon/Tmon.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/tmon/Tmon.ttf') format("truetype");
+    font-display: swap;
+}
+
+body{
+  background-color: #e3f2fd;
+}
+
+svg{
+  font-family: Tmon;
+  font-size: 140px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-transform: uppercase;
+  animation : stroke 5s infinite alternate;
+}
+
+@keyframes stroke{
+  0%{
+    stroke-dashoffset : 25%;
+    stroke-dasharray : 0 50%;
+    fill : rgba(72,138,204,0);
+    stroke : rgba(54,95,160,1);
+    stroke-width : 2;
+  }
+  70%{
+    fill : rgba(72,138,204,0);
+    stroke : rgba(54,95,160,1);
+  }
+  80%{
+    fill : rgba(72,138,204,0);
+    stroke : rgba(54,95,160,1);
+  }
+  100%{
+    stroke-dashoffset : -25%;
+    stroke-dasharray : 50% 0%;
+    fill : rgba(72,138,204,1);
+    stroke : rgba(54,95,160,0);
+    stroke-width : 0;
+  }
+}
+</code></pre>
+            </div>
+            <!-- // css -->
+
+            <hr>
+            <h3 class="t_tit2">설명</h3>
+            <p class="t_desc">
+                1. stroke-dashoffset : stroke가 시작되는 위치를 변경하는데 사용됩니다. 숫자가 클수록 시작점으로부터 더 많이 띄워준 다음 시작을 합니다. <br>
+                2. stroke-dasharray : SVG 모양의 획에 대시를 만드는 데 사용됩니다. 숫자가 클수록 획의 대시 사이에 넓은 공간을 만듭니다. <br>
+                3. fill : 텍스트 색깔을 지정한느 속성입니다. <br>
+                4. stroke : 테두리를 지정하는 속성입니다. <br>
+                5. stroke-width : 테두리의 두께를 지정하는 속성입니다. <br> 
+            </p>
+
+            <hr>
+            <h3 class="t_tit2">결과</h3>
+            <p class="codepen" data-height="500" data-default-tab="result" data-slug-hash="VwxvbZQ" data-user="kim-0617" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/kim-0617/pen/VwxvbZQ">
+                text Animation</a> by kim-0617 (<a href="https://codepen.io/kim-0617">@kim-0617</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

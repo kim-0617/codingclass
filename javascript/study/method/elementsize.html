@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 배열메서드</title>
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+    <link rel="stylesheet" href="/javascript/asset/css/style.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">요소의 크기정보를 구하는 방법</h2>
+            <p class="t_desc2">
+                안녕하세요 이번시간에는 요소의 크기정보를 구하는 방법을 알려드리겠습니다.
+            </p>
+
+            <hr>
+            <h3 class="t_tit2">01. 요소 속성 : 크기 및 위치 : element.clientWidth : 요소의 가로 값(마진/보더 포함하지 않음)</h3>
+            <p class="t_box">
+                요소의 가로 값을 구합니다.
+            </p>
+            <h3 class="t_tit2">02. 요소 속성 : 크기 및 위치 : element.clientHeight : 요소의 세로 값(마진/보더 포함하지 않음)</h3>
+            <p class="t_box">
+                요소의 세로 값을 구합니다.
+            </p>
+            <h3 class="t_tit2">03. 요소 속성 : 크기 및 위치 : element.clientTop : 요소의 Y축 값(부모기준)</h3>
+            <p class="t_box">
+                요소의 Y축 값을 구합니다.
+            </p>
+            <h3 class="t_tit2">04. 요소 속성 : 크기 및 위치 : element.clientLeft : 요소의 X축 값(부모기준)</h3>
+            <p class="t_box">
+                요소의 X축 값을 구합니다.
+            </p>
+            <h3 class="t_tit2">05. 요소 속성 : 크기 및 위치 : element.offsetWidth : 요소의 가로 값(보더 / 패딩 포함)</h3>
+            <p class="t_box">
+                요소의 가로 값을 구합니다.
+            </p>
+            <h3 class="t_tit2">06. 요소 속성 : 크기 및 위치 : element.offsetHeight : 요소의 세로 값(보더 / 패딩 포함)</h3>
+            <p class="t_box">
+                요소의 세로 값을 구합니다.
+            </p>
+            <h3 class="t_tit2">07. 요소 속성 : 크기 및 위치 : element.offsetTop : 요소의 Y축 값(문서 기준)</h3>
+            <p class="t_box">
+                요소의 Y축 값을 구합니다.
+            </p>
+            <h3 class="t_tit2">08. 요소 속성 : 크기 및 위치 : element.offsetLeft : 요소의 X축 값(문서 기준)</h3>
+            <p class="t_box">
+                요소의 X축 값을 구합니다.
+            </p>
+            <h3 class="t_tit2">09. 요소 메서드 : 크기 및 위치 : element.getBoundingClientRect() : 요소의 크기 및 위치정보 : top, left,
+                right, bottom, x, y, width, height</h3>
+            <p class="t_box">
+                요소의 위치 정보를 구합니다.
+            </p>
+
+            <hr>
+            <h3 class="t_tit2">요약</h3>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>속성/메서드 이름</th>
+                        <th>설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">01</td>
+                        <td class="ce">element.clientWidth</td>
+                        <td class="ce">요소의 가로값(마진/보더 미포함)</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">02</td>
+                        <td class="ce">element.clientHeight</td>
+                        <td class="ce">요소의 높이값(마진/보더 미포함)</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">03</td>
+                        <td class="ce">element.clientTop</td>
+                        <td class="ce">요소의 Y축값(부모기준)</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">04</td>
+                        <td class="ce">element.clientLeft</td>
+                        <td class="ce">요소의 X축값(부모기준)</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">05</td>
+                        <td class="ce">element.offsetWidth</td>
+                        <td class="ce">요소의 가로값(보더/패딩 포함)</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">06</td>
+                        <td class="ce">element.offsetHeight</td>
+                        <td class="ce">요소의 가로값(보더/패딩 포함)</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">07</td>
+                        <td class="ce">element.offsetTop</td>
+                        <td class="ce">요소의 Y축값(문서 기준)</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">08</td>
+                        <td class="ce">element.offsetLeft</td>
+                        <td class="ce">요소의 X축값(문서 기준)</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">09</td>
+                        <td class="ce">element.getBoundingClientRect()</td>
+                        <td class="ce">op, left, right, bottom, x, y, width, height</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr>
+            <h3 class="t_tit2">결과</h3>
+            <div class="t_frame">
+                <iframe height="1200" style="width: 100%;" scrolling="no" title="Untitled"
+                    src="https://codepen.io/kim-0617/embed/VwxZXJx?default-tab=result" frameborder="no" loading="lazy"
+                    allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/kim-0617/pen/VwxZXJx">
+                        Untitled</a> by kim-0617 (<a href="https://codepen.io/kim-0617">@kim-0617</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

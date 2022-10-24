@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 배열메서드</title>
+    <link rel="stylesheet" href="/javascript/asset/css/dracula.css">
+    <link rel="stylesheet" href="/javascript/asset/css/style.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">자료형</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수 / 전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+                <li><a href="joinpushpop.html">배열 메서드</a></li>
+                <li><a href="Built-in Functions.html">내장 함수</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">마우스 이벤트 - mouseover vs mouseenter</h2>
+            <p class="t_desc">
+                안녕하세요, 이번시간에는 마우스 이벤트 mouseover와 mouseenter의 차이점을 알아보도록 하겠습니다.
+                이 두 메서드는 해당요소에 마우스를 올려놓았을 때 발생되는 이벤트 입니다.
+            </p>
+            <p class="t_box">
+                window.addEventListener("mouseover",() => {}) <br>
+                window.addEventListener("mouseenter",() => {})
+            </p>
+
+            <hr>
+            <h3 class="t_tit2">mouseover</h3>
+            <p class="t_desc">
+                mouseover는 이벤트 버블링 형식으로 동작합니다.
+                즉, 본인의 자식요소에 마우스를 가져다 놔도 본인의 자식요소부터 본인까지 이벤트가 전파됩니다.
+            </p>
+
+            <hr>
+            <h3 class="t_tit2">mouseenter</h3>
+            <p class="t_desc">
+                mouseenter는 그와 반대로, 딱 본인요소에 해당하는 부분만 반응합니다.
+            </p>
+
+            <hr>
+            <h3 class="t_tit2">결과</h3>
+            <p class="codepen" data-height="1000" data-default-tab="result" data-slug-hash="jOxEGgY" data-user="kim-0617"
+                style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/kim-0617/pen/jOxEGgY">
+                        mouseover vs mouseenter</a> by kim-0617 (<a href="https://codepen.io/kim-0617">@kim-0617</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="/javascript/asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

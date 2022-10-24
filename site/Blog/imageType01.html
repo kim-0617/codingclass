@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/base16/solarized-light.min.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김성현</span>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <nav class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초문법</a></li>
+                <li><a href="block.html">블록구조 / 인라인구조</a></li>
+                <li><a href="web.html">웹표준 / 웹접근성 / 웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li class="active"><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </nav>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">이미지 레이아웃 01</h2>
+                <p class="t_desc">
+                    이번에 소개해드릴 유형은 이미지 레이아웃 입니다. 이미지 안에 텍스트가 있는 형태입니다. 간단하죠?
+                    그림으로 먼저 보시겠습니다.
+                </p>
+                <div class="t_frame">
+                    <iframe width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fpm3ghQhBqbBolleXCZYmYa%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D1136%253A168" allowfullscreen></iframe>
+                </div>
+
+                <h3 class="tit_2" style="margin-top: 30px;">html</h3>
+                <p class="t_desc2">
+                    html 구조입니다. 간단합니다. 제목, 설명, 자세히보기가 image 영역안에 포함되어 있습니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-html">&lt;section id="imageType01" class="image__wrap nexon section"&gt;
+    &lt;h2&gt;강렬한 색감은 사람을 이끈다&lt;/h2&gt;
+    &lt;p&gt;이렇게 강렬한 사람을 본적 있습니까? 이게 바로 색의 효과입니다.  빨강색은 뭐든 돋보기에 해주죠&lt;/p&gt;
+    &lt;div class="image__inner container"&gt;
+        &lt;article class="image img1"&gt;
+            &lt;h3 class="image__title"&gt;빨강은 강렬한 색채의 상징&lt;/h3&gt;
+            &lt;p class="image__desc"&gt;
+                빨강은 무척이나 강렬한 색채입니다. 
+                색 그자체가 의미하는 바도 명확하구요. 
+                이렇게 무채색 계열에 빨강을 입히면 주목성을 이끌 수 있습니다...
+            &lt;/p&gt;
+            &lt;a href="#" title = "자세히 보기" class="image__btn"&gt;자세히 보기&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="image img2"&gt;
+            &lt;h3 class="image__title"&gt;쓸쓸한 느낌의 검정&lt;/h3&gt;
+            &lt;p class="image__desc"&gt;
+                그림에서 무엇이 연상되시나요? 
+                고독.. 겨울.. 기약없는 기다림... 이러한 것들이 내포되어 있죠.. 
+                검정색의 배경은 사람을 참 쓸쓸하게 하죠?
+            &lt;/p&gt;
+            &lt;a href="#" title = "자세히 보기" class="image__btn yellow"&gt;자세히 보기&lt;/a&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+                </div>
+
+                <h3 class="tit_2" style="margin-top: 30px;">css</h3>
+                <p class="t_desc2" style="margin-bottom: 30px;">
+                    css 부분 입니다. image 부분을 display:flex로 정렬해 주고, 피그마로 미리 만들어 두었던 간격과 font-size대로 
+                    css 작업을 해줍니다. image클래스 내부에 css를 이용해서 (background) 배경이미지를 넣습니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">.image__inner{
+    display: flex;
+    justify-content: space-between;
+}
+.image{
+    width: 49%;
+    height: 370px;
+    color: #fff;
+    padding : 200px 30px 30px 30px;
+    box-sizing: border-box;
+}
+.image.img1{
+    background: url('./img/imgType01_01.jpg') no-repeat center;
+}
+.image.img2{
+    background: url('./img/imgType01_02.jpg') no-repeat center;
+}
+.image__title{
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+.image__desc{
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.image__btn{
+    font-size: 16px;
+    color: #fff;
+    background-color: #99420F;
+    padding: 10px 20px;
+    display: inline-block;
+}
+.image__btn.yellow {
+    background-color: #464444;
+}
+</code></pre>
+                </div>
+
+                <h3 class="tit_2" style="margin-top: 30px;">결과</h3>
+                <div class="t_frame" style="min-height: 800px; padding-top: 0;">
+                    <iframe src="https://kim-0617.github.io/coding/site/imageType/imageType01.html" frameborder="0"></iframe>
+                </div>
+                <div class="t_link" style="display: flex;">
+                    <a href="https://kim-0617.github.io/coding/site/imageType/imageType01.html" target="_blank">실제 사이트 보기</a>
+                    <a href="https://github.com/kim-0617/coding/blob/main/site/imageType/imageType01.html" target="_blank">깃허브 소스 보기</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- // main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- // footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

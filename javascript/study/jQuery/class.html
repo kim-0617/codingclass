@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="/javascript/asset/css/dracula.css">
+    <link rel="stylesheet" href="/javascript/asset/css/style.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김성현</span>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">jQuery 클래스 관련 메서드</h2>
+            <p class="t_desc">
+                클래스를 제어할 수 있는 메서드들을 소개해드리겠습니다.
+            </p>
+
+            <hr>
+            <h3 class="tit_2">addClass() 메서드</h3>
+            <p class="t_desc">요소에서 class 속성을 추가합니다.</p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>실행분류</th>
+                        <th>형식</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">추가</td>
+                        <td>$('div').addClass("클래스명");</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">콜백 함수</td>
+                        <td>$('div').addClass(function(index, className) {<br> // index는 각 div 요소의 index 0,1,2<br> //
+                            className은 각 div의 class 속성<br> return class 속성 // 각 div에 class 속성을
+                            추가합니다.<br>});<br><br>....<br>&lt;div&gt;내용1&lt;/div&gt;<br>&lt;div&gt;내용2&lt;/div&gt;<br>&lt;div&gt;내용3&lt;/div&gt;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 class="t_tit2">결과</h3>
+            <p class="codepen" data-height="500" data-default-tab="html,result" data-slug-hash="eYrYExG"
+                data-user="kim-0617"
+                style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/kim-0617/pen/eYrYExG">
+                        jQueryClass</a> by kim-0617 (<a href="https://codepen.io/kim-0617">@kim-0617</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+            <hr>
+            <h3 class="tit_2">removeClass() 메서드</h3>
+            <p class="t_desc">요소에서 class 속성을 제거합니다.</p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>실행분류</th>
+                        <th>형식</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">제거</td>
+                        <td>$('div').removeClass("클래스명");</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">콜백 함수</td>
+                        <td>$('div').addClass(function(index, className) {<br> // index는 각 div 요소의 index 0,1,2<br> //
+                            className은 각 div의 class 속성<br> return class 속성 // 각 div에 class 속성을
+                            제거합니다.<br>});<br><br>....<br>&lt;div class="m1"&gt;내용1&lt;/div&gt;<br>&lt;div
+                            class="m2"&gt;내용2&lt;/div&gt;<br>&lt;div class="m3"&gt;내용3&lt;/div&gt;</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 class="t_tit2">결과</h3>
+            <p class="codepen" data-height="500" data-default-tab="html,result" data-slug-hash="ZEoEJPJ"
+                data-user="kim-0617"
+                style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/kim-0617/pen/ZEoEJPJ">
+                        jQueryClass02</a> by kim-0617 (<a href="https://codepen.io/kim-0617">@kim-0617</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+            <hr>
+            <h3 class="tit_2">toggleClass() 메서드</h3>
+            <p class="t_desc">요소에 class 속성이 없으면 addClass()가 적용되고 class 속성이 있으면 removeClass() 메서드가 적용됩니다.</p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>실행분류</th>
+                        <th>형식</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">추가, 제거</td>
+                        <td>$('div').toggleClass("클래스명");</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 class="t_tit2">결과</h3>
+            <p class="t_desc2">
+                // this는 li a.m이고 next()를 하면 ul, addBack을 하면 this와 ul 모두 선택해서 toggle("on") <br>
+                // this에 on이 들어가면  주황색 회색 글씨로 토글되고 ul에 on이 들어가면 block과 none으로 토글됩니다. <br>
+                $(this).next().addBack().toggleClass("on"). <br>
+                // 다른 메뉴들을 초기화 시킵니다 (안보이게) <br>
+                end().find(".m, ul").removeClass("on").end().parent().siblings(). <br>
+                // 자신의 하위 메뉴들과 하위 서브 메뉴들을 초기화 시킵니다. <br>
+                find(".m, ul").removeClass("on");
+            </p>
+            <p class="codepen" data-height="500" data-default-tab="html,result" data-slug-hash="RwywZOm"
+                data-user="kim-0617"
+                style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/kim-0617/pen/RwywZOm">
+                        jQueryClass03</a> by kim-0617 (<a href="https://codepen.io/kim-0617">@kim-0617</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+            <hr>
+            <h3 class="tit_2">toggleClass() 메서드</h3>
+            <p class="t_desc">if문의 조건식으로 많이 사용되죠. 선택한 요소 클래스가 있으면 true, 없으면 false를 반환합니다.</p>
+            <div class="t_code">
+                <pre><code language-js>if($("#box").hasClass("m")) {
+    console.log("클래스 있음"); // 있으면 여기
+}
+else{
+    console.log("클래스 없음"); // 없으면 여기
+}
+</code></pre>
+            </div>
+
+        </div>
+    </main>
+    <!-- // main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- // footer -->
+    <script src="/javascript/asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

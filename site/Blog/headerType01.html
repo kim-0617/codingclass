@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/base16/solarized-light.min.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김성현</span>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <nav class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초문법</a></li>
+                <li><a href="block.html">블록구조 / 인라인구조</a></li>
+                <li><a href="web.html">웹표준 / 웹접근성 / 웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li class="active"><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </nav>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">헤더 유형01</h2>
+                <p class="t_desc">
+                    안녕하세요! 헤더 유형01 입니다. 헤더는 모두 아시죠? 페이지 위에 있는 기다란거 있잖아요? 간단한만큼 분량도 적습니다.
+                </p>
+                <div class="t_frame">
+                    <iframe width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fpm3ghQhBqbBolleXCZYmYa%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D2555%253A1888" allowfullscreen></iframe>
+                </div>
+
+                <h3 class="tit_2" style="margin-top: 30px;">html</h3>
+                <p class="t_desc2">
+                    html 구조입니다. header__inner 안에 header__logo, header__menu, header__member 3부분으로 구성되고 이걸 정렬해주면 끝입니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-html">&lt;section id="headerType" class="header__wrap nexon"&gt;
+    &lt;div class="header__inner"&gt;
+        &lt;div class="header__logo"&gt;
+            &lt;a href="#"&gt;Web &lt;em&gt;Site&lt;/em&gt;&lt;/a&gt;
+        &lt;/div&gt;
+
+        &lt;nav class="header__menu"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#"&gt;헤더 영역&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;슬라이드 영역&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;배너 영역&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;컨텐츠 영역&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;푸터 영역&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+
+        &lt;div class="header__member"&gt;
+            &lt;a href="#"&gt;로그인&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+                </div>
+
+                <h3 class="tit_2" style="margin-top: 30px;">css</h3>
+                <p class="t_desc2" style="margin-bottom: 30px;">
+                    css 부분 입니다. 앞서 말씀드렸듯이 flex로 정렬하고 영역을 잡아준 뒤, font-size나 간격만 맞춰주면 끝입니다.
+                    정말 끝이에요
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">/* headerType */
+.header__inner {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+}
+
+.header__logo {
+    width: 20%;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.header__logo em {
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.header__menu {
+    width: 60%;
+    text-align: center;
+}
+
+.header__menu li {
+    display: inline;
+}
+
+.header__menu li a {
+    padding: 13px 30px;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+}
+
+.header__menu li a:hover {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+.header__member {
+    width: 20%;
+    text-align: right;
+}
+.header__member a{
+    font-size: 16px;
+    border: 1px solid #000;
+    padding: 10px 30px;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+.header__member a:hover{
+    background-color: #000;
+    color: #fff;
+}
+</code></pre>
+                </div>
+
+                <h3 class="tit_2" style="margin-top: 30px;">결과</h3>
+                <div class="t_frame" style="min-height: 800px; padding-top: 0;">
+                    <iframe src="https://kim-0617.github.io/coding/site/headerType/headerType01.html" frameborder="0"></iframe>
+                </div>
+                <div class="t_link" style="display: flex;">
+                    <a href="https://kim-0617.github.io/coding/site/headerType/headerType01.html" target="_blank">실제 사이트 보기</a>
+                    <a href="https://github.com/kim-0617/coding/blob/main/site/headerType/headerType01.html" target="_blank">깃허브 소스 보기</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- // main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- // footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

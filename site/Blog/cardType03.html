@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <!-- <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/base16/solarized-light.min.css"> -->
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김성현</span>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <nav class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초문법</a></li>
+                <li><a href="block.html">블록구조 / 인라인구조</a></li>
+                <li><a href="web.html">웹표준 / 웹접근성 / 웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li class="active"><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </nav>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">카드 레이아웃 03</h2>
+                <p class="t_desc">
+                    카드 레이아웃 03번 입니다. 카드는 3장입니다. 이번 유형은 카드를 감싸는 영역을 정의해서 카드와 카드사이의 여백을
+                    일정한 간격을 줬고, 사이사이에 테두리 선이 있습니다. 가시성을 위해 배경색을 채웠는데요. 간격 설정하기가 까다로웠던것 같습니다.
+                    색에 집중하기 보다는 이미지와 이미지사이의 간격이나 박스 배치에 신경써주세요.
+                </p>
+                <div class="t_frame">
+                    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fpm3ghQhBqbBolleXCZYmYa%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D899%253A125" allowfullscreen></iframe>
+                </div>
+
+                <h3 class="tit_2" style="margin-top: 30px;">html</h3>
+                <p class="t_desc2">
+                    html 구조입니다. 카드가 3개가 들어가죠? 각각의 카드는 header, contents, footer 3부분으로 나눴습니다.
+                    그렇게 하면 구조가 복잡해져도 구역에 맞게 스타일을 줄 수 있겠죠?
+                </p>
+                <details>
+                    <summary>HTML 코드보기</summary>
+                    <div class="t_code">
+<pre><code class="language-html">&lt;section id="cardType03" class="sCore card__wrap section"&gt;
+    &lt;h2 class="blind"&gt;건축의 세계&lt;/h2&gt;
+    &lt;div class="card__inner container"&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="img/card_bg03_01.jpg" alt="Architects"&gt;
+                &lt;figcaption&gt;Architects&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__contents"&gt;
+                &lt;h3&gt;건축은 건물이나 다른 구조물을 계획하고 설계하고 건설하는 과정과 그 결과&lt;/h3&gt;
+                &lt;p&gt;
+                    건축적인, 미학적인 고려가 전체적으로 기능성에 종속되어야 한다는 개념이 대중성, 
+                    회의론과 만났을 때, 그것은 비트루비우스의 '유용성을
+                &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="card__footer"&gt;
+                &lt;h4&gt;건축박사 &lt;em&gt;Hesperioidea&lt;/em&gt;&lt;/h4&gt;
+                &lt;span&gt;&lt;img src="img/card_bg03_icon01.png" alt="Hesperioidea"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="img/card_bg03_02.jpg" alt="Architects"&gt;
+                &lt;figcaption&gt;Architects&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__contents"&gt;
+                &lt;h3&gt;건축은 건물이나 다른 구조물을 계획하고 설계하고 건설하는 과정과 그 결과&lt;/h3&gt;
+                &lt;p&gt;
+                    건축적인, 미학적인 고려가 전체적으로 기능성에 종속되어야 한다는 개념이 대중성, 
+                    회의론과 만났을 때, 그것은 비트루비우스의 '유용성을
+                &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="card__footer"&gt;
+                &lt;h4&gt;건축박사 &lt;em&gt;Hesperioidea&lt;/em&gt;&lt;/h4&gt;
+                &lt;span&gt;&lt;img src="img/card_bg03_icon02.png" alt="Hesperioidea"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="img/card_bg03_03.jpg" alt="Architects"&gt;
+                &lt;figcaption&gt;Architects&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__contents"&gt;
+                &lt;h3&gt;건축은 건물이나 다른 구조물을 계획하고 설계하고 건설하는 과정과 그 결과&lt;/h3&gt;
+                &lt;p&gt;
+                    건축적인, 미학적인 고려가 전체적으로 기능성에 종속되어야 한다는 개념이 대중성, 
+                    회의론과 만났을 때, 그것은 비트루비우스의 '유용성을
+                &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="card__footer"&gt;
+                &lt;h4&gt;건축박사 &lt;em&gt;Hesperioidea&lt;/em&gt;&lt;/h4&gt;
+                &lt;span&gt;&lt;img src="img/card_bg03_icon03.png" alt="Hesperioidea"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+                    </div>
+                </details>
+                
+                <h3 class="tit_2" style="margin-top: 30px;">css</h3>
+                <p class="t_desc2" style="margin-bottom: 30px;">
+                    css 부분입니다.
+                    card__header 부분에 img와 캡션 부분 처리를 해줬습니다.
+                    card__contents 부분에는 제목과 본문에 글자크기와 line-height를 설정해주면 됩니다.
+                    card__footer 부분에는 flex로 정렬하고 flex-end로 오른쪽 배치를 하였습니다.
+                    그 외에는 간격을 맞춰서 스타일을 적용해 주면 됩니다.
+                </p>
+                <details>
+                    <summary>CSS 코드보기</summary>
+                    <div class="t_code">
+<pre><code class="language-css">/* cardType03 */
+body {
+    background-color: #2254C3;
+}
+.card__inner {
+    display: flex;
+}
+.card__inner .card {
+    padding: 26px;
+    width: 33.3333%;
+    background-color: #fff;
+}
+.card__inner .card:nth-child(1) {
+    border-right: 1px solid #eee;
+}
+.card__inner .card:nth-child(2) {
+    border-right: 1px solid #eee;
+}
+.card__header {
+    position: relative;
+}
+.card__header img {
+    border-radius: 10px;
+    box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+.card__header figcaption {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    background-color: #fff;
+    text-align: center;
+    font-size: 14px;
+    color: #7B7B7B;
+}
+.card__contents h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.card__contents p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin-bottom: 30px;
+}
+.card__footer {
+    display: flex;
+    justify-content: flex-end;
+}
+.card__footer h4 {
+    text-align: right;
+    color: #DD2A2A;
+}
+.card__footer em {
+    display: block;
+    color: #666;
+    font-style: normal;
+}
+.card__footer span {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: block;
+    margin-left: 10px;
+    margin-top: -3px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+}
+</code></pre>
+                    </div>
+                </details>
+
+                <h3 class="tit_2" style="margin-top: 30px;">결과</h3>
+                <div class="t_frame" style="min-height: 500px;">
+                    <iframe src="https://kim-0617.github.io/coding/site/cardType/cardType03.html" frameborder="0"></iframe>
+                </div>
+                <div class="t_link">
+                    <a href="https://kim-0617.github.io/coding/site/cardType/cardType03.html" target="_blank">실제 사이트 보기</a>
+                    <a href="https://github.com/kim-0617/coding/blob/main/site/cardType/cardType03.html" target="_blank">깃허브 소스 보기</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- // main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- // footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

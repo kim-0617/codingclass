@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dog_animation</title>
+    <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="stylesheet" href="asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">간단한 애니메이션 효과</h2>
+            <p class="t_desc2">
+                안녕하세요. 이번 시간엔 마우스 오버 효과에 대해서 알아봐요 우리.
+            </p>
+            <div class="t_frame" style="min-height: 1000px; padding-top: 0;">
+                <iframe height="700" style="width: 100%;" scrolling="no" title="MouseHoverEffect" src="https://codepen.io/kim-0617/embed/vYjZXVd?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/kim-0617/pen/vYjZXVd">
+                    MouseHoverEffect</a> by kim-0617 (<a href="https://codepen.io/kim-0617">@kim-0617</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+            
+            <hr>
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">
+                hover__wrap > hover__updown > front > img + figcaption 구조로 되어있습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;div class="hover__wrap"&gt;
+    &lt;div class="hover__updown"&gt;
+      &lt;figure class="front"&gt;
+         &lt;img src="https://github.com/kim-0617/coding/blob/main/assets/img/up.jpg?raw=true" alt="up"&gt;
+         &lt;figcaption&gt;
+           &lt;h3&gt;Mouse Hover Effect&lt;/h3&gt;
+           &lt;p&gt;마우스 올리면 UP&lt;/p&gt;
+         &lt;/figcaption&gt;
+       &lt;/figure&gt;
+      &lt;figure class="back"&gt;
+         &lt;img src="https://github.com/kim-0617/coding/blob/main/assets/img/down.jpg?raw=true" alt="down"&gt;
+         &lt;figcaption&gt;
+           &lt;h3&gt;Mouse Hover Effect&lt;/h3&gt;
+           &lt;p&gt;마우스 떼면 DOWN&lt;/p&gt;
+         &lt;/figcaption&gt;
+       &lt;/figure&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="hover__leftright"&gt;
+      &lt;figure class="front"&gt;
+         &lt;img src="https://github.com/kim-0617/coding/blob/main/assets/img/left.jpg?raw=true" alt="LEFT"&gt;
+         &lt;figcaption&gt;
+           &lt;h3&gt;Mouse Hover Effect&lt;/h3&gt;
+           &lt;p&gt;마우스 올리면 RIGHT&lt;/p&gt;
+         &lt;/figcaption&gt;
+       &lt;/figure&gt;
+      &lt;figure class="back"&gt;
+         &lt;img src="https://github.com/kim-0617/coding/blob/main/assets/img/right.jpg?raw=true" alt="RIGHT"&gt;
+         &lt;figcaption&gt;
+           &lt;h3&gt;Mouse Hover Effect&lt;/h3&gt;
+           &lt;p&gt;마우스 떼면 LEFT&lt;/p&gt;
+         &lt;/figcaption&gt;
+       &lt;/figure&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</code></pre>
+            </div>
+            <!-- // html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                이미지를 적절히 배치한 후에 오버했을 때, 업다운은 rotateX, 레프트 라이트는 rotateY로 회전시켜서 등장시킵니다. 
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">@font-face {
+    font-family: 'LocusSangsang';
+    font-weight: normal;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/locus/LocusSangsang.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/locus/LocusSangsang.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/locus/LocusSangsang.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/locus/LocusSangsang.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/locus/LocusSangsang.ttf') format("truetype");
+    font-display: swap;
+}
+
+body {
+  font-family: 'LocusSangsang';
+  background-image: linear-gradient(135deg, #191970 0%, #483D8B 40%, #9370DB 100%);
+  height: 100vh;
+}
+
+.hover__wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.hover__updown {
+
+}
+
+.hover__wrap > div {
+  max-width : 400px;
+  margin: 3%;
+  position: relative;
+  perspective : 1000px;
+}
+
+.hover__wrap > div img {
+  width: 100%;
+  border : 10px solid #F0F8FF;
+  box-shadow : 2px 2px 2px 2px rgba(0,0,0,0.2);
+  box-sizing : border-box;
+/*   vertical-align: top; */
+  display: block;
+}
+
+.hover__wrap > div .front{
+  transition: transform 1s;
+  backface-visibility : hidden;
+  transform-style : preserve-3d;
+}
+
+.hover__wrap > div .back{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transition : transform 1s;
+  z-index: -1;
+  transform-style : preserve-3d;
+}
+
+.hover__wrap > div figcaption {
+  width: 60%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) translatez(100px);
+  background : rgba(0,0,0,0.4);
+  color : #F8F8FF;
+  padding: 10px;
+  text-align: center;
+  line-height: 1.5;
+  backface-visibility : hidden;
+}
+
+/* mouse hover effect */
+.hover__updown .front{
+  transform : rotateX(0deg);
+}
+
+.hover__updown:hover .front{
+  transform : rotateX(180deg);
+}
+
+.hover__updown .back {
+  transform : rotateX(-180deg);
+}
+
+.hover__updown:hover .back {
+  transform : rotateX(0deg);
+}
+
+.hover__leftright .front{
+  transform : rotateY(0deg);
+}
+
+.hover__leftright:hover .front{
+  transform : rotateY(180deg);
+}
+
+.hover__leftright .back {
+  transform : rotateY(-180deg);
+}
+
+.hover__leftright:hover .back {
+  transform : rotateY(0deg);
+}
+</code></pre>
+            </div>
+            <!-- // css -->
+
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="./asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

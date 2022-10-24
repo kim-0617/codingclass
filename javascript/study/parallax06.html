@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>페럴랙스 이펙트 06</title>
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">페럴랙스 효과 06</h2>
+            <p class="t_desc2">
+                페럴랙스 효과 06입니다. 이번에는 스크롤을 내릴 때 마다, 글자가 한글자씩 올라오는 느낌의 패럴랙스 이펙트 입니다.
+            </p>
+            <div class="t_frame" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-0617.github.io/coding/javascript/effect/parallaxEffect06.html"
+                    frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://kim-0617.github.io/coding/javascript/effect/parallaxEffect06.html" target="_blank">실제
+                    사이트 보기</a>
+                <a href="https://github.com/kim-0617/coding/blob/main/javascript/effect/parallaxEffect06.html"
+                    target="_blank">원본 소스 보기</a>
+            </div>
+            <hr>
+
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">
+                05번과 동일하지만, content__item__desc에 split이라는 class를 추가해 주었습니다.
+                split이 붙으면 p태그 안에 있는 글귀가 한 글자씩 span에 감싸지게 됩니다.
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-html">&lt;main id="parallax__cont"&gt;
+    &lt;div id="contents"&gt;
+        &lt;section id="section1" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;01&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section1&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc split"&gt;한번의 실패와 영원한 실패를 혼동하지 마라&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section1 --&gt;
+
+        &lt;section id="section2" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;02&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section2&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc split"&gt;내일은 내일의 태양이 뜬다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section2 --&gt;
+
+        &lt;section id="section3" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;03&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section3&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc split"&gt;하루에 3시간을 걸으면 7년 후에 지구를 한바퀴 돌 수 있다. &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section3 --&gt;
+
+        &lt;section id="section4" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;04&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section4&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc split"&gt;행복은 습관이다,그것을 몸에 지니라 &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section4 --&gt;
+
+        &lt;section id="section5" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;05&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section5&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc split"&gt;만약 우리가 할 수 있는 일을 모두 한다면 우리들은 우리자신에 깜짝 놀랄 것이다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section5 --&gt;
+
+        &lt;section id="section6" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;06&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section6&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc split"&gt;자신을 내보여라. 그러면 재능이 드러날 것이다. &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section6 --&gt;
+
+        &lt;section id="section7" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;07&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section7&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc split"&gt;겨울이 오면 봄이 멀지 않으리&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section7 --&gt;
+
+        &lt;section id="section8" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;08&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section8&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc split"&gt;자신감 있는 표정을 지으면 자신감이 생긴다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section8 --&gt;
+
+        &lt;section id="section9" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;09&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section9&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc split"&gt;길을 잃는 다는 것은 곧 길을 알게 된다는 것이다. &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section9 --&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+                </div>
+            </details>
+            <!-- // html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                추가된 부분입니다. split에 show가 붙었을 때 span에 애니메이션이 나와야 합니다. 그래서 그전에는 opacity를 0으로,
+                show가 붙으면 opacity를 1로 만들어주는 셋팅을 해줍니다.
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-css">/* option */
+.split span{
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.3s cubic-bezier(0.79, -1.82, 0.33, 3.07);
+    min-width: 1vw;
+    min-height: 1vw;
+}
+.split.show span {
+    opacity: 1;
+    transform: translateY(0px);
+}
+</code></pre>
+                </div>
+            </details>
+            <!-- // css -->
+
+            <h3 class="t_tit2">js</h3>
+            <p class="t_desc">
+                순서를 짚어보죠..
+                1. 글씨를 쪼개야 합니다. 클래스 split이 붙은 요소만요 그러기 위해서 split 클래스를 모두 선택해줍니다.<br>
+                2. 텍스트를 선택해서 split합니다. 그렇다면 한글자 한글자가 배열에 원소로써 담기게 되겠죠? 그걸 다시 join 할건데..<br>
+                3. 구분자로서 span태그로 감싸줍니다. 그러면 하나하나 요소가 span태그로 감싸지겠죠? 그런데 여기서 잠깐.. <br>
+                4. &lt;span&gt;&lt;/span&gt;로 감싸주게 되면 짝이 안맞습니다. 이건 설명보다 직접 해보는게 빠릅니다. 그래서 닫는 태그를 먼저 써준겁니다.<br>
+                5. 이렇게되면 첫부분의 시작태그와 제일 끝부분의 종료태그가 없는데 이건 직접 더해주도록 합시다.<br>
+                6. 그리고 이렇게 만들어진 span태그 들을 다시 p태그에 넣어줍니다. 그럼 애니메이션 줄 준비가 끝났어요.<br>
+                7. 섹션을 잡아줍니다(9개) 여기에 offsetTop값과 scrollTop 값을 비교해서 해당 섹션 근처에 도달했을 때, show 클래스를 붙여줍니다.<br>
+                8. 또 해줘야 할게 있는데, split 클래스의 span 모두 선택해서 각각의 span에다가 transition-delay를 줘야합니다. 그래야 한글자씩 나타나겠죠?<br>
+                9. span.style.transitionDelay = `${index * 50}ms`; 요렇게, 글자마다 0.05초씩 딜레이를 주면 완성입니다.<br>
+                10. 아참, window.addEventListener('scroll')보다 requestAnimationFrame으로 scroll event를 구현하는게 더 좋다고 했죠?
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">document.querySelectorAll('.split').forEach((text) => {
+    let splitText = text.innerText;
+    let splitWrap = splitText.split('').join('&lt;/span&gt;&lt;span aria-hidden = "true"&gt;');
+    splitWrap = "&lt;span aria-hidden = 'true'&gt;" + splitWrap + "&lt;/span&gt;";
+    text.innerHTML = splitWrap;
+    text.setAttribute("aria-label", splitText);
+});
+
+function scroll() {
+    let scrollTop = window.scrollY;
+    document.querySelector('.scroll span').innerText = Math.ceil(scrollTop);
+ 
+    document.querySelectorAll('.content__item').forEach((item) => {
+        if(scrollTop >= item.offsetTop - 200) {
+            item.querySelector('.split').classList.add('show');
+            item.querySelectorAll('.split span').forEach((span, index) => {
+                span.style.transitionDelay = `${index * 50}ms`;
+            });
+        }
+    });
+    requestAnimationFrame(scroll);
+}
+scroll();
+</code></pre>
+                </div>
+            </details>
+            <!-- // js -->
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

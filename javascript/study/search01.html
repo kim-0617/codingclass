@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서치 이펙트 01</title>
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">검색 해보기!</h2>
+                <p class="t_desc2">
+                    이번에는 Search Effect 입니다. 이게 뭐냐면 검색기능입니다. input 태그에 어떠한 단어를 검색하면 해당 조건에 맞는
+                    단어만 보여지게 됩니다. 즉 html 태그를 검색하면 내가 검색한 태그만 나온다구요! indexOf를 활용하면 길이 보입니다.
+                    함께 보시죠.
+                </p>
+            <div class="t_frame" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-0617.github.io/coding/javascript/effect/searchEffect01.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://kim-0617.github.io/coding/javascript/effect/searchEffect01.html" target="_blank">실제 사이트 보기</a>
+                <a href="https://github.com/kim-0617/coding/blob/main/javascript/effect/searchEffect01.html" target="_blank">원본 소스 보기</a>
+            </div>
+            <hr>
+
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">검색하기위한 input 창과 search__list 검색대상을 만들어 둡니다.</p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;main id="main"&gt;
+    &lt;div class="search__wrap"&gt;
+        &lt;span&gt;indexOf()를 이용하여 검색하기&lt;/span&gt;
+        &lt;h1&gt;HTML 태그 검색하기&lt;/h1&gt;
+        &lt;div class="search__box"&gt;
+            &lt;label for="search"&gt; 검색하기&lt;/label&gt;
+            &lt;input type="text" id="search" placeholder="HTML 태그를 입력해주세요!"&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="search__list"&gt;
+            &lt;div class="html"&gt;
+                &lt;ul&gt;
+                    &lt;li data-name="a"&gt;&lt;strong&gt;a&lt;/strong&gt; : a태그는 다른 페이지 이동을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="abbr"&gt;&lt;strong&gt;abbr&lt;/strong&gt; : abbr태그는 줄임말이나 머리글자를 표현하는데 사용합니다.&lt;/li&gt;
+                    &lt;li data-name="acronym"&gt;&lt;strong&gt;acronym&lt;/strong&gt; : acronym 태그는 줄임말이나 머리글자를 표현하는데 사용합니다.&lt;/li&gt;
+                    &lt;li data-name="address"&gt;&lt;strong&gt;address&lt;/strong&gt; : address 태그는 웹 페이지 연락처 정보를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="applet"&gt;&lt;strong&gt;applet&lt;/strong&gt; : applet 태그는 태그는 자바 애플릿을 보이게 하는 곳에 쓰입니다. 현재는 사용하지 않습니다.&lt;/li&gt;
+                    &lt;li data-name="area"&gt;&lt;strong&gt;area&lt;/strong&gt; : area 태그는 이미지의 핫스팟 영역을 정의하고 하이퍼링크 (en-US)를 추가할 수 있습니다. &lt;map&gt; 요소 안에서만 사용할 수 있습니다.&lt;/li&gt;
+                    &lt;li data-name="article"&gt;&lt;strong&gt;article&lt;/strong&gt; : article 태그는 문서, 페이지, 애플리케이션, 또는 사이트 안에서 독립적으로 구분해 배포하거나 재사용할 수 있는 구획을 나타냅니다.&lt;/li&gt;
+                    &lt;li data-name="aside"&gt;&lt;strong&gt;aside&lt;/strong&gt; : aside 태그는 웹 페이지 연락처 정보를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="audio"&gt;&lt;strong&gt;audio&lt;/strong&gt; : audio 태그는 웹 페이지 연락처 정보를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="b"&gt;&lt;strong&gt;b&lt;/strong&gt; : b 태그는 웹 페이지 연락처 정보를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="base"&gt;&lt;strong&gt;base&lt;/strong&gt; : base 태그는 웹 페이지 연락처 정보를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="bdi"&gt;&lt;strong&gt;bdi&lt;/strong&gt; : base 태그는 웹 페이지 연락처 정보를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="bdo"&gt;&lt;strong&gt;bdo&lt;/strong&gt; : base 태그는 웹 페이지 연락처 정보를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="bgsound"&gt;&lt;strong&gt;bgsound&lt;/strong&gt; : base 태그는 웹 페이지 연락처 정보를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="big"&gt;&lt;strong&gt;big&lt;/strong&gt; : base 태그는 웹 페이지 연락처 정보를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="blink"&gt;&lt;strong&gt;blink&lt;/strong&gt; : base 태그는 웹 페이지 연락처 정보를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="blockquote"&gt;&lt;strong&gt;blockquote&lt;/strong&gt; : base 태그는 웹 페이지 연락처 정보를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="body"&gt;&lt;strong&gt;body&lt;/strong&gt; : base 태그는 웹 페이지 연락처 정보를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="br"&gt;&lt;strong&gt;br&lt;/strong&gt; : base 태그는 웹 페이지 연락처 정보를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="button"&gt;&lt;strong&gt;button&lt;/strong&gt; : base 태그는 웹 페이지 연락처 정보를 설정합니다.&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+            </div>
+            <!-- // html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">css로 위치와 간격을 잡아줍니다. 검색창도 예쁘게 만들어 줄게요.</p>
+            <div class="t_code">
+<pre><code class="language-css">/* header */
+#header {
+    display: flex;
+    justify-content: space-between;
+}
+/* #header h1{
+    margin: 10px;
+    font-family: "Tmon";
+} */
+#header nav {
+    margin: 10px;
+}
+
+#header nav li {
+    display: inline;
+    position: relative;
+}
+
+#header nav li a {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--htmlColor);
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+}
+
+#header nav li.active a {
+    background-color: var(--htmlColor);
+    color: #fff;
+}
+
+#header nav li .sub{
+    position: absolute;
+    left: 0;
+    top: 35px;
+    width: 400px;
+}
+#header nav li .sub li a{
+    width: auto;
+    background-color: transparent;
+    color: var(--htmlColor);
+    border: 0;
+    text-align-last: left;
+    line-height: 1.2;
+}
+#header nav li .sub li.active a{
+    text-decoration: underline;
+}
+/* main */
+#main {
+    margin: 50px 10px;
+}
+
+/* search__wrap */
+.search__wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+    border: 3px solid var(--htmlColor);
+    border-radius: 20px;
+    background-color: #f1f3f6;
+    padding: 30px;
+    text-align: center;
+}
+
+@media(max-width:600px) {
+    .search__wrap {
+        padding: 20px;
+    }
+
+    .search__wrap>h1 {
+        font-size: 44px;
+    }
+
+    .search__box input {
+        font-size: 16px;
+        padding: 12px 30px;
+    }
+
+    .search__wrap>span {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+}
+
+.search__wrap>span {
+    font-size: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.search__wrap>h1 {
+    font-family: "Tmon";
+    font-size: 6vw;
+    color: var(--htmlColor);
+    margin-bottom: 10px;
+    white-space: nowrap;
+}
+
+.search__box {
+    margin-bottom: 20px;
+}
+
+.search__box label {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden
+}
+
+.search__box input {
+    border: 2px solid var(--htmlColor);
+    padding: 15px 50px;
+    width: 70%;
+    border-radius: 50px;
+    font-size: 20px;
+}
+
+.search__list {}
+
+.search__list li {
+    text-align-last: left;
+    line-height: 1.7;
+}
+
+.search__list li.hide {
+    display: none;
+}
+</code></pre>
+            </div>
+            <!-- // css -->
+
+            <h3 class="t_tit2">js</h3>
+            <p class="t_desc">
+                input창과 search__list 영역만 선택해주면 끝입니다. "keyup" 이벤트가 input창에 발생했을 때,
+                indexOf를 이용해서 현재 사용자가 입력한 키워드와 search__list의 data-name이 일치하는 것만 보여주면 됩니다.
+                어떻게요? 태그명.indexOf("keyword")하면 keyword로 시작하는 search__list에 있는 모든 태그들은 0을 반환하게 되고 (keyword로 시작하는 태그들이요!)
+                그것들을 제외한 모든 태그들이 class가 hide가 되서 숨겨집니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">// 선택자
+const searchBox = document.querySelector('.search__box input'); // 검색 영역
+const searchList = document.querySelectorAll('.search__list ul li') // 목록 리스트
+
+searchBox.addEventListener("keyup", () => {
+    const searchWord = searchBox.value; // 사용자가 입력한 키워드
+    
+    searchList.forEach(el => {
+        const cssName = el.dataset.name;
+
+        if(cssName.indexOf(searchWord)){
+            el.classList.add('hide');
+        }
+        else{
+            el.classList.remove('hide');
+        }
+    })
+})
+</code></pre>
+            </div>
+            <!-- // js -->
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

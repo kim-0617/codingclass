@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dog_animation</title>
+    <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="stylesheet" href="asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">간단한 애니메이션 효과</h2>
+            <p class="t_desc2">
+                안녕하세요. 이번엔 원이 돌아가면서 마치 로딩이 되는 것 같은 효과를 만들어 보겠습니다.
+            </p>
+            <iframe height="500" style="width: 100%;" scrolling="no" title="loading" src="https://codepen.io/kim-0617/embed/rNvGjxw?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/kim-0617/pen/rNvGjxw">
+                loading</a> by kim-0617 (<a href="https://codepen.io/kim-0617">@kim-0617</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+            </iframe>
+
+            <hr>
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">loader라는 부모 안에 ball 12개를 만들어 줍니다.</p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;div class="loader"&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+</code></pre>
+            </div>
+            <!-- // html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                loader 부분은 반대로(reverse) 돌리고 ball 부분은 정방향, ease-in-out 효과를 줘서 마치
+                로딩이 되는 효과처럼 보이게 만들었습니다. loader와 ball 부분 모두에 spin이라는 동일한 애니메이션을 정의하고
+                옵션만 다르게 줍니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">body {
+background-color: rgb(105,54,199);
+}
+
+/* 원이 도는 영역 */
+.loader {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 100px;
+height: 100px;
+animation : spin 0.6s linear infinite reverse;
+}
+
+/* 조그만 원들(12) */
+.ball {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+height: 100%;
+animation : spin 1s infinite ease-in-out;
+}
+
+.ball::after {
+position: absolute;
+content : '';
+background-color: #fff;
+width: 13px;
+height: 13px;
+border-radius: 100%;
+top: 0;
+}
+
+.ball:nth-child(2) {animation-delay : -0.1s;}
+.ball:nth-child(3) {animation-delay : -0.2s;}
+.ball:nth-child(4) {animation-delay : -0.3s;}
+.ball:nth-child(5) {animation-delay : -0.4s;}
+.ball:nth-child(6) {animation-delay : -0.5s;}
+.ball:nth-child(7) {animation-delay : -0.6s;}
+.ball:nth-child(8) {animation-delay : -0.7s;}
+.ball:nth-child(9) {animation-delay : -0.8s;}
+.ball:nth-child(10) {animation-delay : -0.9s;}
+
+@keyframes spin {
+from {transform : translate(-50%,-50%) rotate(0);}
+to {transform : translate(-50%,-50%) rotate(360deg);}
+}
+</code></pre>
+            </div>
+            <!-- // css -->
+
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="./asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

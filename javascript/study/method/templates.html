@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 배열메서드</title>
+    <link rel="stylesheet" href="../../asset/css/dracula.css">
+    <link rel="stylesheet" href="../../asset/css/style.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">자료형</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수 / 전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+                <li><a href="joinpushpop.html">배열 메서드</a></li>
+                <li><a href="Built-in Functions.html">내장 함수</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">문자열 : 문자열 결합 / 템플릿 문자열</h2>
+            <p class="t_desc">
+                이번엔 문자열을 출력할 때 요긴하게 쓸 수 있는 템플릿 문자열을 중점적으로 알아봅시다.
+                탬플릿 문자열은 문자열 내부에 변수를 넣거나 문자열을 간편하게 결합할 수 있습니다.
+                querySelector는 신경쓰지 마시고 표와 결과 값을 봐주세요.
+            </p>
+            <p class="t_box">
+                템플릿 문자열<br>
+                `${변수} 변수는 저렇게 씁니다. 여기에 아무말을 적어볼게요`
+            </p>
+
+            <hr>
+            <h3 class="t_tit2">템플릿 문자열 (templates literal)</h3>
+            <p class="t_desc">
+                문자열은 + 기호로 결합할 수 있죠? 
+            </p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>기본값</th>
+                        <th>메서드</th>
+                        <th>리턴값</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">1</td>
+                        <td class="ce">자바스크립트, 제이쿼리</td>
+                        <td class="ce">문자열 결합</td>
+                        <td>str1 + str2</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">2</td>
+                        <td class="ce">100, 200</td>
+                        <td class="ce">숫자(number) 결합</td>
+                        <td>num1 + num2</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">3</td>
+                        <td class="ce">모던, 자바스크립트, 핵심</td>
+                        <td class="ce">문자열(string) 결합</td>
+                        <td>나는 모던 (modern) 자바스크립트 (javascript) 핵심을 배우고 싶다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">4</td>
+                        <td class="ce">모던, 자바스크립트, 핵심</td>
+                        <td class="ce">탬플릿 문자열</td>
+                        <td>나는 모던(mordern) 자바스크립트(javascript) 핵심을 배우고 싶다.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="t_code">
+<pre><code class="language-js">const str1 = "자바스크립트";
+const str2 = "제이쿼리";
+
+document.querySelector(".sample01_N1").innerHTML = "1";
+document.querySelector(".sample01_Q1").innerHTML = "자바스크립트, 제이쿼리";
+document.querySelector(".sample01_M1").innerHTML = "문자열 결합";
+document.querySelector(".sample01_P1").innerHTML = "str1 + str2"; // 문자열을 결합할 땐 + 로 결합할 수 있습니다.
+
+// 02
+const num1 = 100;
+const num2 = 200;
+
+document.querySelector(".sample01_N2").innerHTML = "2";
+document.querySelector(".sample01_Q2").innerHTML = "100, 200";
+document.querySelector(".sample01_M2").innerHTML = "숫자(number) 결합";
+document.querySelector(".sample01_P2").innerHTML = "num1 + num2"; // 숫자를 문자열로 결합하는 것도 가능합니다.
+
+// 03
+const text1 = "모던";
+const text2 = "자바스크립트";
+const text3 = "핵심";
+
+document.querySelector(".sample01_N3").innerHTML = "3";
+document.querySelector(".sample01_Q3").innerHTML = "모던, 자바스크립트, 핵심";
+document.querySelector(".sample01_M3").innerHTML = "문자열(string) 결합";
+document.querySelector(".sample01_P3").innerHTML = '나는 ' + text1 + ' (modern) ' + text2 + ' (javascript) ' +text3 + '을 배우고 싶다.'; // 탬플릿리터러를 안쓰면 이렇게 불편합니다.
+
+// 04
+document.querySelector(".sample01_N4").innerHTML = "4";
+document.querySelector(".sample01_Q4").innerHTML = "모던, 자바스크립트, 핵심";
+document.querySelector(".sample01_M4").innerHTML = "탬플릿 문자열";
+document.querySelector(".sample01_P4").innerHTML = `나는 ${text1}(mordern) ${text2}(javascript) ${text3}을 배우고 싶다.`; // 진짜 문장을 쓰는 것 처럼 편리하죠?
+</code></pre>
+            </div> 
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result01">
+                        자바스크립트제이쿼리 <br>
+                        100200 (문자열로써 결합할 때) <br>
+                        나는 모던 (modern) 자바스크립트 (javascript) 핵심을 배우고 싶다. <br>
+                        나는 모던 (modern) 자바스크립트 (javascript) 핵심을 배우고 싶다.
+                    </div>
+                </details>
+            </div>   
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

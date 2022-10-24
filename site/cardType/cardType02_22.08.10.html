@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드 유형02</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+        .nexon {
+            font-family: 'NexonLv1Gothic';
+            font-weight: 400;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section>p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* cardType */
+        .card__inner {
+        }
+
+        .card__inner .card__top{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+
+        .card__inner .card__bot{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card {
+            width: 10%;
+            width: 275px;
+            height: 333px;
+        }
+
+        .card__header{
+            margin-bottom: 20px;
+        }
+
+        .card__body {
+        }
+
+        .card__body .tit {
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-weight: 550;
+            position: relative;
+        }
+
+        .card__body .tit svg{
+            position: absolute;
+            top: 4px;
+            right: 5px;
+        }
+
+        .card__body .tit::after{
+            content: '';
+            width: 24px;
+            height: 24px;
+            background: #FF0000;
+            border-radius: 5px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: -1;
+        }
+
+        .card__body .desc {
+            font-size: 18px;
+            line-height: 1.4;
+            color: #666;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="cardType" class="card__wrap nexon section">
+        <h2>포트폴리오 구경하기</h2>
+        <p>
+            드라마 영화 추천 사이트 입니다. 물론 영화 드라마 뿐만 아니라 웹툰이나 소설도 계획중이니 기대해 주세요.
+            <br>열심히 만들었으니 소중히 봐주세요! 감사합니다.
+        </p>
+        <div class="card__inner container">
+           <div class="card__top">
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/2_1.jpg" alt="01번째 이미지">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">
+                        김성현 포트폴리오
+                        <a href="/" aria-hidden="true">
+                            <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289L6.34315 0.928932C5.95262 0.538408 5.31946 0.538408 4.92893 0.928932C4.53841 1.31946 4.53841 1.95262 4.92893 2.34315L10.5858 8L4.92893 13.6569C4.53841 14.0474 4.53841 14.6805 4.92893 15.0711C5.31946 15.4616 5.95262 15.4616 6.34315 15.0711L12.7071 8.70711ZM0 9H12V7H0V9Z" fill="white"/>
+                            </svg>  
+                        </a> 
+                    </h3>
+                    </a>
+                    <p class="desc">
+                        영화 추천입니다. 영화 같은 경우에
+                        는 상영작 보다는 국내 상영이 안됐
+                        거나, ott사이트...
+                    </p>
+                </div>
+            </article>
+            <!-- 01 -->
+            
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/2_2.jpg" alt="02번째 이미지">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">
+                        김성현 포트폴리오
+                        <a href="/" aria-hidden="true">
+                            <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289L6.34315 0.928932C5.95262 0.538408 5.31946 0.538408 4.92893 0.928932C4.53841 1.31946 4.53841 1.95262 4.92893 2.34315L10.5858 8L4.92893 13.6569C4.53841 14.0474 4.53841 14.6805 4.92893 15.0711C5.31946 15.4616 5.95262 15.4616 6.34315 15.0711L12.7071 8.70711ZM0 9H12V7H0V9Z" fill="white"/>
+                            </svg>  
+                        </a> 
+                    </h3>
+                    <p class="desc">
+                        영화 추천입니다. 영화 같은 경우에
+                        는 상영작 보다는 국내 상영이 안됐
+                        거나, ott사이트...
+                    </p>
+                </div>
+            </article>
+            <!-- 02 -->
+            
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/2_3.jpg" alt="03번째 이미지">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">
+                        김성현 포트폴리오
+                        <a href="/" aria-hidden="true">
+                            <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289L6.34315 0.928932C5.95262 0.538408 5.31946 0.538408 4.92893 0.928932C4.53841 1.31946 4.53841 1.95262 4.92893 2.34315L10.5858 8L4.92893 13.6569C4.53841 14.0474 4.53841 14.6805 4.92893 15.0711C5.31946 15.4616 5.95262 15.4616 6.34315 15.0711L12.7071 8.70711ZM0 9H12V7H0V9Z" fill="white"/>
+                            </svg>  
+                        </a> 
+                    </h3>
+                    <p class="desc">
+                        영화 추천입니다. 영화 같은 경우에
+                        는 상영작 보다는 국내 상영이 안됐
+                        거나, ott사이트...
+                    </p>
+                </div>
+            </article>
+            <!-- 03 -->
+            
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/2_4.jpg" alt="04번째 이미지">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">
+                        김성현 포트폴리오
+                        <a href="/" aria-hidden="true">
+                            <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289L6.34315 0.928932C5.95262 0.538408 5.31946 0.538408 4.92893 0.928932C4.53841 1.31946 4.53841 1.95262 4.92893 2.34315L10.5858 8L4.92893 13.6569C4.53841 14.0474 4.53841 14.6805 4.92893 15.0711C5.31946 15.4616 5.95262 15.4616 6.34315 15.0711L12.7071 8.70711ZM0 9H12V7H0V9Z" fill="white"/>
+                            </svg>  
+                        </a> 
+                    </h3>
+                    <p class="desc">
+                        영화 추천입니다. 영화 같은 경우에
+                        는 상영작 보다는 국내 상영이 안됐
+                        거나, ott사이트...
+                    </p>
+                </div>
+            </article>
+            <!-- 04 -->
+           </div>
+           
+           <div class="card__bot">
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/2_5.jpg" alt="05번째 이미지">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">
+                        김성현 포트폴리오
+                        <a href="/" aria-hidden="true">
+                            <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289L6.34315 0.928932C5.95262 0.538408 5.31946 0.538408 4.92893 0.928932C4.53841 1.31946 4.53841 1.95262 4.92893 2.34315L10.5858 8L4.92893 13.6569C4.53841 14.0474 4.53841 14.6805 4.92893 15.0711C5.31946 15.4616 5.95262 15.4616 6.34315 15.0711L12.7071 8.70711ZM0 9H12V7H0V9Z" fill="white"/>
+                            </svg>  
+                        </a> 
+                    </h3>
+                    <p class="desc">
+                        영화 추천입니다. 영화 같은 경우에
+                        는 상영작 보다는 국내 상영이 안됐
+                        거나, ott사이트...
+                    </p>
+                </div>
+            </article>
+            <!-- 05 -->
+            
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/2_6.jpg" alt="06번째 이미지">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">
+                        김성현 포트폴리오
+                        <a href="/" aria-hidden="true">
+                            <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289L6.34315 0.928932C5.95262 0.538408 5.31946 0.538408 4.92893 0.928932C4.53841 1.31946 4.53841 1.95262 4.92893 2.34315L10.5858 8L4.92893 13.6569C4.53841 14.0474 4.53841 14.6805 4.92893 15.0711C5.31946 15.4616 5.95262 15.4616 6.34315 15.0711L12.7071 8.70711ZM0 9H12V7H0V9Z" fill="white"/>
+                            </svg>  
+                        </a> 
+                    </h3>
+                    <p class="desc">
+                        영화 추천입니다. 영화 같은 경우에
+                        는 상영작 보다는 국내 상영이 안됐
+                        거나, ott사이트...
+                    </p>
+                </div>
+            </article>
+            <!-- 06 -->
+            
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/2_7.jpg" alt="07번째 이미지">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">
+                        김성현 포트폴리오
+                        <a href="/" aria-hidden="true">
+                            <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289L6.34315 0.928932C5.95262 0.538408 5.31946 0.538408 4.92893 0.928932C4.53841 1.31946 4.53841 1.95262 4.92893 2.34315L10.5858 8L4.92893 13.6569C4.53841 14.0474 4.53841 14.6805 4.92893 15.0711C5.31946 15.4616 5.95262 15.4616 6.34315 15.0711L12.7071 8.70711ZM0 9H12V7H0V9Z" fill="white"/>
+                            </svg>  
+                        </a> 
+                    </h3>
+                    <p class="desc">
+                        영화 추천입니다. 영화 같은 경우에
+                        는 상영작 보다는 국내 상영이 안됐
+                        거나, ott사이트...
+                    </p>
+                </div>
+            </article>
+            <!-- 07 -->
+            
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/2_8.jpg" alt="08번째 이미지">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">
+                        김성현 포트폴리오
+                        <a href="/" aria-hidden="true">
+                            <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.7071 8.70711C13.0976 8.31658 13.0976 7.68342 12.7071 7.29289L6.34315 0.928932C5.95262 0.538408 5.31946 0.538408 4.92893 0.928932C4.53841 1.31946 4.53841 1.95262 4.92893 2.34315L10.5858 8L4.92893 13.6569C4.53841 14.0474 4.53841 14.6805 4.92893 15.0711C5.31946 15.4616 5.95262 15.4616 6.34315 15.0711L12.7071 8.70711ZM0 9H12V7H0V9Z" fill="white"/>
+                            </svg>  
+                        </a> 
+                    </h3>
+                    <p class="desc">
+                        영화 추천입니다. 영화 같은 경우에
+                        는 상영작 보다는 국내 상영이 안됐
+                        거나, ott사이트...
+                    </p>
+                </div>
+            </article>
+            <!-- 08 -->
+           </div>
+        </div>
+    </section>
+</body>
+
+</html>

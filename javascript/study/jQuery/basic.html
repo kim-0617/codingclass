@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="/javascript/asset/css/dracula.css">
+    <link rel="stylesheet" href="/javascript/asset/css/style.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김성현</span>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">jQuery 기본 선택자</h2>
+            <p class="t_desc">
+                jQuery의 기본 선택자를 소개해드릴게요. 기본 선택자는 css의 기본 선택자와 흡사합니다.
+            </p>
+
+            <hr>
+            <h3 class="tit_2">jQuery 기본 선택자</h3>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>선택자 종류</th>
+                        <th colspan="2">설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">태그 선택자</td>
+                        <td class="ce">$('p')</td>
+                        <td>p 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">id 선택자</td>
+                        <td class="ce">$('#gnb')</td>
+                        <td>#gnb 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">class 선택자</td>
+                        <td class="ce">$('.logo')</td>
+                        <td>.logo인 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">자식 선택자</td>
+                        <td class="ce">$('#gnb > ul > li')</td>
+                        <td>#gnb의 자식 ul 의 자식 li 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">하위 선택자</td>
+                        <td class="ce">$('#gnb ul')</td>
+                        <td>#gnb 하위에 있는 모든 ul 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">인접 선택자</td>
+                        <td class="ce">$('#visual + #content')</td>
+                        <td>#visual 다음에 오는 #content 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">형제 선택자</td>
+                        <td class="ce">$('#visual ~ #footer')</td>
+                        <td>#visual 요소의 형제요소 #footer를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">종속 선택자</td>
+                        <td class="ce">$('div.util')</td>
+                        <td>클래스가 util인 div 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">그룹 선택자</td>
+                        <td class="ce">$('.left, .right, #banner')</td>
+                        <td>.left, .right, #banner 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">전체 선택자</td>
+                        <td class="ce">$('*')</td>
+                        <td>모든 요소를 선택합니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 class="t_tit2">코드</h3>
+            <div class="t_code">
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;기본 선택자&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            margin: 5px;
+        }
+    &lt;/style&gt;
+    &lt;script src="jquery-3.3.1.min.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        $(document).ready(function() {
+            $("p").css("border", "4px solid red");
+            $("#gnb").css("border", "4px solid orange");
+            $(".logo").css("border", "4px solid yellow");
+            $("#gnb &gt; ul &gt; li").css("border", "4px solid green");
+            $("#gnb ul").css("border", "4px solid blue");
+            $("#visual + #content").css("border", "4px solid navy");
+            $("#visual ~ #footer").css("border", "4px solid purple");
+            $("div.util").css("border", "4px solid pink");
+            $(".left,.right,#banner").css("border", "4px solid gray");
+        });
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header id="header"&gt;
+        &lt;div class="logo"&gt;로고&lt;/div&gt;
+        &lt;div class="util"&gt;회원가입&lt;/div&gt;
+        &lt;nav id="gnb"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;메뉴1
+                    &lt;ul&gt;
+                        &lt;li&gt;메뉴1_1&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+        &lt;div id="visual"&gt;
+            &lt;p&gt;비주얼&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div id="content"&gt;
+            &lt;div class="left"&gt;왼쪽&lt;/div&gt;
+            &lt;div class="right"&gt;
+                &lt;div class="util"&gt;오른쪽&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div id="banner"&gt;배너&lt;/div&gt;
+        &lt;footer id="footer"&gt;푸터&lt;/footer&gt;
+    &lt;/header&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+            </div>
+            <h3 class="t_tit2">결과</h3>
+            <img src="https://github.com/kim-0617/coding/blob/main/javascript/asset/img/jquery01.png?raw=true" alt="jquery" style="width: 100%;">
+
+            <hr>
+            <h3 class="tit_2">마치며...</h3>
+            <p class="t_desc2">
+                on(), html(), after()와 같은 다양한 메서드들이 있습니다. 기회가 되면 소개할 자리가 있을겁니다.
+                안녕히 계세요 🙋‍♂️
+            </p>
+        </div>
+    </main>
+    <!-- // main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- // footer -->
+    <script src="/javascript/asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

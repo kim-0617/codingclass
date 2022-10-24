@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dog_animation</title>
+    <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="stylesheet" href="asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">간단한 애니메이션 효과 03</h2>
+            <p class="t_desc2">
+                안녕하세요. 텍스트가 순서대로 통통 튀는 효과를 만들어 볼게요!
+            </p>
+            <iframe height="500" style="width: 100%;" scrolling="no" title="text Animation" src="https://codepen.io/kim-0617/embed/gOzxYjy?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href="https://codepen.io/kim-0617/pen/gOzxYjy">
+                text Animation</a> by kim-0617 (<a href="https://codepen.io/kim-0617">@kim-0617</a>)
+                on <a href="https://codepen.io">CodePen</a>.
+            </iframe>
+
+            <hr>
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">
+                h1 태그 안에 글자 수 만큼 span태그를 만드시고 그안에 글자 한글자씩 입력합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;h1&gt;
+    &lt;span&gt;I&lt;/span&gt;
+    &lt;span&gt; &lt;/span&gt;
+    &lt;span&gt;a&lt;/span&gt;
+    &lt;span&gt;m&lt;/span&gt;
+    &lt;span&gt; &lt;/span&gt;
+    &lt;span&gt;L&lt;/span&gt;
+    &lt;span&gt;e&lt;/span&gt;
+    &lt;span&gt;g&lt;/span&gt;
+    &lt;span&gt;e&lt;/span&gt;
+    &lt;span&gt;n&lt;/span&gt;
+    &lt;span&gt;d&lt;/span&gt;
+  &lt;/h1&gt;
+</code></pre>
+            </div>
+            <!-- // html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                글자를 화면 가운데 정렬하고 크기 조정 후, text-shadow를 주어서 글자에 그림자 효과를 줍니다.
+                animation bounce를 정의해 두고 top 20px 이었던 글자를 -20px로 이동시키면서 글자가 튀는 효과를 줍니다.
+                글자 하나하나에 딜레이를 주어서 차례대로 통통 튀는 느낌을 줍니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">@font-face {
+    font-family: 'SuseongHyejeong';
+    font-weight: normal;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/suseong/SuseongHyejeong.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/suseong/SuseongHyejeong.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/suseong/SuseongHyejeong.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/suseong/SuseongHyejeong.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/suseong/SuseongHyejeong.ttf') format("truetype");
+    font-display: swap;
+} 
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(140deg, skyblue 0%, plum 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: SuseongHyejeong;
+}
+
+h1 {
+  height: 100px;
+}
+
+h1 span {
+  font-size: 80px;
+  color : #fff;
+  position: relative;
+  top: 20px;
+  display: inline-block;
+  -webkit-font-smooting : antialiased;
+  text-shadow : 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc, 0 5px 0 #ccc, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent, 0 9px 0 transparent, 0 10px 10px rgba(0,0,0,0.4);
+  animation : bounce 0.3s ease infinite alternate;
+}
+
+h1 span:nth-child(2) {animation-delay : 0.1s}
+h1 span:nth-child(3) {animation-delay : 0.2s}
+h1 span:nth-child(4) {animation-delay : 0.3s}
+h1 span:nth-child(5) {animation-delay : 0.4s}
+h1 span:nth-child(6) {animation-delay : 0.5s}
+h1 span:nth-child(7) {animation-delay : 0.6s}
+h1 span:nth-child(8) {animation-delay : 0.7s}
+h1 span:nth-child(9) {animation-delay : 0.8s}
+h1 span:nth-child(10) {animation-delay : 0.9s}
+h1 span:nth-child(11) {animation-delay : 1s}
+
+@keyframes bounce {
+  100% {
+    top: -20px; 
+    text-shadow : 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc, 0 5px 0 #ccc, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent, 0 9px 0 transparent, 0 50px 25px rgba(0,0,0,0.4);
+  }
+}
+</code></pre>
+            </div>
+            <!-- // css -->
+
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="./asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

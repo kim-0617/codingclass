@@ -1,0 +1,79 @@
+/* cardType */
+#cardType {
+    margin-bottom: 30px;
+}
+
+.card__content{
+    margin-bottom: 55px;
+}
+
+#cardType h2 {
+    font-weight: bold;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+#cardType h2>a {
+    color: #ccc;
+}
+
+#cardType h2>a.active {
+    color: #000;
+}
+
+.card__inner {
+    display: flex;
+    justify-content: space-between;
+    /* 카드끼리 정렬 */
+    padding: 0;
+}
+
+.card__header{
+    position: relative;
+}
+
+.card {
+    width: 32%;
+}
+
+.card__body {position: relative;}
+
+.card__body h3 {
+    font-size: 16px;
+    padding: 20px 0;
+    font-weight: 400;
+}
+
+.card__body .desc {
+    font-size: 17px;
+    font-weight: bold;
+    color: #000;
+}
+
+.card__body .desc > span{
+    font-size: 16px;
+    color: #ccc;
+    font-weight: normal;
+}
+
+.card__body img{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0px;
+    bottom: 5px;
+}
+
+.caption{
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    color: #fff;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    text-align: center;
+    line-height: 30px;
+    padding: 5px;
+}

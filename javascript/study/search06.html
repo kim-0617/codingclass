@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서치 이펙트 06</title>
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit"></h2>
+                <p class="t_desc2">
+                    searchEffect06번 입니다. 
+                </p>
+            <div class="t_frame" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-0617.github.io/coding/javascript/effect/searchEffect06.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://kim-0617.github.io/coding/javascript/effect/searchEffect06.html" target="_blank">실제 사이트 보기</a>
+                <a href="https://github.com/kim-0617/coding/blob/main/javascript/effect/searchEffect06.html" target="_blank">원본 소스 보기</a>
+            </div>
+            <hr>
+
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">
+                중요도를 표시해 주었던 li들을 지우고 정렬 방법에 대한 li 버튼을 만들어 줍니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;main id="main"&gt;
+    &lt;div class="search__wrap"&gt;
+        &lt;span&gt;sort(), revers()를 이용하여 정렬하기&lt;/span&gt;
+        &lt;h1&gt;CSS 속성 정렬하기&lt;/h1&gt;
+        
+        &lt;div class="search__click"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#" class="btn1"&gt;반대로 정렬하기&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="btn2"&gt;내림차순 정렬하기&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="btn3"&gt;오름차순 정렬하기&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="btn4"&gt;알파벳순(a~z) 정렬하기&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="btn5"&gt;알파벳순(z~a) 정렬하기&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="btn6"&gt;랜덤 정렬하기&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+
+        &lt;div class="search__info"&gt;
+            &lt;div&gt;CSS 속성 갯수 : &lt;span class="num"&gt;0&lt;/span&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="search__list"&gt;
+            &lt;ul class="line"&gt;&lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+            </div>
+            <!-- // html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                변동사항이 없습니다.
+            </p>
+            <!-- <div class="t_code">
+<pre><code class="language-css">.search__click {
+    margin-bottom: 30px;
+}
+
+.search__click li {
+    display: inline;
+}
+
+.search__click li a {
+    display: inline-block;
+    border: 1px solid var(--htmlColor);
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 10px 0;
+}
+
+.search__click li a:hover {
+    background-color: var(--htmlColor);
+    color: #fff;
+}
+</code></pre>
+            </div> -->
+            <!-- // css -->
+
+            <h3 class="t_tit2">js</h3>
+            <p class="t_desc">
+                버튼을 누르면 해당 텍스트에 맞게 정렬하는 부분입니다.
+                여기서 크게 언급드릴게 없으니 이만 줄이겠습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const cssList = document.querySelector('.search__list .line'); // css 목록들이 들어갈 자리
+
+const listCssArr = [];
+// 데이터 출력하기
+const updateList = () => {
+    let listCss = "";
+    cssProperty.forEach((data, index) => {
+        listCss += `&lt;li&gt;${data.num}. ${data.name} : ${data.desc}&lt;/li&gt;`;
+        listCssArr.push(`&lt;li&gt;${data.num}. ${data.name} : ${data.desc}&lt;/li&gt;`);
+    });
+    cssList.innerHTML = listCss;
+}
+updateList();
+
+// 정렬 함수 =&gt; 앞에 것이 클 때 오름차순 정렬
+function sortReverse() {
+    cssProperty.reverse();
+    updateList();
+}
+
+function sortDesc() {
+    cssProperty.sort((a,b) => b.num - a.num);
+    updateList();
+}
+
+function sortAsc() {
+    cssProperty.sort((a,b) => a.num - b.num);
+    updateList();
+}
+
+function sortAlphabet() {
+    cssProperty.sort((prev, cur) => { 
+        const [upperPrev, upperCur] = [prev.name.toUpperCase(), cur.name.toUpperCase()]
+        if (upperPrev > upperCur) return 1;
+        if (upperPrev < upperCur) return -1;
+        // if (upperPrev === upperCur) return 0;
+    });
+    updateList();
+}
+
+function sortAlphabetZ() {
+    cssProperty.sort((prev, cur) => { 
+        const [upperPrev, upperCur] = [prev.name.toUpperCase(), cur.name.toUpperCase()]
+        if (upperPrev < upperCur) return 1;
+        if (upperPrev > upperCur) return -1;
+        // if (upperPrev === upperCur) return 0;
+    });
+    updateList();
+}
+
+// 반대로 정렬 클릭
+const reverseBtn = document.querySelector('.btn1');
+reverseBtn.addEventListener('click', sortReverse);
+
+// 내림차순 정렬 클릭
+const descBtn = document.querySelector('.btn2');
+descBtn.addEventListener('click', sortDesc);
+
+// 오름차순 정렬 클릭
+const ascBtn = document.querySelector('.btn3');
+ascBtn.addEventListener('click', sortAsc);
+
+// 알파벳 순으로 정렬
+const alphaBtn = document.querySelector('.btn4');
+alphaBtn.addEventListener('click', sortAlphabet);
+
+// 알파벳 역순으로 정렬
+const alphaReverseBtn = document.querySelector('.btn5');
+alphaReverseBtn.addEventListener('click', sortAlphabetZ);
+
+// 피셔 에이츠 (랜덤 정렬)
+function shuffle(data) {
+    for(let i = data.length -1; i >= 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        [data[i], data[randomIndex]] = [data[randomIndex], data[i]];
+        cssList.innerHTML += data[i];
+    }
+}
+
+const randomBtn = document.querySelector('.btn6');
+randomBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    cssList.innerHTML = '';
+    shuffle(listCssArr);
+});
+</code></pre>
+            </div>
+            <!-- // js -->
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

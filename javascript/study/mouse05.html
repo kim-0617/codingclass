@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 이펙트 01</title>
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">마우스 효과 05</h2>
+                <p class="t_desc2">
+                    마우스 이펙트 05번째 시간입니다. 이번엔 마우스를 움직일 때 마다 이미지를 왜곡 시켜 보겠습니다.
+                </p>
+            <div class="t_frame" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-0617.github.io/coding/javascript/effect/mouseEffect05.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://kim-0617.github.io/coding/javascript/effect/mouseEffect05.html" target="_blank">실제 사이트 보기</a>
+                <a href="https://github.com/kim-0617/coding/blob/main/javascript/effect/mouseEffect05.html" target="_blank">원본 소스 보기</a>
+            </div>
+            <hr>
+
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">
+                마우스 이펙트니까.. 커서는 계속 있구요 원래의 마우스 커서 대신 이 커서를 사용할 겁니다.
+                mouse__img 안에 figure(이미지 부분) figcaption(설명 부분)이 들어 있습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;section id="mouseType"&gt;
+    &lt;div class="mouse__cursor"&gt;&lt;/div&gt;
+    &lt;div class="mouse__wrap"&gt;
+        &lt;div class="mouse__img"&gt;
+            &lt;figure&gt;
+                &lt;img src="../asset/img/effect_img01@2x.jpg" alt="image"&gt;
+            &lt;/figure&gt;
+            &lt;figcaption&gt;
+                &lt;p&gt;
+                    You look good when your eyes are closed, but you look the best when my eyes closed.
+                &lt;/p&gt;
+                &lt;p&gt;
+                    너는 눈을 감을 때 예쁘지만, 내가 눈을 감으면, 너는 최고로 예뻐!
+                &lt;/p&gt;
+            &lt;/figcaption&gt;
+        &lt;/div&gt; 
+    &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;div class="mouse__info"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;mousePageX : &lt;span class="mousePageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;mousePageY : &lt;span class="mousePageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;centerPageX : &lt;span class="centerPageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;centerPageY : &lt;span class="centerPageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;maxPageX : &lt;span class="maxPageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;maxPageY : &lt;span class="maxPageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;anglePageX : &lt;span class="anglePageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;anglePageY : &lt;span class="anglePageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+            <!-- // html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                mouse__img 부분을 왜곡 시킬 겁니다. 그래서 transform-style : preserve-3d 효과를 줘서 3d 효과를 줍니다.
+                figcation에 position : absolute, t50% l50%, translate3d(-50%, -50%, 100px) => 100px 이부분이 텍스트 영역이
+                그림에서 약간 올라온 느낌을 줍니다. (3d 느낌) mix-blend-mode : difference를 주게되면 다른 영역에서 투명효과 처럼 됩니다. 신기하죠?
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">/* mouseType */
+.mouse__wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    cursor: none;
+}
+
+.mouse__img {
+    transform: perspective(600px) rotateX(0deg) rotateY(0deg) ;
+    transform-style: preserve-3d;
+    will-change: transform;
+    translate: all 0.5s;
+}
+
+.mouse__img figure {
+    width: 50vw;
+    position: relative;
+}
+
+.mouse__img figure::before {
+    content: '';
+    position: absolute;
+    left: 5%;
+    bottom: -30px;
+    z-index: -1;
+    width: 90%;
+    height: 40px;
+    background: url(../asset/img/effect_img01@2x.jpg) no-repeat center;
+    background-size: 100% 40px;
+    filter: blur(15px) grayscale(50%);
+    /* opacity: 0.7; */
+}
+
+.mouse__img figcaption {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 1vw;
+    line-height: 1.6;
+    transform: translate3d(-50%, -50%, 100px);
+    padding: 1vw;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+    background: rgba(0,0,0,0.4);
+}
+
+.mouse__cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #fff;
+    z-index: 1000;
+    pointer-events: none;
+    user-select: none;
+    mix-blend-mode: difference;
+}
+
+.mouse__info {
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.6;
+}
+</code></pre>
+            </div>
+            <!-- // css -->
+
+            <h3 class="t_tit2">js</h3>
+            <p class="t_desc">
+                mousemove 이벤트를 감지해서 마우스 좌표 값을 알아내는데, 저번에 했던것 처럼 좌표를 화면 가운데 기준으로
+                초기화 시켜줍니다. 그 후, mouse__img 부분에 transform : rotate 값으로 주어도 되지만, 너무 수치가 커서 적절하지 않죠..
+                그렇다면 Math.max(-100, Math.min(100, centerPageX)) 작업을 해서 centerPageX 값이 -100 ~ 100 사이의 값이 나오도록 합니다.
+                그 값에서 0.3 정도 곱해서 더 줄이고 마지막으로 softPageX += (anglePageX - softPageX) * 0.5 이부분 이죠, 바로 더 부드러운 효과를 위해서
+                야금야금 softPageX에 더해가면서 부드럽게.. 부드럽게 움직여 줍니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">const mouseMove = (e) => {
+// 마우스 좌표 값
+let mousePageX = e.pageX;
+let mousePageY = e.pageY;
+
+// 마우스 좌표 기준 가운데로 변경
+let centerPageX = window.innerWidth / 2 - mousePageX;
+let centerPageY = window.innerHeight / 2 - mousePageY;
+
+// 최소값은 -100 최대값은 100
+let maxPageX = Math.max(-200, Math.min(200, centerPageX));
+let maxPageY = Math.max(-200, Math.min(200, centerPageY));
+
+// 각도 줄이기
+let anglePageX = maxPageX * 0.3;
+let anglePageY = maxPageY * 0.3;
+
+// 부드럽게 설정
+let softPageX = 0;
+let softPageY = 0;
+softPageX += (anglePageX - softPageX) * 0.5;
+softPageY += (anglePageY - softPageY) * 0.5;
+
+// 이미지 움직이기
+const imgMove = document.querySelector('.mouse__img');
+imgMove.style.transform = `perspective(600px) rotateX(${softPageY}deg) rotateY(${-softPageX}deg)`;
+
+// 커서
+gsap.to('.mouse__cursor', {
+    duration : 0.3,
+    left : mousePageX,
+    top : mousePageY,
+    xPercent : -50,
+    yPercent : -50
+})
+
+// 출력
+document.querySelector(".mousePageX").textContent = mousePageX;
+document.querySelector(".mousePageY").textContent = mousePageX;
+document.querySelector(".centerPageX").textContent = centerPageX;
+document.querySelector(".centerPageY").textContent = centerPageY;
+document.querySelector(".maxPageX").textContent = maxPageX;
+document.querySelector(".maxPageY").textContent = maxPageY;
+document.querySelector(".anglePageX").textContent = anglePageX;
+document.querySelector(".anglePageY").textContent = anglePageY;
+}
+window.addEventListener('mousemove', mouseMove);
+</code></pre>
+            </div>
+            <!-- // js -->
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

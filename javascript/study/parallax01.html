@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 이펙트 01</title>
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">페럴랙스 효과 01</h2>
+            <p class="t_desc2">
+                페럴랙스는 효과 01입니다. 페럴렉스는 시차라는 뜻인데요, 사
+                용자가 마우스를 스크롤할 때, 원거리에 있는 배경 이미지는 느리게 움직이게 하고,
+                근거리에 있는 사물 이미지는 빠르게 움직이도록 함으로써 입체감을 느낄 수 있게 만든 디자인 기법입니다.
+                이번엔 간단하게 스크롤 관련 메서드들만 써봤습니다. 추후 다양한 효과를 소개해드릴 기회가 있을겁니다..
+            </p>
+            <div class="t_frame" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-0617.github.io/coding/javascript/effect/parallaxEffect01.html"
+                    frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://kim-0617.github.io/coding/javascript/effect/parallaxEffect01.html" target="_blank">실제
+                    사이트 보기</a>
+                <a href="https://github.com/kim-0617/coding/blob/main/javascript/effect/parallaxEffect01.html"
+                    target="_blank">원본 소스 보기</a>
+            </div>
+            <hr>
+
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">
+                html부분은 섹션9개가 주된 컨텐츠로 이루어져 있습니다. nav부분은 메뉴1~9, 즉 클릭하면 각각의 섹션으로 이동할 수 있도록 작업해 줍니다.
+                그리고 섹션부분에는 섹션번호, 간단한 명언, 전체 이미지가 들어갑니다. 맨 마지막 aside 부분은 현재 스크롤이 몇이고, 섹션의 offsetTop 값이 얼마인지를
+                부가적인 정보로 표현하고 있습니다.
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-html">&lt;nav id="parallax__nav"&gt;
+    &lt;ul&gt;
+        &lt;li class="active"&gt;&lt;a href="#section1"&gt;메뉴1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section2"&gt;메뉴2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section3"&gt;메뉴3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section4"&gt;메뉴4&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section5"&gt;메뉴5&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section6"&gt;메뉴6&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section7"&gt;메뉴7&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section8"&gt;메뉴8&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section9"&gt;메뉴9&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;main id="parallax__cont"&gt;
+    &lt;div id="contents"&gt;
+        &lt;section id="section1" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;01&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section1&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc"&gt;한번의 실패와 영원한 실패를 혼동하지 마라&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section1 --&gt;
+
+        &lt;section id="section2" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;02&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section2&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc"&gt;내일은 내일의 태양이 뜬다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section2 --&gt;
+
+        &lt;section id="section3" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;03&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section3&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc"&gt;하루에 3시간을 걸으면 7년 후에 지구를 한바퀴 돌 수 있다. &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section3 --&gt;
+
+        &lt;section id="section4" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;04&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section4&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc"&gt;행복은 습관이다,그것을 몸에 지니라 &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section4 --&gt;
+
+        &lt;section id="section5" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;05&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section5&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc"&gt;만약 우리가 할 수 있는 일을 모두 한다면 우리들은 우리자신에 깜짝 놀랄 것이다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section5 --&gt;
+
+        &lt;section id="section6" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;06&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section6&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc"&gt;자신을 내보여라. 그러면 재능이 드러날 것이다. &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section6 --&gt;
+
+        &lt;section id="section7" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;07&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section7&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc"&gt;겨울이 오면 봄이 멀지 않으리&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section7 --&gt;
+
+        &lt;section id="section8" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;08&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section8&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc"&gt;자신감 있는 표정을 지으면 자신감이 생긴다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section8 --&gt;
+
+        &lt;section id="section9" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;09&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section9&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc"&gt;길을 잃는 다는 것은 곧 길을 알게 된다는 것이다. &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section9 --&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;aside id="parallax__info"&gt;
+    &lt;div class="scroll"&gt;scrollTop : &lt;span&gt;0&lt;/span&gt;px&lt;/div&gt;
+    &lt;div class="info"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;#section1 offset() : &lt;span class="offset1"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section2 offset() : &lt;span class="offset2"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section3 offset() : &lt;span class="offset3"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section4 offset() : &lt;span class="offset4"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section5 offset() : &lt;span class="offset5"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section6 offset() : &lt;span class="offset6"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section7 offset() : &lt;span class="offset7"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section8 offset() : &lt;span class="offset8"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section9 offset() : &lt;span class="offset9"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/aside&gt;
+</code></pre>
+                </div>
+            </details>
+            <!-- // html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                항상 말씀드리지만 css는 background-image 넣고, 글씨 크기 조절하고, 간격 맞추고 적절한 위치에 배치해주면 끝입니다.
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-css">/* parallax__nav */
+#parallax__nav {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 2000;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px 35px;
+    border-radius: 50px;
+}
+
+#parallax__nav li {
+    display: inline;
+    margin: 0 5px;
+}
+
+
+#parallax__nav li a {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding: 5px 20px;
+    text-align: center;
+}
+
+#parallax__nav li.active a {
+    background: #fff;
+    color: #000;
+    border-radius: 20px;
+    box-sizing: content-box;
+}
+
+#parallax__cont {
+    max-width: 1600px;
+    width: 98%;
+    margin: 0 auto;
+    /* background-color: rgba(255, 255, 255, 0.1); */
+}
+
+.content__item {
+    position: relative;
+    width: 1000px;
+    max-width: 70vw;
+    margin: 30vw auto;
+    text-align: left;
+    margin-right: 0;
+    padding-top: 10vw;
+    /* background-color: rgba(255, 255, 255, 0.3); */
+}
+
+.content__item:nth-child(even) {
+    margin-left: 0;
+    text-align: right;
+}
+
+.content__item__num {
+    position: absolute;
+    left: -5vw;
+    top: -13vw;
+    opacity: 0.07;
+    font-size: 35vw;
+    font-family: Lato;
+    font-weight: 100;
+    z-index: -2;
+}
+
+.content__item:nth-child(even) .content__item__num {
+    left: auto;
+    right: -5vw;
+}
+
+.content__item__title {
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.content__item__imgWrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    background: #000;
+    z-index: -1;
+}
+
+.content__item__img {
+    position: absolute;
+    background: url(../asset/img/effect_img01.jpg) no-repeat center / cover;
+    width: 110%;
+    height: 110%;
+    left: -5%;
+    top: -5%;
+    filter: saturate(0%);
+    transition: all 1s;
+}
+
+.content__item:nth-child(2) .content__item__img {
+    background: url(../asset/img/effect_img10.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(3) .content__item__img {
+    background: url(../asset/img/effect_img03.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(4) .content__item__img {
+    background: url(../asset/img/effect_img04.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(5) .content__item__img {
+    background: url(../asset/img/effect_img05.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(6) .content__item__img {
+    background: url(../asset/img/effect_img06.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(7) .content__item__img {
+    background: url(../asset/img/effect_img07.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(8) .content__item__img {
+    background: url(../asset/img/effect_img08.jpg) no-repeat center / cover;
+}
+
+.content__item:nth-child(9) .content__item__img {
+    background: url(../asset/img/effect_img09.jpg) no-repeat center / cover;
+}
+
+.content__item__desc {
+    font-size: 4vw;
+    line-height: 1.4;
+    margin-top: -5vw;
+    margin-left: -4vw;
+    word-break: keep-all;
+}
+
+.content__item:nth-child(even) .content__item__desc {
+    margin-left: auto;
+    margin-right: -4vw;
+}
+
+#parallax__info {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#parallax__info li,
+.scrollTop {
+    line-height: 1.4;
+}
+
+@media(max-width : 800px) {
+    #parallex__cont {
+        margin-top: 70vw;
+    }
+
+    #parallax__nav {
+        padding: 10px;
+        right: auto;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    #parallax__nav li {
+        display: block;
+        margin: 5px;
+    }
+
+    #parallax__nav li a {
+        font-size: 14px;
+        padding: 5px;
+        border-radius: 5px;
+        height: auto;
+        line-height: 1;
+    }
+
+    #parallax__info {
+        left: 10px;
+        bottom: 10px;
+    }
+}
+</code></pre>
+                </div>
+            </details>
+            <!-- // css -->
+
+            <h3 class="t_tit2">js</h3>
+            <p class="t_desc">
+                자 js 부분인데요? 순서대로 가보겠습니다. <br>
+                1. 현재 스크롤이 얼마인지는 let scrollTop = window.pageYOffset || window.scrollY ||
+                document.documentElement.scrollTop; 이용해서 구합니다. <br>
+                2. 그걸 document.querySelector('#parallax__info .scroll span') 여기다 넣어줬어요 <br>
+                3. 각 섹션의 시작 값 (즉, 얼마만큼 내려야 각 섹션을 만날수가 있느냐)은 document.getElementById("section" + i).offsetTop <br>
+                4. 즉, section(1,2,3 ...) 의 offsetTop 속성으로 구할수가 있습니다. 그것을 document.querySelector(".offset" + i) 여기다 넣어줬죠?
+                <br>
+                5. 자 그래서 각 메뉴에 active는 어떻게 구하느냐? document.querySelectorAll('.content__item').forEach 이부분은 section 9개를
+                집었죠? <br>
+                6. if (scrollTop >= element.offsetTop - 1) => 현재 내린 스크롤 값이 섹션의 offsetTop값 보다 커지면, 즉 더 많이 내리면 active를 현재
+                섹션으로 바꿉니다. <br>
+                7. 나머지 섹션에는 active를 지워줘야 겠죠? 그렇게해서 active를 바꿔주시면 되고, <br>
+                8. 마지막으로 smooth 효과를 집어보죠. document.querySelectorAll('#parallax__nav li a') => 우리가 메뉴를 클릭했을 때 이동하는 부분이죠?
+                (각각의 섹션 id 로요) <br>
+                9. 여기서 a링크를 클릭했을 때 addEventListener("click") 이벤트를 설치하고, a값의 href 속성을 얻어온 후, 대망의 scrollIntoView 메서드를
+                사용하겠습니다. <br>
+                10.scrollIntoView는 href 속성으로 이동할 때의 효과를 지정할 수 있습니다. 인자로 객체를 넘기는데, behavior : "smooth",를 넘겨주면 스무스하게 넘어가죠?
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">const scroll = document.querySelector('#parallax__info .scroll span')
+window.addEventListener("scroll", () => {
+    // let scrollTop = window.pageYOffset;
+    // let scrollTop = window.scrollY;
+    // let scrollTop = document.documentElement.scrollTop;
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+    // for문
+    // for (let i = 1; i <= 9; i++) {
+    //     if (scrollTop + 1 >= document.getElementById(`section${i}`).offsetTop) {
+    //         document.querySelectorAll('#parallax__nav li').forEach((li) => {
+    //             li.classList.remove('active');
+    //         });
+    //         document.querySelector(`#parallax__nav li:nth-child(${i})`).classList.add('active');
+    //     }
+    // }
+
+    // forEach문
+    // Array.from(Array(9).keys(), x => x+1).forEach((el,index) => {
+    //     if (scrollTop + 1 >= document.getElementById(`section${index + 1}`).offsetTop) {
+    //         document.querySelectorAll('#parallax__nav li').forEach((li) => {
+    //             li.classList.remove('active');
+    //         });
+    //         document.querySelector(`#parallax__nav li:nth-child(${index + 1})`).classList.add('active');
+    //     }
+    // });
+
+    // forEach문 02
+    document.querySelectorAll('.content__item').forEach((element, index) => {
+        if (scrollTop >= element.offsetTop - 1) {
+            document.querySelectorAll('#parallax__nav li').forEach((li) => {
+                li.classList.remove('active');
+            });
+            document.querySelector(`#parallax__nav li:nth-child(${index + 1})`).classList.add('active');
+        }
+    });
+
+    document.querySelector(".scroll span").innerText = Math.round(scrollTop);
+});
+
+// info
+for (let i = 1; i <= 9; i++) {
+    document.querySelector(".offset" + i).innerText = document.getElementById("section" + i).offsetTop;
+}
+
+// 스크롤 이동
+document.querySelectorAll('#parallax__nav li a').forEach((li) => {
+    li.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector(li.getAttribute('href')).scrollIntoView({
+            behavior : "smooth",
+        });
+    });
+});
+</code></pre>
+                </div>
+            </details>
+            <!-- // js -->
+
+            <h3 class="t_tit2">보너스 설명</h3>
+            <img src="https://github.com/kim-0617/coding/blob/main/javascript/asset/img/scroll.jpg?raw=true"
+            alt="보너스 설명" style="max-width: 100%; height: auto;">
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

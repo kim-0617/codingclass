@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 이펙트 01</title>
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">마우스 효과 01</h2>
+                <p class="t_desc2">
+                    이번엔 자바스크립트로 마우스 이벤트를 발생시켜서 재밌는걸 해보죠. 밑에 좌표 정보는 참고사항으로 넣어 놨습니다.
+                    마우스가 움직일 때마다 좌표값이 바뀌죠?
+                </p>
+            <div class="t_frame" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-0617.github.io/coding/javascript/effect/mouseEffect01.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://kim-0617.github.io/coding/javascript/effect/mouseEffect01.html" target="_blank">실제 사이트 보기</a>
+                <a href="https://github.com/kim-0617/coding/blob/main/javascript/effect/mouseEffect01.html" target="_blank">원본 소스 보기</a>
+            </div>
+            <hr>
+
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">html 코드는 마우스 포인터를 나타낼 cursor클래스와 명언 한 구절을 적어 놓은 mouse__wrap 부분이 있습니다.</p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;main id="main"&gt;
+    &lt;section id="mouseType"&gt;
+        &lt;div class="mouse__cursor"&gt;&lt;/div&gt;
+        &lt;div class="mouse__wrap"&gt;
+            &lt;p&gt;Although the &lt;span class="style1"&gt;world&lt;/span&gt; is full of &lt;span class="style2"&gt;suffering&lt;/span&gt;, it
+                is full also of the
+                &lt;span class="style3"&gt;overcoming&lt;/span&gt; of it.
+            &lt;/p&gt;
+            &lt;p&gt;세상은 &lt;span class="style4"&gt;고통&lt;/span&gt;으로 가득하지만, &lt;span class="style5"&gt;한편&lt;/span&gt; 그것을 &lt;span
+                    class="style6"&gt;이겨내는&lt;/span&gt; 일로도 가득차 있다.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;div class="mouse__info"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;clientX : &lt;span class="clientX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;clientY : &lt;span class="clientY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;offsetX : &lt;span class="offsetX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;offsetY : &lt;span class="offsetY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;pageX : &lt;span class="pageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;pageY : &lt;span class="pageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;screenX : &lt;span class="screenX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;screenY : &lt;span class="screenY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+            </div>
+            <!-- // html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                강조 표시에 놓은 span 영역에 마우스를 hover 했을 때 cursor에 추가할 style들을 정의해주고, 뭐 커서의 디자인이나 다른 여타 디자인 요소들을
+                해주면 되겠죠?
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">/* mouseType */
+.mouse__wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    overflow: hidden;
+    cursor: none;
+}
+
+.mouse__wrap p {
+    font-size: 2vw;
+    line-height: 2;
+    font-weight: 300;
+}
+
+.mouse__wrap p:last-child {
+    font-size: 3vw;
+    font-weight: 400;
+}
+
+.mouse__wrap p span {
+    border-bottom: 0.15vw dashed orange;
+    color: orange;
+}
+
+@media (max-width : 800px) {
+    .mouse__wrap p {
+        padding: 0px 20px;
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    .mouse__wrap p:last-child {
+        font-size: 40px;
+        line-height: 1.5;
+        text-align: center;
+        word-break: keep-all;
+    }
+}
+
+.mouse__cursor {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    user-select: none;
+    pointer-events: none;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.6s, border-radius 0.3s;
+}
+
+.mouse__cursor.style1 {
+    border: 3px solid rgb(254, 232, 120);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mouse__cursor.style2 {
+    border: 3px solid rgb(47, 44, 28);
+    background-color: rgba(221, 221, 221, 0.1);
+    transform: scale(2) rotateY(720deg);
+}
+
+.mouse__cursor.style3 {
+    border: 3px solid rgb(174, 231, 124);
+    background-color: rgba(151, 151, 151, 0.1);
+    transform: scale(1.5) rotateX(720deg);
+}
+
+.mouse__cursor.style4 {
+    border: 3px solid rgb(255, 0, 0);
+    background-color: rgba(255, 203, 203, 0.1);
+    transform: scale(10);
+}
+
+.mouse__cursor.style5 {
+    border: 3px solid rgb(60, 255, 235);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    transform: scale(5);
+}
+
+.mouse__cursor.style6 {
+    border: 3px solid rgb(166, 0, 255);
+    background-color: rgba(255, 120, 120, 0.1);
+    transform: scale(5) skew(45deg);
+}
+
+.mouse__info {
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.6;
+}
+</code></pre>
+            </div>
+            <!-- // css -->
+
+            <h3 class="t_tit2">js</h3>
+            <p class="t_desc">
+                맨 위에 부분 mousemove 이벤트는 좌표 값 보여주는 코드입니다. (1번째 부분) <br>
+                그 밑에 코드가 마우스가 움직일 때 마다, cursor부분의 position 값이 실시간으로 변경됩니다. (2번째 부분) <br>
+                그 후, 강조 표시한 단어에 hover 했을 때 마다 효과를 다르게 주기 위해서 span 태그에 스타일을 넣어서 css에 정의 해놓고, (3번째 부분) <br>
+                정의해 놓은 영역에 mouseover 했을 때 cursor에 class를 추가시켜줘서 style에 맞는 class를 추가 시켜줍니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">// 마우스 좌표 구하기
+window.addEventListener("mousemove", (event) => {
+    document.querySelector(".clientX").innerText = event.clientX;
+    document.querySelector(".clientY").innerText = event.clientY;
+    document.querySelector(".offsetX").innerText = event.offsetX;
+    document.querySelector(".offsetY").innerText = event.offsetY;
+    document.querySelector(".pageX").innerText = event.pageX;
+    document.querySelector(".pageY").innerText = event.pageY;
+    document.querySelector(".screenX").innerText = event.screenX;
+    document.querySelector(".screenY").innerText = event.screenY;
+});
+
+// 커서 포인터 따라다니게 하기
+window.addEventListener("mousemove", (e) => {
+    const cursor = document.querySelector('.mouse__cursor');
+    cursor.style.left = e.clientX - 25 + "px";
+    cursor.style.top = e.clientY - 25 + "px";
+});
+
+// 강조표시된 단어에 hover 했을 때, 커서 스타일 변경
+// document.querySelectorAll('.mouse__wrap span').forEach((span, index) => {
+//     span.addEventListener("mouseover", () => {
+//         const cursor = document.querySelector('.mouse__cursor');
+//         cursor.classList.add(`style${index+1}`);
+//     });
+//     span.addEventListener("mouseout", () => {
+//         const cursor = document.querySelector('.mouse__cursor');
+//         cursor.classList.remove(`style${index+1}`);
+//     });
+// });
+
+// getAttribute
+document.querySelectorAll('.mouse__wrap span').forEach((span) => {
+    const spanClass = span.getAttribute('class');
+    span.addEventListener("mouseover", () => {
+        const cursor = document.querySelector('.mouse__cursor');
+        cursor.classList.add(spanClass);
+    });
+    span.addEventListener("mouseout", () => {
+        const cursor = document.querySelector('.mouse__cursor');
+        cursor.classList.remove(spanClass);
+    });
+});
+</code></pre>
+            </div>
+            <!-- // js -->
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>페럴랙스 이펙트 06</title>
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">페럴랙스 효과 07</h2>
+            <p class="t_desc2">
+                페럴랙스 효과 07입니다. 이번에는 사진과 글귀를 안보이게 해 주었다가, 스크롤을 해당 영역에 했을 때,
+                사진과 글귀가 드러나는 효과입니다.
+            </p>
+            <div class="t_frame" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-0617.github.io/coding/javascript/effect/parallaxEffect07.html"
+                    frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://kim-0617.github.io/coding/javascript/effect/parallaxEffect07.html" target="_blank">실제
+                    사이트 보기</a>
+                <a href="https://github.com/kim-0617/coding/blob/main/javascript/effect/parallaxEffect07.html"
+                    target="_blank">원본 소스 보기</a>
+            </div>
+            <hr>
+
+            <h2 class="t_tit">코드</h2>
+            <h3 class="t_tit2">html</h3>
+            <p class="t_desc">
+                효과를 주고 싶은 영역의 부모태그의 reveal 클래스를 부여합니다. 그외에는 이전과 동일합니다.
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-html">&lt;main id="parallax__cont"&gt;
+    &lt;div id="contents"&gt;
+        &lt;section id="section1" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;01&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section1&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc split"&gt;한번의 실패와 영원한 실패를 혼동하지 마라&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section1 --&gt;
+
+        &lt;section id="section2" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;02&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section2&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc split"&gt;내일은 내일의 태양이 뜬다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section2 --&gt;
+
+        &lt;section id="section3" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;03&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section3&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc split"&gt;하루에 3시간을 걸으면 7년 후에 지구를 한바퀴 돌 수 있다. &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section3 --&gt;
+
+        &lt;section id="section4" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;04&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section4&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc split"&gt;행복은 습관이다,그것을 몸에 지니라 &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section4 --&gt;
+
+        &lt;section id="section5" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;05&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section5&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc split"&gt;만약 우리가 할 수 있는 일을 모두 한다면 우리들은 우리자신에 깜짝 놀랄 것이다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section5 --&gt;
+
+        &lt;section id="section6" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;06&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section6&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc split"&gt;자신을 내보여라. 그러면 재능이 드러날 것이다. &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section6 --&gt;
+
+        &lt;section id="section7" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;07&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section7&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc split"&gt;겨울이 오면 봄이 멀지 않으리&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section7 --&gt;
+
+        &lt;section id="section8" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;08&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section8&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc split"&gt;자신감 있는 표정을 지으면 자신감이 생긴다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section8 --&gt;
+
+        &lt;section id="section9" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;09&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section9&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;p class="content__item__desc split"&gt;길을 잃는 다는 것은 곧 길을 알게 된다는 것이다. &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- // section9 --&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+                </div>
+            </details>
+            <!-- // html -->
+
+            <h3 class="t_tit2">css</h3>
+            <p class="t_desc">
+                reveal 클래스가 붙지 않았을 때는 opacity를 0으로 하고 show 클래스가 붙었을 때는, opacity 애니메이션을 통해
+                해당 영역을 드러내줍니다. 다양한 클래스를 생성해서, reveal-BTT(bottom to top) reveal-RTL(Right to left) 등을 선언해서
+                다양한 방향에서 나타나는 효과를 줄 수 있도록 설정했습니다.
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-css">/* option */
+.reveal>div,
+.reveal>span {
+    opacity: 0;
+}
+
+.reveal.show>div,
+.reveal.show>span {
+    animation: opacity 1s linear forwards;
+}
+
+.reveal {
+    position: relative;
+}
+
+.reveal::before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 0;
+    height: 100%;
+    background: rgba(161, 158, 158, 0.412);
+    z-index: 1;
+}
+
+.reveal.show::before {
+    animation: reveal 1s;
+}
+
+.reveal.reveal-TWO.show::after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 0%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(255, 166, 0, 0.396);
+}
+
+/* 1개 */
+.reveal.reveal-RTL.show::before {
+    animation: reveal-RTL 1s;
+}
+
+.reveal.reveal-TTB.show::before {
+    animation: reveal-TTB 1s;
+}
+
+.reveal.reveal-BTT.show::before {
+    animation: reveal-BTT 1s;
+}
+
+/* 2개 */
+.reveal.show::after {
+    animation: reveal 1s 0.3s;
+}
+
+.reveal.reveal-RTL.show::after {
+    animation: reveal-RTL 1s 0.3s;
+}
+
+.reveal.reveal-TTB.show::after {
+    animation: reveal-TTB 1s 0.3s;
+}
+
+.reveal.reveal-BTT.show::after {
+    animation: reveal-BTT 1s 0.3s;
+}
+
+.content__item__num,
+.content__item__title {
+    display: none;
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 0;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes reveal {
+    0% {
+        width: 0;
+        left: 0;
+    }
+
+    50% {
+        width: 100%;
+        left: 0;
+    }
+
+    80% {
+        width: 100%;
+        left: 0;
+    }
+
+    100% {
+        width: 0;
+        left: 100%;
+    }
+}
+
+@keyframes reveal-RTL {
+    0% {
+        width: 0;
+        right: 0;
+        left: auto;
+    }
+
+    50% {
+        width: 100%;
+        right: 0;
+        left: auto;
+    }
+
+    80% {
+        width: 100%;
+        right: 0;
+        left: auto;
+    }
+
+    100% {
+        width: 0;
+        right: 100%;
+        left: auto;
+    }
+}
+
+@keyframes reveal-TTB {
+    0% {
+        width: 100%;
+        height: 0%;
+        top: 0;
+    }
+
+    50% {
+        width: 100%;
+        height: 100%;
+        top: 0;
+    }
+
+    80% {
+        width: 100%;
+        height: 100%;
+        top: 0;
+    }
+
+    100% {
+        width: 100%;
+        height: 0%;
+        top: 100%;
+    }
+}
+
+@keyframes reveal-BTT {
+    0% {
+        width: 100%;
+        height: 0%;
+        bottom: 0;
+        top: auto;
+    }
+
+    50% {
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        top: auto;
+    }
+
+    80% {
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        top: auto;
+    }
+
+    100% {
+        width: 100%;
+        height: 0%;
+        bottom: 100%;
+        top: auto;
+    }
+}
+</code></pre>
+                </div>
+            </details>
+            <!-- // css -->
+
+            <h3 class="t_tit2">js</h3>
+            <p class="t_desc">
+                자바스크립트의 역할은 show를 붙여주는데 쓰일 뿐 입니다.
+            </p>
+            <details>
+                <summary>코드 보기</summary>
+                <div class="t_code">
+<pre><code class="language-js">// reveal 클래스 자식에 글씨만 있다면 가상으로 span 태그 만들어서 넣어주세요
+const reveal = document.querySelectorAll('.reveal');
+reveal.forEach((el) => {
+    let text = el.innerText;
+    if (text) {
+        el.innerHTML = "<span>" + text + "</span>";
+    }
+});
+
+function scroll() {
+    let scrollTop = window.scrollY;
+    reveal.forEach((el, index) => {
+        let revealOffset = el.offsetTop + el.parentElement.offsetTop;
+        let revealDelay = el.dataset.delay;
+
+        // if(scrollTop > revealOffset - window.innerHeight) {
+        //     el.classList.add('show');
+        // }
+
+        if (scrollTop > revealOffset - window.innerHeight / 2) {
+            if (!revealDelay) {
+                el.classList.add('show');
+            }
+            else {
+                setTimeout(() => {
+                    el.classList.add("show");
+                }, revealDelay);
+            }
+        }
+    });
+    requestAnimationFrame(scroll);
+}
+scroll()
+</code></pre>
+                </div>
+            </details>
+            <!-- // js -->
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../asset/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

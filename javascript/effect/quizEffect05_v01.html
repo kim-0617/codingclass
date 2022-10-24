@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://webfontworld.github.io/DungGeunMo/DungGeunMo.css" rel="stylesheet">
+    <link href="https://webfontworld.github.io/Cafe24Dangdanghae/Cafe24Dangdanghae.css" rel="stylesheet">
+    <link rel="stylesheet" href="../asset/css/quiz.css">
+    <title>퀴즈 이펙트05_v02</title>
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../javascript01.html">Quiz </a><em>객관식 (한문제) 유형</em></h1>
+        <nav>
+            <ul>
+                <li><a href="quizEffect01.html">1</a></li>
+                <li><a href="quizEffect02.html">2</a></li>
+                <li><a href="quizEffect03.html">3</a></li>
+                <li><a href="quizEffect04.html">4</a></li>
+                <li class="active"><a href="quizEffect05.html">5</a></li>
+                <li><a href="quizEffect06.html">6</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <div class="quiz__wrap__dummy" style="display: none;">
+            <div class="quiz">
+                <span class="quiz__type"></span>
+                <h2 class="quiz__question">
+                    <span class="number"></span>
+                    <div class="ask"></div>
+                </h2>
+                <div class="quiz__view">
+                    <div class="true">정답입니다!</div>
+                    <div class="false">틀렸습니다!</div>
+                    <div class="dog">
+                        <div class="head">
+                            <div class="ears"></div>
+                            <div class="face"></div>
+                            <div class="eyes">
+                                <div class="teardrop"></div>
+                            </div>
+                            <div class="nose"></div>
+                            <div class="mouth">
+                                <div class="tongue"></div>
+                            </div>
+                            <div class="chin"></div>
+                        </div>
+                        <div class="body">
+                            <div class="tail"></div>
+                            <div class="legs"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz__answer">
+                    <div class="quiz__selects">
+                        <!-- input과 label을 연결할 때 id값이 필요하다. -->
+                        <label for="select1">
+                            <input type="radio" name="select" value="1" id="select1" class="select">
+                            <span class="choice"></span>
+                        </label>
+                        <label for="select2">
+                            <input type="radio" name="select" value="2" id="select2" class="select">
+                            <span class="choice"></span>
+                        </label>
+                        <label for="select3">
+                            <input type="radio" name="select" value="3" id="select3" class="select">
+                            <span class="choice"></span>
+                        </label>
+                        <label for="select4">
+                            <input type="radio" name="select" value="4" id="select4" class="select">
+                            <span class="choice"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- // main -->
+
+    <footer id="footer">
+        <a href="mailto:kkk5993@naver.com">kkk5993@naver.com</a>
+    </footer>
+    <!-- // footer -->
+    <script src="../asset/js/quiznote.js"></script>
+    <script>
+        let cnt = 0;
+        let len = note.length;
+        const quizWrap = document.querySelector('.quiz__wrap__dummy');
+        const quiz = document.querySelector('.quiz__wrap__dummy .quiz');
+        
+        function createCard(num) {
+            const card = quiz.cloneNode(true);
+            card.style.display = 'block';
+            card.className = 'quiz';
+            
+            let quizType = card.querySelector('.quiz__type');
+            quizType.innerHTML = note[num].answerType;
+
+            let quizNumber = card.querySelector('.quiz__question .number');
+            let quizAsk = card.querySelector('.quiz__question .ask');
+            quizNumber.innerHTML = note[num].answerNum + ". ";
+            quizAsk.innerHTML += note[num].answerAsk;
+
+            let labeles = card.querySelectorAll('label');
+            labeles.forEach((label, i) => {
+                let input = label.querySelector('input');
+                let span = label.querySelector('span');
+
+                label.htmlFor = `select${i}${num+1}`;
+                input.name = `select${num}`;
+                input.id = `select${i}${num+1}`;
+                span.innerHTML = note[num].answerChoice[i+1];
+            });
+            return card;
+        }
+
+        function clearClass(){
+            quizWrap.querySelector('.quiz__type').className = '';
+            quizWrap.querySelector('.quiz__question').className = '';
+            quizWrap.querySelector('.quiz__view').className = '';
+            quizWrap.querySelector('.quiz__selects').className = '';
+        }
+
+        function startQuiz(){
+            const div = document.createElement('div');
+            div.classList.add('quiz__wrap');
+            for(let i = 0; i < len; i++){
+                const card = createCard(i);
+                div.append(card);
+            }
+
+            div.innerHTML += `
+            <div class = "quiz__confirm">
+                <button class="check">정답 확인하기</button>
+                <div class="ex"></div> 
+            </div>`
+            document.querySelector('#main').append(div);
+            clearClass();
+        }
+        startQuiz();
+        
+        function answerQuiz(){
+            const quizSelects = document.querySelectorAll(".quiz__selects");    //보기
+            const quizView = document.querySelectorAll(".quiz__view");          //강아지
+            //사용자가 체크한 라디오 박스  == 문제 정답
+            note.forEach((question, number) => {
+                const quizSelectsWrap = quizSelects[number];                    //전체 보기 박스
+                const userSelector = `input[name=select${number}]:checked`;         //사용자가 클린한 라디오 박스
+                const userAnswer = (quizSelectsWrap.querySelector(userSelector) || {}).value;
+                const quizView = document.querySelectorAll(".quiz__view");
+                if(userAnswer === question.answerResult){
+                    quizView[number].classList.add("like");
+                    cnt+=1;
+                } else {
+                    quizView[number].classList.add("dislike");
+                    const div = document.createElement("div");
+                    quizSelectsWrap.appendChild(div).innerHTML = `<p class="result">정답은 : ${question.answerResult}번!<br>${question.answerEx}</p>`;
+                }
+            });
+            document.querySelector(".quiz__confirm .check").removeEventListener('click', answerQuiz);
+            document.querySelector(".quiz__confirm .check").innerHTML = `${cnt} / ${note.length} 맞음.. <br>다시 해보실래요?`;
+            document.querySelector(".quiz__confirm .check").addEventListener('click', () => {
+                location.href = location.href;
+            })
+        }
+        document.querySelector(".quiz__confirm .check").addEventListener("click", answerQuiz);
+    </script>
+</body>
+
+</html>
