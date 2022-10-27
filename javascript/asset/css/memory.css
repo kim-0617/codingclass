@@ -1,6 +1,6 @@
 .memory__wrap {
-    position: relative;
-    height: 300px;
+    position: fixed;
+    height: 150px;
     display: none;
     z-index: 150;
 }
@@ -22,13 +22,12 @@
     width: 100px;
     height: 100px;
     position: absolute;
-    top: 60%;
-    right: 23%;
-    transform: translate(-50%, -50%);
+    top: 5%;
+    right: -150px;
 }
 
 .memory__wrap button.close {
-    top: 100%;
+    top: 23%;
     background-color: tomato;
 }
 

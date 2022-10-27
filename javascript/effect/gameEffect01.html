@@ -597,9 +597,9 @@
 
             <!-- 메모리 게임 -->
             <div class="memory__wrap">
-                <button class="start">시작!</button>
-                <button class="close">끄기!</button>
                 <div class="memory__inner">
+                    <button class="start">시작!</button>
+                    <button class="close">끄기!</button>
                     <div class="memory__card">
                         <ul class="cards">
                             <li>
@@ -781,7 +781,7 @@
 
                     <div class="cont">
                         <div class="active">
-<pre><code class= "line-numbers language-js">// basic.js
+                            <pre><code class= "line-numbers language-js">// basic.js
 const cursor = document.querySelector('.mouse__cursor');
 $('.icon:nth-child(1)').draggable({
     drag: function () {
@@ -1272,7 +1272,7 @@ window.addEventListener("load", () => {
                         <!-- // js -->
 
                         <div>
-<pre><code class= "line-numbers language-html">&lt;div class="mouse__cursor"&gt;
+                            <pre><code class= "line-numbers language-html">&lt;div class="mouse__cursor"&gt;
     &lt;img src="../asset/img/cursor.png" alt="커서"&gt;
 &lt;/div&gt;
 &lt;!-- cursor --&gt;
@@ -1378,7 +1378,7 @@ window.addEventListener("load", () => {
                         <!-- // html -->
 
                         <div>
-<pre><code class= "line-numbers language-css">/* game.css */
+                            <pre><code class= "line-numbers language-css">/* game.css */
 * {
     margin: 0;
     padding: 0;
@@ -1898,7 +1898,6 @@ body {
 
         // 뮤직 플레이어 퇴장
         document.querySelector('.music__header .close').addEventListener('click', () => {
-            quitQuiz();
             document.querySelector('.music__wrap').classList.remove('show');
         });
 
@@ -1920,7 +1919,7 @@ body {
 
         // memoryGame 퇴장
         document.querySelector('.memory__wrap button.close').addEventListener('click', () => {
-            quitQuiz();
+            startBtn.style.display = 'inline-block';
             document.querySelector('.memory__wrap').classList.remove('show');
         });
 
