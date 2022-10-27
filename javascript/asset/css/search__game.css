@@ -1,15 +1,16 @@
 /* search__wrap */
 .search__wrap {
-    height: 100vh;
+    width: 1160px;
+    height: 700px;
     border: 3px solid #223547;
     background-color: #f1f3f6;
     padding: 30px;
     text-align: center;
-    margin-top: 40px;
     cursor: none;
     overflow-y: scroll;
-    z-index: 200;
+    z-index: 100;
     position: relative;
+    margin: 100px auto;
     display: none;
 }
 

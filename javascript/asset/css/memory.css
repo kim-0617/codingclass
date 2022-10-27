@@ -1,0 +1,174 @@
+.memory__wrap {
+    position: relative;
+    height: 300px;
+    display: none;
+    z-index: 150;
+}
+
+.memory__wrap.show {
+    display: block;
+}
+
+.memory__wrap button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.memory__wrap button.start,
+.memory__wrap button.close {
+    border: 0;
+    border-radius: 30px;
+    padding: 10px 20px;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 60%;
+    right: 23%;
+    transform: translate(-50%, -50%);
+}
+
+.memory__wrap button.close {
+    top: 100%;
+    background-color: tomato;
+}
+
+.memory__wrap button.close:hover {
+    background-color: #000;
+    color: tomato;
+}
+
+.memory__inner {
+    width: 700px;
+    height: 700px;
+    border: 3px solid #08f;
+    background: #000;
+    position: absolute;
+    left: 300px;
+    top: 100px;
+    border-radius: 20px;
+    animation: flicker 1.5s infinite alternate;
+}
+
+.memory__card {
+    padding: 30px;
+}
+
+.memory__card .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.memory__card .cards li {
+    list-style: none;
+    width: 150px;
+    height: 150px;
+    background: rgb(255, 85, 0);
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.memory__card .cards li.flip .front {
+    transform: rotateY(180deg);
+}
+
+.memory__card .cards li.flip .back {
+    transform: rotateY(0deg);
+}
+
+.memory__card .cards li.shakeX {
+    animation: shakeX 0.5s 0.5s 1;
+}
+
+.memory__card .cards li.shakeY {
+    animation: shakeY 0.5s 0.5s 1;
+}
+
+.memory__card .cards li .view {
+    position: absolute;
+    backface-visibility: hidden;
+    transition: all 500ms;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    /* pointer-events: none; */
+}
+
+.memory__card .cards li .front {}
+
+.memory__card .cards li .back {
+    transform: rotateY(-180deg);
+}
+
+.memory__card .cards li img {
+    width: 100%;
+    height: 100px;
+}
+
+@keyframes flicker {
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        box-shadow:
+            0 0 .5rem #fff,
+            inset 0 0 .5rem #fff,
+            0 0 2rem #08f,
+            inset 0 0 2rem #08f,
+            0 0 4rem #08f,
+            inset 0 0 4rem #08f;
+    }
+}
+
+@keyframes shakeX {
+
+    from,
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+@keyframes shakeY {
+
+    from,
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translate3d(0, -10px, 0);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translate3d(0, 10px, 0);
+    }
+}

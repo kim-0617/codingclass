@@ -6,16 +6,28 @@
     right: 70px;
     padding: 10px;
     padding-top: 0;
-    z-index: 300;
+    z-index: 50;
+    display: none;
+}
+
+.music__wrap.show {
+    display: block;
 }
 
 .music__header {
+    position: relative;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     color: #fff;
     border-bottom: 1px solid #fff;
+}
+
+.music__header .close {
+    position: absolute;
+    right: 5px;
+    top: 30px;
 }
 
 .music__header h2 {

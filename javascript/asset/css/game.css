@@ -347,6 +347,29 @@ body {
     animation: opacityIn 0.1s ease forwards;
 }
 
+/* layout */
+.icon__box {
+    position: relative;
+    z-index: 300;
+}
+
+.game__box {
+    position: relative;
+    z-index: 200;
+}
+
+header {
+    z-index: 1000;
+}
+
+main {
+    z-index: 500;
+}
+
+footer {
+    z-index: 1000;
+}
+
 @keyframes foldOut {
     0% {
         transform: scaleX(0) scaleY(0.005);
