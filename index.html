@@ -56,10 +56,46 @@
   <![endif]-->
 
   <style>
-    #clock {display: block;}
-    .link1 {background: #fff; left: 50%; transform: translatex(-50%); color: #000; display: inline-block; border-radius: 5px; font-weight: bold; padding: 10px 30px!important; height: auto !important; box-sizing: border-box; width: auto !important; font-size: 20px !important; margin-top: 36px !important;}
-    .link2 {background: #fff; left: 50%; transform: translatex(-50%); color: #000; display: inline-block; border-radius: 5px; font-weight: bold; padding: 10px 30px!important; height: auto !important; box-sizing: border-box; width: auto !important; font-size: 20px !important; margin-top: 86px !important;}
-    .disqus {margin-right: 20px; margin-top: 40px;}
+    #clock {
+      display: block;
+    }
+
+    .link1 {
+      background: #fff;
+      left: 50%;
+      transform: translatex(-50%);
+      color: #000;
+      display: inline-block;
+      border-radius: 5px;
+      font-weight: bold;
+      padding: 10px 30px !important;
+      height: auto !important;
+      box-sizing: border-box;
+      width: auto !important;
+      font-size: 20px !important;
+      margin-top: 36px !important;
+    }
+
+    .link2 {
+      background: #fff;
+      left: 50%;
+      transform: translatex(-50%);
+      color: #000;
+      display: inline-block;
+      border-radius: 5px;
+      font-weight: bold;
+      padding: 10px 30px !important;
+      height: auto !important;
+      box-sizing: border-box;
+      width: auto !important;
+      font-size: 20px !important;
+      margin-top: 86px !important;
+    }
+
+    .disqus {
+      margin-right: 20px;
+      margin-top: 40px;
+    }
   </style>
 </head>
 
@@ -141,12 +177,14 @@
             <li><a href="#filter-color-any" data-filter-value="" class="selected">ALL</a></li>
             <li class="webstandard"><a href="#filter-color-webstandard" data-filter-value=".class">CLASS</a></li>
             <li class="webstandard"><a href="#filter-color-webstandard" data-filter-value=".script">SCRIPT</a></li>
-            <li class="webstandard"><a href="#filter-color-webstandard" data-filter-value=".layout">LAYOUT</a></li>
             <li class="webstandard"><a href="#filter-color-webstandard" data-filter-value=".refer">REFERENCE</a></li>
             <li class="webstandard"><a href="#filter-color-webstandard" data-filter-value=".site">SITE</a></li>
-            <li class="webstandard"><a href="#filter-color-webstandard" data-filter-value=".animation">ANIMATION</a></li>
+            <li class="webstandard"><a href="#filter-color-webstandard" data-filter-value=".animation">ANIMATION</a>
+            </li>
             <li class="webstandard"><a href="#filter-color-webstandard" data-filter-value=".mysql">MYSQL</a></li>
             <li class="webstandard"><a href="#filter-color-webstandard" data-filter-value=".php">PHP</a></li>
+            <li class="webstandard"><a href="#filter-color-webstandard" data-filter-value=".react">React</a></li>
+            <li class="webstandard"><a href="#filter-color-webstandard" data-filter-value=".vue">Vue</a></li>
           </ul>
         </div>
       </div>
@@ -181,7 +219,8 @@
               <div class="hover-wrap">
                 <span class="overlay-img-donut">JAVASCRIPT</span>
                 <a class="overlay-text-thumb-donut bts" href="javascript/index.html">바로보기</a>
-                <a class="overlay-text-thumb1-donut bts" href="https://github.com/kim-0617/codingclass/tree/main/javascript">소스보기</a>
+                <a class="overlay-text-thumb1-donut bts"
+                  href="https://github.com/kim-0617/codingclass/tree/main/javascript">소스보기</a>
                 <span class="overlay-text-thumb2-donut">JAVASCRIPT</span>
               </div>
               <img src="assets/img/svg31.svg" alt="portfolio">
@@ -200,8 +239,9 @@
               <div class="image-wrap">
                 <div class="hover-wrap">
                   <span class="overlay-img-donut">HTML</span>
-                  <a class="overlay-text-thumb-donut bts" href="javascript/index.html">바로보기</a>
-                  <a class="overlay-text-thumb1-donut bts" href="https://github.com/kim-0617/codingclass/tree/main/javascript">소스보기</a>
+                  <a class="overlay-text-thumb-donut bts" href="html/alphabet.html">바로보기</a>
+                  <a class="overlay-text-thumb1-donut bts"
+                    href="https://github.com/kim-0617/codingclass/tree/main/html">소스보기</a>
                   <span class="overlay-text-thumb2-donut">HTML</span>
                 </div>
                 <img src="assets/img/svg01.svg" alt="portfolio">
@@ -217,200 +257,210 @@
 
           <!-- box -->
           <section class="color-shape refer">
-              <div class="image-wrap">
-                <div class="hover-wrap">
-                  <span class="overlay-img-donut">CSS</span>
-                  <a class="overlay-text-thumb-donut bts" href="./css/index.html">바로보기</a>
-                  <a class="overlay-text-thumb1-donut bts" href="https://github.com/kim-0617/codingclass/tree/main/css">소스보기</a>
-                  <span class="overlay-text-thumb2-donut">CSS</span>
-                </div>
-                <img src="assets/img/svg04.svg" alt="portfolio">
-                <div class="img-text donutImg">
-                  <h5>CSS</h5>
-                  <p>CSS</p>
-                  <span>CSS</span>
-                </div>
+            <div class="image-wrap">
+              <div class="hover-wrap">
+                <span class="overlay-img-donut">CSS</span>
+                <a class="overlay-text-thumb-donut bts" href="./css/index.html">바로보기</a>
+                <a class="overlay-text-thumb1-donut bts"
+                  href="https://github.com/kim-0617/codingclass/tree/main/css">소스보기</a>
+                <span class="overlay-text-thumb2-donut">CSS</span>
               </div>
+              <img src="assets/img/svg04.svg" alt="portfolio">
+              <div class="img-text donutImg">
+                <h5>CSS</h5>
+                <p>CSS</p>
+                <span>CSS</span>
+              </div>
+            </div>
             </a>
           </section>
           <!-- //box -->
 
           <!-- box -->
           <section class="color-shape site">
-              <div class="image-wrap">
-                <div class="hover-wrap">
-                  <span class="overlay-img-donut">SITE</span>
-                  <a class="overlay-text-thumb-donut bts" href="./site/site1-responsive/index.html">바로보기</a>
-                  <a class="overlay-text-thumb1-donut bts" href="https://github.com/kim-0617/codingclass/tree/main/site/site1-responsive/index.html">소스보기</a>
-                  <span class="overlay-text-thumb2-donut">SITE</span>
-                </div>
-                <img src="assets/img/svg05.svg" alt="portfolio">
-                <div class="img-text donutImg">
-                  <h5>SITE</h5>
-                  <p>사이트 제작하기</p>
-                  <span>SITE</span>
-                </div>
+            <div class="image-wrap">
+              <div class="hover-wrap">
+                <span class="overlay-img-donut">SITE</span>
+                <a class="overlay-text-thumb-donut bts" href="./site/site1-responsive/index.html">바로보기</a>
+                <a class="overlay-text-thumb1-donut bts"
+                  href="https://github.com/kim-0617/codingclass/tree/main/site/site1-responsive/index.html">소스보기</a>
+                <span class="overlay-text-thumb2-donut">SITE</span>
               </div>
+              <img src="assets/img/svg05.svg" alt="portfolio">
+              <div class="img-text donutImg">
+                <h5>SITE</h5>
+                <p>사이트 제작하기</p>
+                <span>SITE</span>
+              </div>
+            </div>
             </a>
           </section>
           <!-- //box -->
 
           <!-- box -->
           <section class="color-shape site">
-              <div class="image-wrap">
-                <div class="hover-wrap">
-                  <span class="overlay-img-donut">SITE</span>
-                  <a class="overlay-text-thumb-donut bts" href="./site/site2/index.html">바로보기</a>
-                  <a class="overlay-text-thumb1-donut bts" href="https://github.com/kim-0617/codingclass/blob/main/site/site2/index.html">소스보기</a>
-                  <span class="overlay-text-thumb2-donut">SITE</span>
-                </div>
-                <img src="assets/img/svg06.svg" alt="portfolio">
-                <div class="img-text donutImg">
-                  <h5>SITE</h5>
-                  <p>사이트 제작하기2</p>
-                  <span>SITE</span>
-                </div>
+            <div class="image-wrap">
+              <div class="hover-wrap">
+                <span class="overlay-img-donut">SITE</span>
+                <a class="overlay-text-thumb-donut bts" href="./site/site2/index.html">바로보기</a>
+                <a class="overlay-text-thumb1-donut bts"
+                  href="https://github.com/kim-0617/codingclass/blob/main/site/site2/index.html">소스보기</a>
+                <span class="overlay-text-thumb2-donut">SITE</span>
               </div>
+              <img src="assets/img/svg06.svg" alt="portfolio">
+              <div class="img-text donutImg">
+                <h5>SITE</h5>
+                <p>사이트 제작하기2</p>
+                <span>SITE</span>
+              </div>
+            </div>
             </a>
           </section>
           <!-- //box -->
 
           <!-- box -->
           <section class="color-shape site">
-              <div class="image-wrap">
-                <div class="hover-wrap">
-                  <span class="overlay-img-donut">SITE</span>
-                  <a class="overlay-text-thumb-donut bts" href="./site/site3/index.html">바로보기</a>
-                  <a class="overlay-text-thumb1-donut bts" href="https://github.com/kim-0617/codingclass/blob/main/site/site2/index.html">소스보기</a>
-                  <span class="overlay-text-thumb2-donut">SITE</span>
-                </div>
-                <img src="assets/img/svg07.svg" alt="portfolio">
-                <div class="img-text donutImg">
-                  <h5>SITE</h5>
-                  <p>사이트 제작하기3</p>
-                  <span>SITE</span>
-                </div>
+            <div class="image-wrap">
+              <div class="hover-wrap">
+                <span class="overlay-img-donut">SITE</span>
+                <a class="overlay-text-thumb-donut bts" href="./site/site3/index.html">바로보기</a>
+                <a class="overlay-text-thumb1-donut bts"
+                  href="https://github.com/kim-0617/codingclass/blob/main/site/site2/index.html">소스보기</a>
+                <span class="overlay-text-thumb2-donut">SITE</span>
               </div>
+              <img src="assets/img/svg07.svg" alt="portfolio">
+              <div class="img-text donutImg">
+                <h5>SITE</h5>
+                <p>사이트 제작하기3</p>
+                <span>SITE</span>
+              </div>
+            </div>
             </a>
           </section>
           <!-- //box -->
 
           <!-- box -->
           <section class="color-shape script">
-              <div class="image-wrap">
-                <div class="hover-wrap">
-                  <span class="overlay-img-donut">JAVASCRIPT</span>
-                  <a class="overlay-text-thumb-donut bts" href="./javascript/effect/searchEffect.html">바로보기</a>
-                  <a class="overlay-text-thumb1-donut bts" href="https://github.com/kim-0617/codingclass/blob/main/javascript/effect/searchEffect.html">소스보기</a>
-                  <span class="overlay-text-thumb2-donut">SITE</span>
-                </div>
-                <img src="assets/img/svg08.svg" alt="portfolio">
-                <div class="img-text donutImg">
-                  <h5>SEARCH</h5>
-                  <p>검색효과</p>
-                  <span>JAVASCRIPT</span>
-                </div>
+            <div class="image-wrap">
+              <div class="hover-wrap">
+                <span class="overlay-img-donut">JAVASCRIPT</span>
+                <a class="overlay-text-thumb-donut bts" href="./javascript/effect/searchEffect01.html">바로보기</a>
+                <a class="overlay-text-thumb1-donut bts"
+                  href="https://github.com/kim-0617/codingclass/blob/main/javascript/effect/searchEffect01.html">소스보기</a>
+                <span class="overlay-text-thumb2-donut">SITE</span>
               </div>
+              <img src="assets/img/svg08.svg" alt="portfolio">
+              <div class="img-text donutImg">
+                <h5>SEARCH</h5>
+                <p>검색효과</p>
+                <span>JAVASCRIPT</span>
+              </div>
+            </div>
             </a>
           </section>
           <!-- //box -->
 
           <!-- box -->
           <section class="color-shape script">
-              <div class="image-wrap">
-                <div class="hover-wrap">
-                  <span class="overlay-img-donut">JAVASCRIPT</span>
-                  <a class="overlay-text-thumb-donut bts" href="./javascript/effect/quizEffect.html">바로보기</a>
-                  <a class="overlay-text-thumb1-donut bts" href="https://github.com/kim-0617/codingclass/blob/main/javascript/effect/quizEffect.html">소스보기</a>
-                  <span class="overlay-text-thumb2-donut">SITE</span>
-                </div>
-                <img src="assets/img/svg09.svg" alt="portfolio">
-                <div class="img-text donutImg">
-                  <h5>QUIZ</h5>
-                  <p>퀴즈효과</p>
-                  <span>JAVASCRIPT</span>
-                </div>
+            <div class="image-wrap">
+              <div class="hover-wrap">
+                <span class="overlay-img-donut">JAVASCRIPT</span>
+                <a class="overlay-text-thumb-donut bts" href="./javascript/effect/quizEffect01.html">바로보기</a>
+                <a class="overlay-text-thumb1-donut bts"
+                  href="https://github.com/kim-0617/codingclass/blob/main/javascript/effect/quizEffect01.html">소스보기</a>
+                <span class="overlay-text-thumb2-donut">SITE</span>
               </div>
+              <img src="assets/img/svg09.svg" alt="portfolio">
+              <div class="img-text donutImg">
+                <h5>QUIZ</h5>
+                <p>퀴즈효과</p>
+                <span>JAVASCRIPT</span>
+              </div>
+            </div>
             </a>
           </section>
           <!-- //box -->
 
           <!-- box -->
           <section class="color-shape script">
-              <div class="image-wrap">
-                <div class="hover-wrap">
-                  <span class="overlay-img-donut">JAVASCRIPT</span>
-                  <a class="overlay-text-thumb-donut bts" href="./javascript/effect/sliderEffect.html">바로보기</a>
-                  <a class="overlay-text-thumb1-donut bts" href="https://github.com/kim-0617/codingclass/blob/main/javascript/effect/sliderEffect.html">소스보기</a>
-                  <span class="overlay-text-thumb2-donut">SITE</span>
-                </div>
-                <img src="assets/img/svg10.svg" alt="portfolio">
-                <div class="img-text donutImg">
-                  <h5>SLIDER</h5>
-                  <p>슬라이드 효과</p>
-                  <span>JAVASCRIPT</span>
-                </div>
+            <div class="image-wrap">
+              <div class="hover-wrap">
+                <span class="overlay-img-donut">JAVASCRIPT</span>
+                <a class="overlay-text-thumb-donut bts" href="./javascript/effect/sliderEffect01.html">바로보기</a>
+                <a class="overlay-text-thumb1-donut bts"
+                  href="https://github.com/kim-0617/codingclass/blob/main/javascript/effect/sliderEffect01.html">소스보기</a>
+                <span class="overlay-text-thumb2-donut">SITE</span>
               </div>
+              <img src="assets/img/svg10.svg" alt="portfolio">
+              <div class="img-text donutImg">
+                <h5>SLIDER</h5>
+                <p>슬라이드 효과</p>
+                <span>JAVASCRIPT</span>
+              </div>
+            </div>
             </a>
           </section>
           <!-- //box -->
 
           <!-- box -->
           <section class="color-shape script">
-              <div class="image-wrap">
-                <div class="hover-wrap">
-                  <span class="overlay-img-donut">JAVASCRIPT</span>
-                  <a class="overlay-text-thumb-donut bts" href="./javascript/effect/gameEffect.html">바로보기</a>
-                  <a class="overlay-text-thumb1-donut bts" href="https://github.com/kim-0617/codingclass/blob/main/javascript/effect/gameEffect.html">소스보기</a>
-                  <span class="overlay-text-thumb2-donut">SITE</span>
-                </div>
-                <img src="assets/img/svg11.svg" alt="portfolio">
-                <div class="img-text donutImg">
-                  <h5>GAME</h5>
-                  <p>게임 효과</p>
-                  <span>JAVASCRIPT</span>
-                </div>
+            <div class="image-wrap">
+              <div class="hover-wrap">
+                <span class="overlay-img-donut">JAVASCRIPT</span>
+                <a class="overlay-text-thumb-donut bts" href="./javascript/effect/gameEffect01.html">바로보기</a>
+                <a class="overlay-text-thumb1-donut bts"
+                  href="https://github.com/kim-0617/codingclass/blob/main/javascript/effect/gameEffect01.html">소스보기</a>
+                <span class="overlay-text-thumb2-donut">SITE</span>
               </div>
+              <img src="assets/img/svg11.svg" alt="portfolio">
+              <div class="img-text donutImg">
+                <h5>GAME</h5>
+                <p>게임 효과</p>
+                <span>JAVASCRIPT</span>
+              </div>
+            </div>
             </a>
           </section>
           <!-- //box -->
 
           <!-- box -->
           <section class="color-shape script">
-              <div class="image-wrap">
-                <div class="hover-wrap">
-                  <span class="overlay-img-donut">JAVASCRIPT</span>
-                  <a class="overlay-text-thumb-donut bts" href="./javascript/effect/parallaxEffect.html">바로보기</a>
-                  <a class="overlay-text-thumb1-donut bts" href="https://github.com/kim-0617/codingclass/blob/main/javascript/effect/parallaxEffect.html">소스보기</a>
-                  <span class="overlay-text-thumb2-donut">SITE</span>
-                </div>
-                <img src="assets/img/svg12.svg" alt="portfolio">
-                <div class="img-text donutImg">
-                  <h5>PARALLAX</h5>
-                  <p>페럴랙스 효과</p>
-                  <span>JAVASCRIPT</span>
-                </div>
+            <div class="image-wrap">
+              <div class="hover-wrap">
+                <span class="overlay-img-donut">JAVASCRIPT</span>
+                <a class="overlay-text-thumb-donut bts" href="./javascript/effect/parallaxEffect01.html">바로보기</a>
+                <a class="overlay-text-thumb1-donut bts"
+                  href="https://github.com/kim-0617/codingclass/blob/main/javascript/effect/parallaxEffect01.html">소스보기</a>
+                <span class="overlay-text-thumb2-donut">SITE</span>
               </div>
+              <img src="assets/img/svg12.svg" alt="portfolio">
+              <div class="img-text donutImg">
+                <h5>PARALLAX</h5>
+                <p>페럴랙스 효과</p>
+                <span>JAVASCRIPT</span>
+              </div>
+            </div>
             </a>
           </section>
           <!-- //box -->
 
           <!-- box -->
           <section class="color-shape script">
-              <div class="image-wrap">
-                <div class="hover-wrap">
-                  <span class="overlay-img-donut">JAVASCRIPT</span>
-                  <a class="overlay-text-thumb-donut bts" href="./javascript/effect/mouseEffect.html">바로보기</a>
-                  <a class="overlay-text-thumb1-donut bts" href="https://github.com/kim-0617/codingclass/blob/main/javascript/effect/mouseEffect.html">소스보기</a>
-                  <span class="overlay-text-thumb2-donut">SITE</span>
-                </div>
-                <img src="assets/img/svg13.svg" alt="portfolio">
-                <div class="img-text donutImg">
-                  <h5>MOUSE</h5>
-                  <p>마우스효과</p>
-                  <span>JAVASCRIPT</span>
-                </div>
+            <div class="image-wrap">
+              <div class="hover-wrap">
+                <span class="overlay-img-donut">JAVASCRIPT</span>
+                <a class="overlay-text-thumb-donut bts" href="./javascript/effect/mouseEffect01.html">바로보기</a>
+                <a class="overlay-text-thumb1-donut bts"
+                  href="https://github.com/kim-0617/codingclass/blob/main/javascript/effect/mouseEffect01.html">소스보기</a>
+                <span class="overlay-text-thumb2-donut">SITE</span>
               </div>
+              <img src="assets/img/svg13.svg" alt="portfolio">
+              <div class="img-text donutImg">
+                <h5>MOUSE</h5>
+                <p>마우스효과</p>
+                <span>JAVASCRIPT</span>
+              </div>
+            </div>
             </a>
           </section>
           <!-- //box -->
@@ -459,20 +509,61 @@
 
           <!-- box -->
           <section class="color-shape mysql">
-              <div class="image-wrap">
-                <div class="hover-wrap">
-                  <span class="overlay-img-donut">MYSQL</span>
-                  <a class="overlay-text-thumb-donut bts" href="./sql/index.html">바로보기</a>
-                  <a class="overlay-text-thumb1-donut bts" href="https://github.com/kim-0617/codingclass/blob/main/sql/index.html">소스보기</a>
-                  <span class="overlay-text-thumb2-donut">MYSQL</span>
-                </div>
-                <img src="assets/img/svg16.svg" alt="portfolio">
-                <div class="img-text donutImg">
-                  <h5>MYSQL</h5>
-                  <p>MYSQL</p>
-                  <span>MYSQL</span>
-                </div>
+            <div class="image-wrap">
+              <div class="hover-wrap">
+                <span class="overlay-img-donut">MYSQL</span>
+                <a class="overlay-text-thumb-donut bts" href="./sql/index.html">바로보기</a>
+                <a class="overlay-text-thumb1-donut bts"
+                  href="https://github.com/kim-0617/codingclass/blob/main/sql/index.html">소스보기</a>
+                <span class="overlay-text-thumb2-donut">MYSQL</span>
               </div>
+              <img src="assets/img/svg16.svg" alt="portfolio">
+              <div class="img-text donutImg">
+                <h5>MYSQL</h5>
+                <p>MYSQL</p>
+                <span>MYSQL</span>
+              </div>
+            </div>
+            </a>
+          </section>
+          <!-- //box -->
+
+          <!-- box -->
+          <section class="color-shape react">
+            <div class="image-wrap">
+              <div class="hover-wrap">
+                <span class="overlay-img-donut">React01</span>
+                <a class="overlay-text-thumb-donut bts" href="https://cra01.netlify.app/">바로보기</a>
+                <a class="overlay-text-thumb1-donut bts" href="https://github.com/kim-0617/reactclass">소스보기</a>
+                <span class="overlay-text-thumb2-donut">React01</span>
+              </div>
+              <img src="assets/img/svg18.svg" alt="portfolio">
+              <div class="img-text donutImg">
+                <h5>React01</h5>
+                <p>React01</p>
+                <span>React01</span>
+              </div>
+            </div>
+            </a>
+          </section>
+          <!-- //box -->
+
+          <!-- box -->
+          <section class="color-shape vue">
+            <div class="image-wrap">
+              <div class="hover-wrap">
+                <span class="overlay-img-donut">Vue01</span>
+                <a class="overlay-text-thumb-donut bts" href="https://github.com/kim-0617/vueclass">바로보기</a>
+                <a class="overlay-text-thumb1-donut bts" href="https://vueclass17.web.app/">소스보기</a>
+                <span class="overlay-text-thumb2-donut">Vue01</span>
+              </div>
+              <img src="assets/img/svg19.svg" alt="portfolio">
+              <div class="img-text donutImg">
+                <h5>Vue01</h5>
+                <p>Vue01</p>
+                <span>Vue01</span>
+              </div>
+            </div>
             </a>
           </section>
           <!-- //box -->
