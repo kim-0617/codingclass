@@ -9,30 +9,56 @@
     display: block;
 }
 
+.memory__wrap .help {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    background: #08f;
+    border: 3px solid rgb(205, 232, 255);
+    padding: 20px;
+    border-radius: 30px;
+    z-index: 200;
+}
+
+.memory__wrap .help p.desc {
+    line-height: 1.7;
+    margin-bottom: 60px;
+    font-size: 24px;
+}
+
+.memory__wrap .help .result {
+    font-size: 30px;
+}
+
+.memory__wrap button.start,
+.memory__wrap button.close {
+    display: inline-block;
+    border: 0;
+    border-radius: 30px;
+    padding: 10px 20px;
+    width: 200px;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
 .memory__wrap button:hover {
     background-color: #000;
     color: #fff;
 }
 
-.memory__wrap button.start,
 .memory__wrap button.close {
-    border: 0;
-    border-radius: 30px;
-    padding: 10px 20px;
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 5%;
-    right: -150px;
-}
-
-.memory__wrap button.close {
-    top: 23%;
-    background-color: tomato;
+    background-color: rgb(245, 131, 111);
 }
 
 .memory__wrap button.close:hover {
-    background-color: #000;
+    background-color: rgb(67, 66, 66);
     color: tomato;
 }
 
@@ -46,6 +72,7 @@
     top: 100px;
     border-radius: 20px;
     animation: flicker 1.5s infinite alternate;
+    z-index: 100;
 }
 
 .memory__card {

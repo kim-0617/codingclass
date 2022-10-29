@@ -598,8 +598,15 @@
             <!-- 메모리 게임 -->
             <div class="memory__wrap">
                 <div class="memory__inner">
-                    <button class="start">시작!</button>
-                    <button class="close">끄기!</button>
+                    <div class="help">
+                        <p class="desc">
+                            1. 카드 짝을 맞춰주세요<br>
+                            2. 점수는 100 - 걸린시간 입니다.<br>
+                        </p>
+                        <button class="start">시작</button>
+                        <button class="close">종료</button>
+                        <div class="result"></div>
+                    </div>
                     <div class="memory__card">
                         <ul class="cards">
                             <li>
@@ -1807,20 +1814,35 @@ body {
     <script src="../asset/js/searchGame.js"></script>
     <script src="../asset/js/memory.js"></script>
     <script>
+        // 커서
         const cursor = document.querySelector('.mouse__cursor');
+
+        // 아이콘
         $('.icon:nth-child(1)').draggable({
-            drag: function () {
+            drag : function () {
                 $('.mouse__cursor img').attr("src", "../asset/img/game_mouse01.png");
+                $(this).css('z-index', '1000');
+            },
+            stop : function () {
+                $(this).css('z-index', '100');
             }
         });
         $('.icon:nth-child(2)').draggable({
             drag: function () {
                 $('.mouse__cursor img').attr("src", "../asset/img/game_mouse02.png");
+                $(this).css('z-index', '1000');
+            },
+            stop : function () {
+                $(this).css('z-index', '100');
             }
         });
         $('.icon:nth-child(3)').draggable({
             drag: function () {
                 $('.mouse__cursor img').attr("src", "../asset/img/game_mouse03.png");
+                $(this).css('z-index', '1000');
+            },
+            stop : function () {
+                $(this).css('z-index', '100');
             }
         });
         $('.icon:nth-child(4)').draggable({
@@ -1838,7 +1860,37 @@ body {
                 $('.mouse__cursor img').attr("src", "../asset/img/game_mouse06.png");
             }
         });
-        $('.music__wrap, .memory__wrap, .search__wrap').draggable();
+
+        // 게임들
+        $('.music__wrap').draggable({
+            drag: function () {
+                $(this).css('z-index', '1000');
+            },
+            stop : function () {
+                $('.memory__wrap').css('z-index', '800');
+                $('.search__wrap').css('z-index', '800');
+            }
+        });
+
+        $('.memory__wrap').draggable({
+            drag: function () {
+                $(this).css('z-index', '1000');
+            },
+            stop : function () {
+                $('.music__wrap').css('z-index', '800');
+                $('.search__wrap').css('z-index', '800');
+            }
+        });
+
+        $('.search__wrap').draggable({
+            drag: function () {
+                $(this).css('z-index', '1000');
+            },
+            stop : function () {
+                $('.memory__wrap').css('z-index', '800');
+                $('.music__wrap').css('z-index', '800');
+            }
+        });
 
         window.addEventListener('mousemove', e => {
             gsap.to(cursor, {
@@ -1913,16 +1965,21 @@ body {
         });
 
         // memoryGame 등장
-        document.querySelector('.icon:nth-child(3)').addEventListener('dblclick', () => {
-            document.querySelector('.memory__wrap').classList.add('show');
+        document.querySelector('.icon:nth-child(3)').addEventListener('dblclick', (e) => {
+            if(document.querySelector('.memory__wrap').classList.contains('show')) {
+                document.querySelector('.memory__wrap').classList.remove('show');
+                runMemoryGame();
+            }
+            else {
+                document.querySelector('.memory__wrap').classList.add('show');
+            }
         });
 
         // memoryGame 퇴장
         document.querySelector('.memory__wrap button.close').addEventListener('click', () => {
-            startBtn.style.display = 'inline-block';
             document.querySelector('.memory__wrap').classList.remove('show');
+            runMemoryGame();
         });
-
 
         window.onload = function () {
             printTime();

@@ -17,6 +17,8 @@ let soundUnMatch = new Audio(sound[1]);
 let soundUp = new Audio(sound[2]);
 let startTime;
 let endTime;
+let memoryTID = 0;
+let memoryTID2 = 0;
 
 // 카드 뒤집기
 function flipCard() {
@@ -48,8 +50,10 @@ function matchCards(img1, img2) {
             setTimeout(() => {
                 endTime = new Date();
                 soundUp.play();
-                alert(`${(endTime - startTime) / 1000}초 만에 승리하셨습니다.`);
-                startBtn.style.display = 'inline-block';
+                let playTime = Math.floor((endTime - startTime) / 1000);
+                alert(`${playTime}초 만에 승리하셨습니다.`);
+                document.querySelector('.memory__wrap .help').style.display = 'flex';
+                document.querySelector('.memory__wrap .help .result').textContent = `당신의 점수는 ${100 - playTime}`;
             }, 300);
         }
         soundMatch.play();
@@ -75,7 +79,8 @@ function matchCards(img1, img2) {
 
 // 카드 섞기
 function shuffleCard() {
-    startBtn.style.display = 'none';
+    document.querySelector('.memory__wrap .help').style.display = 'none';
+
     cardOne = "";
     cardTwo = "";
     matched = 0;
@@ -86,11 +91,11 @@ function shuffleCard() {
     memoryCard.forEach((card, index) => {
         card.classList.remove('flip');
 
-        setTimeout(() => {
+        memoryTID = setTimeout(() => {
             card.classList.add('flip');
         }, index * 200);
 
-        setTimeout(() => {
+        memoryTID2 = setTimeout(() => {
             card.classList.remove('flip');
             disableDeck = false;
             startTime = new Date();
@@ -106,3 +111,14 @@ function shuffleCard() {
     });
 }
 startBtn.addEventListener('click', shuffleCard);
+
+// 도중 껐을 때
+function runMemoryGame() {
+    document.querySelector('.memory__wrap .help .result').textContent = ``;
+    document.querySelector('.memory__wrap .help').style.display = 'flex';
+    clearTimeout(memoryTID);
+    clearTimeout(memoryTID2);
+    memoryCard.forEach(card => {
+        card.removeEventListener('click', flipCard);
+    });
+}
