@@ -49,7 +49,7 @@
 
         /* layout */
         #contents {
-            height: 20000px;
+            height: 33000px;
         }
 
         #section1 {
@@ -79,7 +79,13 @@
         #section5 {
             background-color: #000;
             width: 100%;
-            height: 4000px;
+            height: 20000px;
+        }
+
+        #section6 {
+            background-color: #fff;
+            width: 100%;
+            height: 800px;
         }
 
         /* sec1 */
@@ -217,6 +223,29 @@
             white-space: nowrap;
             color: #fff;
         }
+
+        .sec5_icon1 img,
+        .sec5_icon2 img,
+        .sec5_icon3 img,
+        .sec5_icon4 img,
+        .sec5_icon5 img,
+        .sec5_icon6 img,
+        .sec5_icon7 img,
+        .sec5_icon8 img,
+        .sec5_icon9 img,
+        .sec5_icon10 img,
+        .sec5_icon11 img,
+        .sec5_icon12 img {
+            width: 300px !important;
+            height: 300px;
+            display: block;
+        }
+
+        .sec6_text1 {
+            font-size: 13vw;
+            font-weight: 700;
+            white-space: nowrap;
+        }
     </style>
 </head>
 
@@ -313,9 +342,9 @@
 
         <section id="section4">
             <div class="sec4_text1 fixed"
-                data-8000 = "opacity:0; transform: translate(-50%, -50%)"
-                data-8050 = "opacity:1; transform: translate(-50%, -50%)"
-                data-10000 = "opacity:0; transform: translate(-50%, -50%)"
+                data-8000 = "z-index:10;opacity:0; transform: translate(-50%, -50%) scale(0)"
+                data-9800 = "z-index:10;opacity:1; transform: translate(-50%, -50%) scale(1)"
+                data-13500 = "z-index:10;opacity:0; transform: translate(-50%, -50%) scale(1)"
             >
             </div>
 
@@ -350,16 +379,117 @@
 
         <section id="section5">
             <div class="sec5_text1 fixed"
-            data-11500 = "opacity:0;transform: translate(-50%, -260%)"
-            data-11600 = "opacity:1;transform: translate(-50%, -260%)"
-            data-16000 = "opacity:0;transform: translate(-50%, -260%)"
-        >
-            음.. 저는요!
-        </div>
+                data-11500 = "opacity:0;transform: translate(-50%, -275%)"
+                data-11600 = "opacity:1;transform: translate(-50%, -275%)"
+                data-30000 = "opacity:0;transform: translate(-50%, -275%)"
+            >
+                음.. 저는요!
+            </div>
 
-        
+            <div class="sec5_icon1 fixed"
+                data-11500 = "left:0%;opacity:0;transform: translate(-50%, -50%)"
+                data-12600 = "left:50%;opacity:1;transform: translate(-50%, -50%)"
+                data-13600 = "left:100%;opacity:0;transform: translate(-50%, -50%)"
+            >
+                <img src="../asset/stack/html.png" alt="html">
+            </div>
+
+            <div class="sec5_icon2 fixed"
+                data-13000 = "left:0%;opacity:0;transform: translate(-50%, -50%)"
+                data-14000 = "left:50%;opacity:1;transform: translate(-50%, -50%)"
+                data-15000 = "left:100%;opacity:0;transform: translate(-50%, -50%)"
+            >
+                <img src="../asset/stack/css.png" alt="css">
+            </div>
+
+            <div class="sec5_icon3 fixed"
+                data-14500 = "left:0%;opacity:0;transform: translate(-50%, -50%)"
+                data-15500 = "left:50%;opacity:1;transform: translate(-50%, -50%)"
+                data-16500 = "left:100%;opacity:0;transform: translate(-50%, -50%)"
+            >
+                <img src="../asset/stack/sass.png" alt="sass">
+            </div>
+
+            <div class="sec5_icon4 fixed"
+                data-16000 = "left:0%;opacity:0;transform: translate(-50%, -50%)"
+                data-17000 = "left:50%;opacity:1;transform: translate(-50%, -50%)"
+                data-18000 = "left:100%;opacity:0;transform: translate(-50%, -50%)"
+            >
+                <img src="../asset/stack/js.png" alt="js">
+            </div>
+
+            <div class="sec5_icon5 fixed"
+                data-17500 = "left:0%;opacity:0;transform: translate(-50%, -50%)"
+                data-18500 = "left:50%;opacity:1;transform: translate(-50%, -50%)"
+                data-19500 = "left:100%;opacity:0;transform: translate(-50%, -50%)"
+            >
+                <img src="../asset/stack/jquery.png" alt="jquery">
+            </div>
+
+            <div class="sec5_icon6 fixed"
+                data-19000 = "left:0%;opacity:0;transform: translate(-50%, -50%)"
+                data-20000 = "left:50%;opacity:1;transform: translate(-50%, -50%)"
+                data-21000 = "left:100%;opacity:0;transform: translate(-50%, -50%)"
+            >
+                <img src="../asset/stack/react.png" alt="react">
+            </div>
+
+            <div class="sec5_icon7 fixed"
+                data-20500 = "left:0%;opacity:0;transform: translate(-50%, -50%)"
+                data-21500 = "left:50%;opacity:1;transform: translate(-50%, -50%)"
+                data-22500 = "left:100%;opacity:0;transform: translate(-50%, -50%)"
+            >
+                <img src="../asset/stack/python.png" alt="python">
+            </div>
+
+            <div class="sec5_icon8 fixed"
+                data-22000 = "left:0%;opacity:0;transform: translate(-50%, -50%)"
+                data-23000 = "left:50%;opacity:1;transform: translate(-50%, -50%)"
+                data-24000 = "left:100%;opacity:0;transform: translate(-50%, -50%)"
+            >
+                <img src="../asset/stack/php.png" alt="php">
+            </div>
+
+            <div class="sec5_icon9 fixed"
+                data-23500 = "left:0%;opacity:0;transform: translate(-50%, -50%)"
+                data-24500 = "left:50%;opacity:1;transform: translate(-50%, -50%)"
+                data-25500 = "left:100%;opacity:0;transform: translate(-50%, -50%)"
+            >
+                <img src="../asset/stack/mysql.png" alt="mysql">
+            </div>
+
+            <div class="sec5_icon10 fixed"
+                data-25000 = "left:0%;opacity:0;transform: translate(-50%, -50%)"
+                data-26000 = "left:50%;opacity:1;transform: translate(-50%, -50%)"
+                data-27000 = "left:100%;opacity:0;transform: translate(-50%, -50%)"
+            >
+                <img src="../asset/stack/typescript.png" alt="typescript">
+            </div>
+
+            <div class="sec5_icon11 fixed"
+                data-26500 = "left:0%;opacity:0;transform: translate(-50%, -50%)"
+                data-27500 = "left:50%;opacity:1;transform: translate(-50%, -50%)"
+                data-28500 = "left:100%;opacity:0;transform: translate(-50%, -50%)"
+            >
+                <img src="../asset/stack/node-js.png" alt="node-js">
+            </div>
+
+            <div class="sec5_icon12 fixed"
+                data-28000 = "left:0%;opacity:0;transform: translate(-50%, -50%)"
+                data-29000 = "left:50%;opacity:1;transform: translate(-50%, -50%)"
+                data-30000 = "left:100%;opacity:0;transform: translate(-50%, -50%)"
+            >
+                <img src="../asset/stack/algorithm.png" alt="algorithm">
+            </div>
         </section>
         <!-- section5 -->
+
+        <section id="section6">
+            <div class="sec6_text1 fixed" data-30500="top : 40%; opacity:0" data-31300="top : 50%; opacity:1">
+                감사합니다!
+            </div>
+        </section>
+        <!-- section6 -->
     </div>
     <!-- contents -->
 
