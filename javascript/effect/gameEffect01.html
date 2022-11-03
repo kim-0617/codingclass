@@ -1663,6 +1663,7 @@ body {
         document.querySelector('.icon:nth-child(3)').addEventListener('dblclick', (e) => {
             if(document.querySelector('.memory__wrap').classList.contains('show')) {
                 document.querySelector('.memory__wrap').classList.remove('show');
+                location.reload();
                 runMemoryGame();
             }
             else {
