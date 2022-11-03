@@ -1646,6 +1646,7 @@ body {
         // 뮤직 플레이어 퇴장
         document.querySelector('.music__header .close').addEventListener('click', () => {
             document.querySelector('.music__wrap').classList.remove('show');
+            pauseMusic();
         });
 
         // searchGame 등장
@@ -1663,7 +1664,6 @@ body {
         document.querySelector('.icon:nth-child(3)').addEventListener('dblclick', (e) => {
             if(document.querySelector('.memory__wrap').classList.contains('show')) {
                 document.querySelector('.memory__wrap').classList.remove('show');
-                location.reload();
                 runMemoryGame();
             }
             else {

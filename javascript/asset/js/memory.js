@@ -19,9 +19,12 @@ let startTime;
 let endTime;
 let memoryTID = 0;
 let memoryTID2 = 0;
+let memoryTID3 = 0;
+let gameon = false;
 
 // 카드 뒤집기
 function flipCard() {
+    if(!gameon) return
     if (disableDeck) return;
     if (this === cardOne) return;
 
@@ -52,6 +55,7 @@ function matchCards(img1, img2) {
                 soundUp.play();
                 let playTime = Math.floor((endTime - startTime) / 1000);
                 alert(`${playTime}초 만에 승리하셨습니다.`);
+                gameon = false;
                 document.querySelector('.memory__wrap .help').style.display = 'flex';
                 document.querySelector('.memory__wrap .help .result').textContent = `당신의 점수는 ${100 - playTime}`;
             }, 300);
@@ -97,13 +101,16 @@ function shuffleCard() {
 
         memoryTID2 = setTimeout(() => {
             card.classList.remove('flip');
-            disableDeck = false;
-            startTime = new Date();
         }, memoryCard.length * 200 + 1000);
 
         let imgTag = card.querySelector('.back img');
         imgTag.src = `../asset/memory/0${result[index]}.png`;
     });
+    memoryTID3 = setTimeout(() => {
+        startTime = new Date();
+        disableDeck = false;
+        gameon = true;
+    }, memoryCard.length * 200 + 1500);
 
     // 카드 클릭
     memoryCard.forEach(card => {
@@ -118,6 +125,7 @@ function runMemoryGame() {
     document.querySelector('.memory__wrap .help').style.display = 'flex';
     clearTimeout(memoryTID);
     clearTimeout(memoryTID2);
+    clearTimeout(memoryTID3);
     memoryCard.forEach(card => {
         card.removeEventListener('click', flipCard);
     });
