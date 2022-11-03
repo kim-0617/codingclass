@@ -94,6 +94,9 @@ function shuffleCard() {
 
     memoryCard.forEach((card, index) => {
         card.classList.remove('flip');
+        memoryCard.forEach(card => {
+            card.removeEventListener('click', flipCard);
+        });
 
         memoryTID = setTimeout(() => {
             card.classList.add('flip');
@@ -110,12 +113,11 @@ function shuffleCard() {
         startTime = new Date();
         disableDeck = false;
         gameon = true;
-    }, memoryCard.length * 200 + 1500);
-
-    // 카드 클릭
-    memoryCard.forEach(card => {
+        // 카드 클릭
+        memoryCard.forEach(card => {
         card.addEventListener('click', flipCard);
     });
+    }, memoryCard.length * 200 + 1500);
 }
 startBtn.addEventListener('click', shuffleCard);
 
