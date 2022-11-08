@@ -1638,42 +1638,61 @@ body {
             }
         }
 
+        // 변수 정의
+        const musicWrapIndex = document.querySelector('.music__wrap');
+        const searchWrapIndex = document.querySelector('.search__wrap');
+        const memoryWrapIndex = document.querySelector('.memory__wrap');
+
         // 뮤직 플레이어 등장
         document.querySelector('.icon:nth-child(1)').addEventListener('dblclick', () => {
-            document.querySelector('.music__wrap').classList.add('show');
+            musicWrapIndex.classList.add('show');
+            
+            // 클릭한거 제일 위로 올라오게
+            musicWrapIndex.style.zIndex = "150";  
+            searchWrapIndex.style.zIndex = "100";  
+            memoryWrapIndex.style.zIndex = "50";  
         });
 
         // 뮤직 플레이어 퇴장
         document.querySelector('.music__header .close').addEventListener('click', () => {
-            document.querySelector('.music__wrap').classList.remove('show');
+            musicWrapIndex.classList.remove('show');
             pauseMusic();
         });
 
         // searchGame 등장
         document.querySelector('.icon:nth-child(2)').addEventListener('dblclick', () => {
-            document.querySelector('.search__wrap').classList.add('show');
+            searchWrapIndex.classList.add('show');
+
+            // 클릭한거 제일 위로 올라오게
+            musicWrapIndex.style.zIndex = "100";
+            searchWrapIndex.style.zIndex = "150";
+            memoryWrapIndex.style.zIndex = "50";  
         });
 
         // searchGame 퇴장
         document.querySelector('.search__info .close').addEventListener('click', () => {
             quitQuiz();
-            document.querySelector('.search__wrap').classList.remove('show');
+            searchWrapIndex.classList.remove('show');
         });
 
         // memoryGame 등장
         document.querySelector('.icon:nth-child(3)').addEventListener('dblclick', (e) => {
-            if(document.querySelector('.memory__wrap').classList.contains('show')) {
-                document.querySelector('.memory__wrap').classList.remove('show');
+            if(memoryWrapIndex.classList.contains('show')) {
+                memoryWrapIndex.classList.remove('show');
                 runMemoryGame();
             }
             else {
-                document.querySelector('.memory__wrap').classList.add('show');
+                memoryWrapIndex.classList.add('show');
+                // 클릭한거 제일 위로 올라오게
+                musicWrapIndex.style.zIndex = "50";
+                searchWrapIndex.style.zIndex = "100";
+                memoryWrapIndex.style.zIndex = "150";  
             }
         });
 
         // memoryGame 퇴장
         document.querySelector('.memory__wrap button.close').addEventListener('click', () => {
-            document.querySelector('.memory__wrap').classList.remove('show');
+            memoryWrap.classList.remove('show');
             runMemoryGame();
         });
         
