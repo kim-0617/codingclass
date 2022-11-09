@@ -1,0 +1,133 @@
+.tetris__wrap {
+  position: relative;
+  height: 100vh;
+  display: none;
+  z-index: 200;
+}
+
+.tetris__wrap.show {
+  display: block;
+}
+
+.tetris__inner {
+  width: 800px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #597685f0;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.tetris__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tetris__start,
+.tetris__exit {
+  width: 50px;
+  height: 50px;
+  border-radius: 20px;
+  background-color: #fff;
+  text-align: center;
+  line-height: 50px;
+  transition: all 300ms;
+}
+
+.tetris__exit {
+  margin-left: 20px;
+}
+
+.tetris__start:hover,
+.tetris__exit:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+.playground {
+  text-align: center;
+  font-size: 24px;
+  padding: 10px 0;
+}
+
+.playground > ul {
+  border: 2px solid #fff;
+}
+
+.playground > ul > li {
+  list-style: none;
+  width: 100%;
+  /* height: 30px; */
+}
+
+.playground > ul > li > ul {
+  display: flex;
+}
+
+.playground > ul > li > ul > li {
+  list-style: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #fff2f2;
+}
+
+.tetris__msg {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  background-color: rgba(108, 205, 243, 0.884);
+  z-index: 1000;
+  padding: 20px;
+  font-size: 24px;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.7;
+  display: none;
+}
+
+.tetris__msg.show {
+  display: flex;
+}
+
+.Tmino {
+  border: #a042a2 0.5em outset !important;
+  background-color: #952d98;
+}
+
+.Lmino {
+  border: #ff861a 0.5em outset !important;
+  background-color: #ff7900;
+}
+
+.Jmino {
+  border: #1a74c4 0.5em outset !important;
+  background-color: #0065bd;
+}
+
+.Zmino {
+  border: #ef3e4d 0.5em outset !important;
+  background-color: #ed2939;
+}
+
+.Smino {
+  border: #78c53e 0.5em outset !important;
+  background-color: #69be28;
+}
+
+.Omino {
+  border: #fed01a 0.5em outset !important;
+  background-color: #fecb00;
+}
+
+.Imino {
+  border: #1aa9de 0.5em outset !important;
+  background-color: #009fda;
+}
