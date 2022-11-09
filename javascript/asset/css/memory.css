@@ -1,200 +1,191 @@
 .memory__wrap {
-    position: fixed;
-    height: 150px;
-    display: none;
-    z-index: 150;
+  position: fixed;
+  height: 650px;
+  display: none;
+  z-index: 150;
 }
 
 .memory__wrap.show {
-    display: block;
+  display: block;
 }
 
 .memory__wrap .help {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 400px;
-    height: 400px;
-    background: #08f;
-    border: 3px solid rgb(205, 232, 255);
-    padding: 20px;
-    border-radius: 30px;
-    z-index: 200;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 400px;
+  background: #08f;
+  border: 3px solid rgb(205, 232, 255);
+  padding: 20px;
+  border-radius: 30px;
+  z-index: 200;
 }
 
 .memory__wrap .help p.desc {
-    line-height: 1.7;
-    margin-bottom: 60px;
-    font-size: 24px;
+  line-height: 1.7;
+  margin-bottom: 60px;
+  font-size: 24px;
 }
 
 .memory__wrap .help .result {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .memory__wrap button.start,
 .memory__wrap button.close {
-    display: inline-block;
-    border: 0;
-    border-radius: 30px;
-    padding: 10px 20px;
-    width: 200px;
-    height: 40px;
-    margin-bottom: 20px;
+  display: inline-block;
+  border: 0;
+  border-radius: 30px;
+  padding: 10px 20px;
+  width: 200px;
+  height: 40px;
+  margin-bottom: 20px;
 }
 
 .memory__wrap button:hover {
-    background-color: #000;
-    color: #fff;
+  background-color: #000;
+  color: #fff;
 }
 
 .memory__wrap button.close {
-    background-color: rgb(245, 131, 111);
+  background-color: rgb(245, 131, 111);
 }
 
 .memory__wrap button.close:hover {
-    background-color: rgb(67, 66, 66);
-    color: tomato;
+  background-color: rgb(67, 66, 66);
+  color: tomato;
 }
 
 .memory__inner {
-    width: 700px;
-    height: 700px;
-    border: 3px solid #08f;
-    background: #000;
-    position: absolute;
-    left: 300px;
-    top: 100px;
-    border-radius: 20px;
-    animation: flicker 1.5s infinite alternate;
-    z-index: 100;
+  width: 700px;
+  height: 700px;
+  border: 3px solid #08f;
+  background: #000;
+  position: absolute;
+  border-radius: 20px;
+  animation: flicker 1.5s infinite alternate;
+  z-index: 100;
 }
 
 .memory__card {
-    padding: 30px;
+  padding: 30px;
 }
 
 .memory__card .cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .memory__card .cards li {
-    list-style: none;
-    width: 150px;
-    height: 150px;
-    background: rgb(255, 85, 0);
-    border-radius: 20px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  list-style: none;
+  width: 150px;
+  height: 150px;
+  background: rgb(255, 85, 0);
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .memory__card .cards li.flip .front {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .memory__card .cards li.flip .back {
-    transform: rotateY(0deg);
+  transform: rotateY(0deg);
 }
 
 .memory__card .cards li.shakeX {
-    animation: shakeX 0.5s 0.5s 1;
+  animation: shakeX 0.5s 0.5s 1;
 }
 
 .memory__card .cards li.shakeY {
-    animation: shakeY 0.5s 0.5s 1;
+  animation: shakeY 0.5s 0.5s 1;
 }
 
 .memory__card .cards li .view {
-    position: absolute;
-    backface-visibility: hidden;
-    transition: all 500ms;
-    transform-style: preserve-3d;
-    perspective: 1000px;
-    /* pointer-events: none; */
+  position: absolute;
+  backface-visibility: hidden;
+  transition: all 500ms;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  /* pointer-events: none; */
 }
 
-.memory__card .cards li .front {}
+.memory__card .cards li .front {
+}
 
 .memory__card .cards li .back {
-    transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
 }
 
 .memory__card .cards li img {
-    width: 100%;
-    height: 100px;
+  width: 100%;
+  height: 100px;
 }
 
 @keyframes flicker {
-
-    0%,
-    19%,
-    21%,
-    23%,
-    25%,
-    54%,
-    56%,
-    100% {
-        box-shadow:
-            0 0 .5rem #fff,
-            inset 0 0 .5rem #fff,
-            0 0 2rem #08f,
-            inset 0 0 2rem #08f,
-            0 0 4rem #08f,
-            inset 0 0 4rem #08f;
-    }
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff, 0 0 2rem #08f,
+      inset 0 0 2rem #08f, 0 0 4rem #08f, inset 0 0 4rem #08f;
+  }
 }
 
 @keyframes shakeX {
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
 
-    from,
-    to {
-        transform: translate3d(0, 0, 0);
-    }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(-10px, 0, 0);
+  }
 
-    10%,
-    30%,
-    50%,
-    70%,
-    90% {
-        transform: translate3d(-10px, 0, 0);
-    }
-
-    20%,
-    40%,
-    60%,
-    80% {
-        transform: translate3d(10px, 0, 0);
-    }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(10px, 0, 0);
+  }
 }
 
 @keyframes shakeY {
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
 
-    from,
-    to {
-        transform: translate3d(0, 0, 0);
-    }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(0, -10px, 0);
+  }
 
-    10%,
-    30%,
-    50%,
-    70%,
-    90% {
-        transform: translate3d(0, -10px, 0);
-    }
-
-    20%,
-    40%,
-    60%,
-    80% {
-        transform: translate3d(0, 10px, 0);
-    }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(0, 10px, 0);
+  }
 }
