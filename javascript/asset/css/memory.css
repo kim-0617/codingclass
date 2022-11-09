@@ -2,7 +2,6 @@
   position: fixed;
   height: 650px;
   display: none;
-  z-index: 150;
 }
 
 .memory__wrap.show {

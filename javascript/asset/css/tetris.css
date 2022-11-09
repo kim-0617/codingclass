@@ -1,9 +1,8 @@
 .tetris__wrap {
   position: relative;
-  height: 100vh;
   display: none;
-  z-index: 200;
   box-sizing: border-box;
+  width: 845px;
 }
 
 .tetris__wrap.show {
@@ -89,7 +88,6 @@
   transform: translate(-50%, -50%);
   border-radius: 20px;
   background-color: rgba(108, 205, 243, 0.884);
-  z-index: 1000;
   padding: 20px;
   font-size: 24px;
   align-items: center;

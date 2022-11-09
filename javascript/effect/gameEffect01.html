@@ -1619,6 +1619,7 @@ body {
             stop: function () {
                 $('.memory__wrap').css('z-index', '800');
                 $('.search__wrap').css('z-index', '800');
+                $('.tetris__wrap').css('z-index', '800');
             }
         });
 
@@ -1629,6 +1630,7 @@ body {
             stop: function () {
                 $('.music__wrap').css('z-index', '800');
                 $('.search__wrap').css('z-index', '800');
+                $('.tetris__wrap').css('z-index', '800');
             }
         });
 
@@ -1639,6 +1641,7 @@ body {
             stop: function () {
                 $('.memory__wrap').css('z-index', '800');
                 $('.music__wrap').css('z-index', '800');
+                $('.tetris__wrap').css('z-index', '800');
             }
         });
 
@@ -1649,6 +1652,7 @@ body {
             stop: function () {
                 $('.memory__wrap').css('z-index', '800');
                 $('.music__wrap').css('z-index', '800');
+                $('.search__wrap').css('z-index', '800');
             }
         });
 
@@ -1715,8 +1719,8 @@ body {
 
             // 클릭한거 제일 위로 올라오게
             musicWrapIndex.style.zIndex = "150";
-            searchWrapIndex.style.zIndex = "100";
-            memoryWrapIndex.style.zIndex = "50";
+            searchWrapIndex.style.zIndex = "1";
+            memoryWrapIndex.style.zIndex = "1";
             tetrisWrapIndex.style.zIndex = "1";
         });
 
@@ -1734,9 +1738,9 @@ body {
             searchWrapIndex.style.left = "20%";
 
             // 클릭한거 제일 위로 올라오게
-            musicWrapIndex.style.zIndex = "100";
+            musicWrapIndex.style.zIndex = "1";
             searchWrapIndex.style.zIndex = "150";
-            memoryWrapIndex.style.zIndex = "50";
+            memoryWrapIndex.style.zIndex = "1";
             tetrisWrapIndex.style.zIndex = "1";
         });
 
@@ -1759,8 +1763,8 @@ body {
                 memoryWrapIndex.style.left = "32.5%";
 
                 // 클릭한거 제일 위로 올라오게
-                musicWrapIndex.style.zIndex = "50";
-                searchWrapIndex.style.zIndex = "100";
+                musicWrapIndex.style.zIndex = "1";
+                searchWrapIndex.style.zIndex = "1";
                 memoryWrapIndex.style.zIndex = "150";
                 tetrisWrapIndex.style.zIndex = "1";
             }
@@ -1777,10 +1781,13 @@ body {
             tetrisWrapIndex.classList.add('show');
             TstartBtn.addEventListener("click", init);
 
+            tetrisWrapIndex.style.top = "460px";
+            tetrisWrapIndex.style.left = "28.5%";
+
             // 클릭한거 제일 위로 올라오게
-            musicWrapIndex.style.zIndex = "50";
-            searchWrapIndex.style.zIndex = "100";
-            memoryWrapIndex.style.zIndex = "150";
+            musicWrapIndex.style.zIndex = "1";
+            searchWrapIndex.style.zIndex = "1";
+            memoryWrapIndex.style.zIndex = "1";
             tetrisWrapIndex.style.zIndex = "200";
         });
 
