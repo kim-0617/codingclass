@@ -767,6 +767,8 @@
                     <div class="tetris__btn">
                         <div class="tetris__start">시작</div>
                         <div class="tetris__exit">종료</div>
+                        <div class="tetris__time"><span>0</span>초 경과</div>
+                        <div class="tetirs__score">현재 : <span>0</span>점</div>
                     </div>
                     <div class="tetris__play">
                         <div class="playground">
@@ -1615,44 +1617,48 @@ body {
         $('.music__wrap').draggable({
             drag: function () {
                 $(this).css('z-index', '1000');
+                $('.search__wrap').css('z-index', '800');
+                $('.memory__wrap').css('z-index', '800');
+                $('.tetris__wrap').css('z-index', '800');
             },
             stop: function () {
-                $('.memory__wrap').css('z-index', '800');
-                $('.search__wrap').css('z-index', '800');
-                $('.tetris__wrap').css('z-index', '800');
+
             }
         });
 
         $('.memory__wrap').draggable({
             drag: function () {
                 $(this).css('z-index', '1000');
+                $('.music__wrap').css('z-index', '800');
+                $('.tetris__wrap').css('z-index', '800');
+                $('.search__wrap').css('z-index', '800');
             },
             stop: function () {
-                $('.music__wrap').css('z-index', '800');
-                $('.search__wrap').css('z-index', '800');
-                $('.tetris__wrap').css('z-index', '800');
+
             }
         });
 
         $('.search__wrap').draggable({
             drag: function () {
                 $(this).css('z-index', '1000');
-            },
-            stop: function () {
-                $('.memory__wrap').css('z-index', '800');
                 $('.music__wrap').css('z-index', '800');
                 $('.tetris__wrap').css('z-index', '800');
+                $('.memory__wrap').css('z-index', '800');
+            },
+            stop: function () {
+
             }
         });
 
         $('.tetris__wrap').draggable({
             drag: function () {
                 $(this).css('z-index', '1000');
-            },
-            stop: function () {
                 $('.memory__wrap').css('z-index', '800');
                 $('.music__wrap').css('z-index', '800');
                 $('.search__wrap').css('z-index', '800');
+            },
+            stop: function () {
+
             }
         });
 
@@ -1678,6 +1684,7 @@ body {
             const nowTime = `${now.getFullYear()}년 ${month}월 ${day}일 ${hour}시 ${minute}분 ${sec}초`;
 
             clock.innerHTML = nowTime;
+
             setTimeout(() => {
                 printTime();
             }, 1000);
@@ -1718,10 +1725,9 @@ body {
             musicWrapIndex.classList.add('show');
 
             // 클릭한거 제일 위로 올라오게
-            musicWrapIndex.style.zIndex = "150";
-            searchWrapIndex.style.zIndex = "1";
-            memoryWrapIndex.style.zIndex = "1";
-            tetrisWrapIndex.style.zIndex = "1";
+            searchWrapIndex.classList.remove('show');
+            memoryWrapIndex.classList.remove('show');
+            tetrisWrapIndex.classList.remove('show');
         });
 
         // 뮤직 플레이어 퇴장
@@ -1738,10 +1744,9 @@ body {
             searchWrapIndex.style.left = "20%";
 
             // 클릭한거 제일 위로 올라오게
-            musicWrapIndex.style.zIndex = "1";
-            searchWrapIndex.style.zIndex = "150";
-            memoryWrapIndex.style.zIndex = "1";
-            tetrisWrapIndex.style.zIndex = "1";
+            musicWrapIndex.classList.remove('show');
+            memoryWrapIndex.classList.remove('show');
+            tetrisWrapIndex.classList.remove('show');
         });
 
         // searchGame 퇴장
@@ -1763,10 +1768,9 @@ body {
                 memoryWrapIndex.style.left = "32.5%";
 
                 // 클릭한거 제일 위로 올라오게
-                musicWrapIndex.style.zIndex = "1";
-                searchWrapIndex.style.zIndex = "1";
-                memoryWrapIndex.style.zIndex = "150";
-                tetrisWrapIndex.style.zIndex = "1";
+                musicWrapIndex.classList.remove('show');
+                searchWrapIndex.classList.remove('show');
+                tetrisWrapIndex.classList.remove('show');
             }
         });
 
@@ -1785,10 +1789,9 @@ body {
             tetrisWrapIndex.style.left = "28.5%";
 
             // 클릭한거 제일 위로 올라오게
-            musicWrapIndex.style.zIndex = "1";
-            searchWrapIndex.style.zIndex = "1";
-            memoryWrapIndex.style.zIndex = "1";
-            tetrisWrapIndex.style.zIndex = "200";
+            musicWrapIndex.classList.remove('show');
+            searchWrapIndex.classList.remove('show');
+            memoryWrapIndex.classList.remove('show');
         });
 
         // tetris 퇴장
@@ -1798,6 +1801,11 @@ body {
             TsoundBg.pause();
             Tmsg.classList.remove("show");
             playGround.innerHTML = '테트리스 게임입니다.';
+            Ttime.textContent = 0;
+            TscoreWrite.textContent = 0;
+            clearInterval(tID2);
+            tetirsTimer = 0;
+            Tscore = 0;
         });
 
         window.onload = function () {

@@ -3,6 +3,8 @@ const tetrisWrap = document.querySelector(".tetris__wrap");
 const playGround = tetrisWrap.querySelector(".playground > ul");
 const TstartBtn = tetrisWrap.querySelector(".tetris__start");
 const Tmsg = tetrisWrap.querySelector(".tetris__msg");
+const Ttime = tetrisWrap.querySelector(".tetris__time span");
+const TscoreWrite = document.querySelector(".tetirs__score span");
 
 // 변수설정
 let rows = 12; // 가로줄 만들기
@@ -12,7 +14,9 @@ let duration = 500;
 let downInterval;
 let tempMovingItem;
 let tID = 0;
+let tID2 = 0;
 let gameover = false;
+let tetirsTimer = 0;
 
 let Tsound = [
   "../asset/audio/02.mp3",
@@ -220,6 +224,8 @@ const blocks = {
 // 시작하기
 function init() {
   gameover = false;
+  Tscore = 0;
+  TscoreWrite.textContent = 0;
   TsoundBg.play();
   playGround.innerHTML = "";
   tempMovingItem = { ...movingItem };
@@ -230,6 +236,11 @@ function init() {
 
   TstartBtn.removeEventListener("click", init);
   Tmsg.classList.remove("show");
+
+  tID2 = setInterval(() => {
+    tetirsTimer++;
+    Ttime.textContent = tetirsTimer;
+  }, 1000);
 }
 
 // 블록 만들기
@@ -309,6 +320,9 @@ function checkLose() {
     if (ch.classList.contains("seized")) {
       gameover = true;
       TsoundUnMatch;
+      clearInterval(tID2);
+      tetirsTimer = 0;
+      Ttime.textContent = 0;
     }
   });
 }
@@ -327,10 +341,25 @@ function checkMatch() {
       child.remove();
       prependNewLine();
       Tscore++;
+      duration -= 50;
       TsoundMatch.play();
+      TscoreWrite.textContent = Tscore;
     }
   });
   generateNewBlock();
+}
+
+function createRandomBlocks() {
+  const blockArray = Object.entries(blocks);
+  const randomIndex = Math.floor(Math.random() * blockArray.length);
+  movingItem.type = blockArray[randomIndex][0];
+  movingItem.top = 0;
+
+  if (movingItem.type === "Imino")
+    movingItem.left = Math.floor(Math.random() * (cols - 3)); // 0 ~ 16
+  else movingItem.left = Math.floor(Math.random() * (cols - 2)); // 0 ~ 17
+
+  movingItem.direction = 0;
 }
 
 // 새로운 블럭 만들기
@@ -346,17 +375,12 @@ function generateNewBlock() {
     TstartBtn.addEventListener("click", init);
     return;
   }
+
   clearInterval(downInterval);
   downInterval = setInterval(() => {
     moveBlock("top", 1);
   }, duration);
 
-  const blockArray = Object.entries(blocks);
-  const randomIndex = Math.floor(Math.random() * blockArray.length);
-  movingItem.type = blockArray[randomIndex][0];
-  movingItem.top = 0;
-  movingItem.left = 0;
-  movingItem.direction = 0;
   tempMovingItem = { ...movingItem };
   renderBlocks();
 }

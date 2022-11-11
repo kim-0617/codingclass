@@ -48,6 +48,21 @@
   background-color: #000;
 }
 
+.tetris__time {
+  position: absolute;
+  top: 70px;
+  right: 30px;
+}
+.tetris__time span {
+}
+.tetirs__score {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+}
+.tetirs__score span {
+}
+
 .playground {
   text-align: center;
   font-size: 24px;
@@ -94,6 +109,8 @@
   justify-content: center;
   line-height: 1.7;
   display: none;
+  text-align: center;
+  line-height: 3;
 }
 
 .tetris__msg.show {
