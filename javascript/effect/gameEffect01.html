@@ -769,6 +769,9 @@
                         <div class="tetris__exit">종료</div>
                         <div class="tetris__time"><span>0</span>초 경과</div>
                         <div class="tetirs__score">현재 : <span>0</span>점</div>
+                        <div class="tetirs__next">
+                            <img src="../asset/tetris/TD.png" alt="다음블럭">
+                        </div>
                     </div>
                     <div class="tetris__play">
                         <div class="playground">
@@ -1806,6 +1809,7 @@ body {
             clearInterval(tID2);
             tetirsTimer = 0;
             Tscore = 0;
+            Tnext.setAttribute("src", `../asset/tetris/TD.png`);
         });
 
         window.onload = function () {

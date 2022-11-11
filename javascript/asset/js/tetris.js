@@ -5,6 +5,7 @@ const TstartBtn = tetrisWrap.querySelector(".tetris__start");
 const Tmsg = tetrisWrap.querySelector(".tetris__msg");
 const Ttime = tetrisWrap.querySelector(".tetris__time span");
 const TscoreWrite = document.querySelector(".tetirs__score span");
+const Tnext = document.querySelector(".tetirs__next img");
 
 // 변수설정
 let rows = 12; // 가로줄 만들기
@@ -17,6 +18,8 @@ let tID = 0;
 let tID2 = 0;
 let gameover = false;
 let tetirsTimer = 0;
+const p = []; // 미리준비
+let nextMovingItem = "";
 
 let Tsound = [
   "../asset/audio/02.mp3",
@@ -28,7 +31,7 @@ let TsoundMatch = new Audio(Tsound[1]);
 let TsoundUnMatch = new Audio(Tsound[2]);
 
 // 블록정보
-const movingItem = {
+let movingItem = {
   type: "",
   direction: 0, // 블록 모양
   top: 0,
@@ -223,6 +226,7 @@ const blocks = {
 
 // 시작하기
 function init() {
+  미리준비();
   gameover = false;
   Tscore = 0;
   TscoreWrite.textContent = 0;
@@ -275,8 +279,9 @@ function renderBlocks(moveType = "") {
       : null;
     const isAvailable = checkEmpty(target);
 
-    if (isAvailable) target.classList.add(type, "moving");
-    else {
+    if (isAvailable) {
+      target.classList.add(type, "moving");
+    } else {
       // 끝에 닿았다
       tempMovingItem = { ...movingItem };
       tID = setTimeout(() => {
@@ -323,6 +328,7 @@ function checkLose() {
       clearInterval(tID2);
       tetirsTimer = 0;
       Ttime.textContent = 0;
+      Tnext.setAttribute("src", `../asset/tetris/TD.png`);
     }
   });
 }
@@ -349,17 +355,22 @@ function checkMatch() {
   generateNewBlock();
 }
 
-function createRandomBlocks() {
-  const blockArray = Object.entries(blocks);
-  const randomIndex = Math.floor(Math.random() * blockArray.length);
-  movingItem.type = blockArray[randomIndex][0];
-  movingItem.top = 0;
+function 미리준비() {
+  for (let i = 0; i < 10000; i++) {
+    const tmpObj = {};
+    const blockArray = Object.entries(blocks);
+    const randomIndex = Math.floor(Math.random() * blockArray.length);
+    tmpObj.type = blockArray[randomIndex][0];
+    tmpObj.top = 0;
 
-  if (movingItem.type === "Imino")
-    movingItem.left = Math.floor(Math.random() * (cols - 3)); // 0 ~ 16
-  else movingItem.left = Math.floor(Math.random() * (cols - 2)); // 0 ~ 17
+    if (tmpObj.type !== "Omino")
+      tmpObj.left = Math.floor(Math.random() * (cols - 3)); // 0 ~ 16
+    else tmpObj.left = Math.floor(Math.random() * (cols - 2)); // 0 ~ 17
 
-  movingItem.direction = 0;
+    tmpObj.direction = 0;
+
+    p.push(tmpObj);
+  }
 }
 
 // 새로운 블럭 만들기
@@ -381,8 +392,13 @@ function generateNewBlock() {
     moveBlock("top", 1);
   }, duration);
 
+  movingItem = { ...p[0] };
   tempMovingItem = { ...movingItem };
   renderBlocks();
+
+  p.shift();
+  nextMovingItem = p[0].type;
+  Tnext.setAttribute("src", `../asset/tetris/${nextMovingItem}.png`);
 }
 
 // 빈칸 확인하기
