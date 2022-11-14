@@ -321,7 +321,6 @@ function checkLose() {
   const childNodes = playGround.querySelectorAll(
     ".append>li>ul>li:first-child"
   );
-  console.log(childNodes);
   childNodes.forEach((ch) => {
     if (ch.classList.contains("seized")) {
       gameover = true;
@@ -353,7 +352,7 @@ function checkMatch() {
     });
   });
 
-  let target = 0;
+  let target = [];
   옆테트리스.forEach((li, index) => {
     let tmp = true;
     li.forEach((l) => {
@@ -364,22 +363,23 @@ function checkMatch() {
 
     if (tmp) {
       matched = true;
-      target = index;
-      return false;
+      target.push(index);
     }
   });
 
   if (matched) {
-    console.log("맞았다 맞았다 아이고");
+    target.forEach((t, index) => {
+      옆테트리스[t].forEach((li, index) => {
+        li.remove();
+      });
+    })
 
-    옆테트리스[target].forEach((li, index) => {
-      li.remove();
-    });
-    옆테트리스[0].forEach((li, index) => {
-      const newLi = document.createElement("li");
-      newLi.classList.add("added");
-      li.before(newLi);
-    });
+    for (let i = 0; i < target.length; i++) {
+      옆테트리스[0].forEach((li, index) => {
+        const newLi = document.createElement("li");
+        li.before(newLi);
+      });
+    }
 
     Tscore++;
     duration -= 50;
