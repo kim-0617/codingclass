@@ -357,21 +357,19 @@ function checkMatch() {
 }
 
 function 미리준비() {
-  for (let i = 0; i < 10000; i++) {
-    const tmpObj = {};
-    const blockArray = Object.entries(blocks);
-    const randomIndex = Math.floor(Math.random() * blockArray.length);
-    tmpObj.type = blockArray[randomIndex][0];
-    tmpObj.top = 0;
+  const tmpObj = {};
+  const blockArray = Object.entries(blocks);
+  const randomIndex = Math.floor(Math.random() * blockArray.length);
+  tmpObj.type = blockArray[randomIndex][0];
+  tmpObj.top = 0;
 
-    if (tmpObj.type !== "Omino")
-      tmpObj.left = Math.floor(Math.random() * (cols - 3)); // 0 ~ 16
-    else tmpObj.left = Math.floor(Math.random() * (cols - 2)); // 0 ~ 17
+  if (tmpObj.type !== "Omino")
+    tmpObj.left = Math.floor(Math.random() * (cols - 3)); // 0 ~ 16
+  else tmpObj.left = Math.floor(Math.random() * (cols - 2)); // 0 ~ 17
 
-    tmpObj.direction = 0;
+  tmpObj.direction = 0;
 
-    p.push(tmpObj);
-  }
+  p.push(tmpObj);
 }
 
 // 새로운 블럭 만들기
@@ -398,6 +396,7 @@ function generateNewBlock() {
   renderBlocks();
 
   p.shift();
+  미리준비();
   nextMovingItem = p[0].type;
   Tnext.setAttribute("src", `../asset/tetris/${nextMovingItem}.png`);
 }

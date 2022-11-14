@@ -28,8 +28,8 @@
 }
 .tetirs__next {
   position: absolute;
-  left: 50px;
-  top: 20px;
+  left: 64px;
+  top: 32px;
 }
 .tetirs__next img {
   width: 50px;
