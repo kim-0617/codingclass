@@ -328,6 +328,7 @@ function checkLose() {
       clearInterval(tID2);
       tetirsTimer = 0;
       Ttime.textContent = 0;
+      duration = 500;
       Tnext.setAttribute("src", `../asset/tetris/TD.png`);
     }
   });
