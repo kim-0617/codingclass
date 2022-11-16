@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #contents>section {
+            min-height: 100vh;
+        }
+
+        #section1 {
+            background: #ED4264;
+            background: linear-gradient(to right, #FFEDBC, #ED4264);
+            height: 90vh;
+        }
+
+        #section2 {
+            background: #DC2424;
+            background: linear-gradient(to right, #4A569D, #DC2424);
+        }
+
+        .square {
+            width: 200px;
+            height: 200px;
+            background: #000;
+        }
+
+        .square2 {
+            width: 200px;
+            height: 200px;
+            background: blue;
+        }
+
+        .square2.red {
+            background-color: red;
+        }
+
+        .square.red {
+            background: red;
+        }
+
+        #section3 {
+            background: #24C6DC;
+            background: linear-gradient(to right, #514A9D, #24C6DC);
+        }
+
+        #section4 {
+            background: #1F1C2C;
+            background: linear-gradient(to right, #928DAB, #1F1C2C);
+        }
+
+        #section5 {
+            background: #FF512F;
+            background: linear-gradient(to right, #F09819, #FF512F);
+        }
+
+        #section6 {
+            background: #AA076B;
+            background: linear-gradient(to right, #61045F, #AA076B);
+        }
+
+        .panel {
+            height: 10000px;
+            background: beige;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #5753C9;
+        }
+
+        .box-red {
+            background-color: red;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            transition: all 600ms ease-in-out;
+            background-color: tan;
+            color: #0092fd;
+            text-align: center;
+        }
+
+        li {
+            display: inline-block;
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        .not-active {
+            background: #fff;
+            color: #6a11cb;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <main id="contents">
+        <section id="section1"></section>
+        <section id="section2">
+            <div class="square"></div>
+            <div class="square2"></div>
+        </section>
+        <section id="section3">
+
+        </section>
+        <section id="section4"></section>
+        <section id="section5"></section>
+        <section id="section6"></section>
+    </main> -->
+
+    <nav>
+        <ul>
+            <li>about</li>
+            <li>work</li>
+            <li>contact</li>
+        </ul>
+    </nav>
+
+    <div class="panel">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab fugit numquam facilis consequatur ea, iste
+        temporibus. Nihil ex magnam molestiae quisquam beatae voluptatibus harum ad, corporis neque debitis. Neque,
+        quam.
+    </div>
+    <!-- <div class="box"></div>
+    <div class="panel"></div> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        ScrollTrigger.create({
+            trigger: ".panel",
+            start: "top 40%",
+            end: "top  3%",
+            markers: true,
+            toggleClass: { targets: "nav", className: "not-active" },
+            onEnter: () => console.log("onEnter"),
+            onLeave: () => console.log("onLeave"),
+            onEnterBack: () => console.log("onEnterBack"),
+            onLeaveBack: () => console.log("onLeaveBack"),
+        });
+
+        // ScrollTrigger.create({
+        //     trigger: ".panel",
+        //     start: "top 6%",
+        //     markers: true,
+        //     toggleClass: { targets: "nav", className: "not-active" }
+        // })
+
+
+    </script>
+
+    <script>
+        // 기본
+        // gsap.registerPlugin(ScrollTrigger);
+        //     gsap.to(".square", {
+        //         x: 1000,
+        //         duration: 3,
+        //         scrollTrigger: {
+        //             trigger: ".square",
+        //             start: "top 50%",
+        //             end: () => `+=${document.querySelector(".square").offsetHeight}`,
+        //             markers: true,
+        //             toggleClass: "red",
+        //         }
+        //     })
+
+
+        // 토글 액션
+        // gsap.to(".square", {
+        //     x: 1500,
+        //     duration: 3,
+        //     scrollTrigger: {
+        //         trigger: ".square",
+        //         start: "top 70%",
+        //         end: "top 30%",
+        //         markers: {
+        //             startColor: "blue",
+        //             endColor: "purple",
+        //             fontSize: "30px"
+        //         },
+        //         toggleClass: "red",
+        //         toggleActions: "restart pause resume reset",
+        //         // onEnter, onLeave, onEnterBack, onLeaveBack
+        //         // play, pause, resume, reset, restart, complete, reeverse, none
+        //     }
+        // })
+
+        // 핀
+        // gsap.to(".square", {
+        //     scrollTrigger: {
+        //         trigger: ".square",
+        //         start: "top 70%",
+        //         end: "bottom 0%",
+        //         scrub: 6,
+        //         markers: {
+        //             startColor: "blue",
+        //             endColor: "purple",
+        //             fontSize: "30px"
+        //         },
+        //         toggleClass: "red",
+        //         toggleActions: "restart none none none",
+        //         pin: true,
+        //         pinSpacing: false
+        //     }
+        // })
+
+        // 애니메이션
+        // gsap.to(".square", { x: 1000, duration: 2, rotation: 100, borderRadius: 0 });
+        // gsap.to(".square", { y: 500, duration: 2, rotation: 0, borderRadius: 100, delay: 2 });
+        // gsap.to(".square", { x: 0, duration: 2, rotation: 300, width: 500, delay: 4 });
+        // gsap.to(".square", { y: 0, duration: 2, rotation: 0, width: 200, delay: 6 });
+
+        // 타임라인
+        // const tl = gsap.timeline({ repeat: 2, yoyo: true });
+        // tl.to(".square", { x: 1000, duration: 2, rotation: 100, ease:"elastic", borderRadius: 0, })
+        //     .to(".square", { y: 500, duration: 2, rotation: 0, ease:"elastic", borderRadius: 100, }, "+=2")
+        //     .to(".square", { x: 0, duration: 2, rotation: 300, ease:"elastic", width: 500, })
+        //     .to(".square", { y: 0, duration: 2, rotation: 0, ease:"elastic",   width: 200, });
+
+        // 타임라인2
+        // const tl = gsap.timeline({
+        //     scrollTriger: {
+        //         trigger: ".square",
+        //         markers: true,
+        //         start: "top 80%",
+        //         end: "top 30%",
+        //         scrub: 4
+        //     }
+        // });
+        // tl.to(".square", { x: 1000, duration: 2, rotation: 100, borderRadius: 0, })
+        //     .to(".square", { y: 500, duration: 2, rotation: 0, borderRadius: 100, }, "+=2")
+        //     .to(".square", { x: 0, duration: 2, rotation: 300, width: 500, })
+        //     .to(".square", { y: 0, duration: 2, rotation: 0, width: 200, });
+    </script>
+</body>
+
+</html>
