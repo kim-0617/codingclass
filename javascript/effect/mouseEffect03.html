@@ -12,6 +12,7 @@
         body::after {
             background-color: rgba(0, 0, 0, 0.604);
         }
+
         /* mouseType */
         .mouse__wrap {
             width: 100%;
@@ -83,6 +84,9 @@
             <li><a href="mouseEffect01.html">1</a></li>
             <li><a href="mouseEffect02.html">2</a></li>
             <li class="active"><a href="mouseEffect03.html">3</a></li>
+            <li><a href="mouseEffect04.html">4</a></li>
+            <li><a href="mouseEffect05.html">5</a></li>
+            <li><a href="mouseEffect06.html">6</a></li>
         </ul>
     </header>
     <!-- //header -->
@@ -94,7 +98,7 @@
                 <p>
                     <span>Strive</span> for progress, not <span>perfection</span>.
                 </p>
-                
+
                 <p>
                     <span>완벽</span>을 추구할 것이 <span>아니라</span> 앞으로 나아가기 위해 <span>갈망하라</span>.
                 </p>
@@ -200,7 +204,7 @@
                     </div>
                     <div class="cont">
                         <div class="active">
-<pre><code class="language-js">const cursor = document.querySelector('.mouse__cursor');
+                            <pre><code class="language-js">const cursor = document.querySelector('.mouse__cursor');
 const circleWidth = cursor.offsetWidth || cursor.clientWidth // 보더포함 vs 보더제외
 const circleHeight = cursor.offsetHeight || cursor.clientHeight // 보더포함 vs 보더제외
 
@@ -218,7 +222,7 @@ window.addEventListener('mousemove', function(e) {
 </code></pre>
                         </div>
                         <div>
-<pre><code class="language-html">&lt;section id="mouseType"&gt;
+                            <pre><code class="language-html">&lt;section id="mouseType"&gt;
     &lt;div class="mouse__cursor"&gt;&lt;/div&gt;
     &lt;div class="mouse__wrap"&gt;
         &lt;p&gt;
@@ -233,7 +237,7 @@ window.addEventListener('mousemove', function(e) {
 </code></pre>
                         </div>
                         <div>
-<pre><code class="language-css">body::after {
+                            <pre><code class="language-css">body::after {
     background-color: rgba(0, 0, 0, 0.604);
 }
 /* mouseType */
@@ -307,11 +311,11 @@ window.addEventListener('mousemove', function(e) {
 
         const circleInfo = cursor.getBoundingClientRect();
 
-        window.addEventListener('mousemove', function(e) {
+        window.addEventListener('mousemove', function (e) {
             gsap.to(cursor, {
-                duration : 0.3,
-                left : e.pageX - circleInfo.width / 2,
-                top : e.pageY - circleInfo.height / 2,
+                duration: 0.3,
+                left: e.pageX - circleInfo.width / 2,
+                top: e.pageY - circleInfo.height / 2,
                 // xPercent : -50,
                 // yPercent : -50,
             });

@@ -22,7 +22,7 @@
         }
 
         .mouse__img {
-            transform: perspective(600px) rotateX(0deg) rotateY(0deg) ;
+            transform: perspective(600px) rotateX(0deg) rotateY(0deg);
             transform-style: preserve-3d;
             will-change: transform;
             translate: all 0.5s;
@@ -58,7 +58,7 @@
             color: #fff;
             white-space: nowrap;
             text-align: center;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0, 0, 0, 0.4);
         }
 
         .mouse__cursor {
@@ -96,6 +96,7 @@
             <li><a href="mouseEffect03.html">3</a></li>
             <li><a href="mouseEffect04.html">4</a></li>
             <li class="active"><a href="mouseEffect05.html">5</a></li>
+            <li><a href="mouseEffect06.html">6</a></li>
         </ul>
     </header>
     <!-- //header -->
@@ -116,7 +117,7 @@
                             너는 눈을 감을 때 예쁘지만, 내가 눈을 감으면, 너는 최고로 예뻐!
                         </p>
                     </figcaption>
-                </div> 
+                </div>
             </div>
         </section>
 
@@ -232,7 +233,7 @@
                     </div>
                     <div class="cont">
                         <div class="active">
-<pre><code class="language-js">const mouseMove = (e) => {
+                            <pre><code class="language-js">const mouseMove = (e) => {
 // 마우스 좌표 값
 let mousePageX = e.pageX;
 let mousePageY = e.pageY;
@@ -282,7 +283,7 @@ window.addEventListener('mousemove', mouseMove);
 </code></pre>
                         </div>
                         <div>
-<pre><code class="language-html">&lt;main id="main"&gt;
+                            <pre><code class="language-html">&lt;main id="main"&gt;
     &lt;section id="mouseType"&gt;
         &lt;div class="mouse__cursor"&gt;&lt;/div&gt;
         &lt;div class="mouse__wrap"&gt;
@@ -318,7 +319,7 @@ window.addEventListener('mousemove', mouseMove);
 </code></pre>
                         </div>
                         <div>
-<pre><code class="language-css">/* mouseType */
+                            <pre><code class="language-css">/* mouseType */
 .mouse__wrap {
     width: 100%;
     height: 100vh;
@@ -443,11 +444,11 @@ window.addEventListener('mousemove', mouseMove);
 
             // 커서
             gsap.to('.mouse__cursor', {
-                duration : 0.3,
-                left : mousePageX,
-                top : mousePageY,
-                xPercent : -50,
-                yPercent : -50
+                duration: 0.3,
+                left: mousePageX,
+                top: mousePageY,
+                xPercent: -50,
+                yPercent: -50
             })
 
             // 출력

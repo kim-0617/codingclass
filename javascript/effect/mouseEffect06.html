@@ -14,7 +14,7 @@
             color: #fff;
             width: 100%;
             height: 100vh;
-            cursor : none;
+            cursor: none;
         }
 
         .mouse__img {
@@ -39,26 +39,26 @@
             width: 100%;
             display: flex;
         }
-        
+
         .mouse__text .line .left {
             width: 50vw;
             color: orange;
             overflow: hidden;
             transform: skew(0deg, -15deg);
         }
-        
+
         .mouse__text .line .left .spanWrap {
             width: 100vw;
             text-align: center;
         }
-        
+
         .mouse__text .line .right {
             width: 50vw;
             overflow: hidden;
             transform: skew(0deg, 15deg);
             color: rgb(79, 144, 138);
         }
-        
+
         .mouse__text .line .right .spanWrap {
             width: 100vw;
             text-align: center;
@@ -109,7 +109,7 @@
                     <figure>
                         <img src="../asset/img/effect_img02@2x.jpg" alt="09">
                     </figure>
-                </div> 
+                </div>
                 <div class="mouse__text">
                     <div class="line">
                         <div class="left">
@@ -123,7 +123,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="line">
                         <div class="left">
                             <div class="spanWrap">
@@ -265,7 +265,7 @@
                     </div>
                     <div class="cont">
                         <div class="active">
-<pre><code class="language-js">const mouseMove = (e) => {
+                            <pre><code class="language-js">const mouseMove = (e) => {
     let positionSlow = (e.pageX - window.innerWidth / 2) * 0.1 ;
     let positionFast = (e.pageX - window.innerWidth / 2) * 0.2 ;
 
@@ -305,7 +305,7 @@ spans.forEach((span, idx) => {
 </code></pre>
                         </div>
                         <div>
-<pre><code class="language-html">&lt;main id="main"&gt;
+                            <pre><code class="language-html">&lt;main id="main"&gt;
     &lt;section id="mouseType"&gt;
         &lt;div class="mouse__cursor"&gt;&lt;/div&gt;
         &lt;div class="mouse__wrap"&gt;
@@ -373,7 +373,7 @@ spans.forEach((span, idx) => {
 </code></pre>
                         </div>
                         <div>
-<pre><code class="language-css">/* mouseType */
+                            <pre><code class="language-css">/* mouseType */
 .mouse__wrap {
     color: #fff;
     width: 100%;
@@ -469,25 +469,25 @@ spans.forEach((span, idx) => {
 
     <script>
         const mouseMove = (e) => {
-            let positionSlow = (e.pageX - window.innerWidth / 2) * 0.1 ;
-            let positionFast = (e.pageX - window.innerWidth / 2) * 0.2 ;
+            let positionSlow = (e.pageX - window.innerWidth / 2) * 0.1;
+            let positionFast = (e.pageX - window.innerWidth / 2) * 0.2;
 
             gsap.to(".spanSlow", {
-                duration : .4,
-                x : positionSlow,
+                duration: .4,
+                x: positionSlow,
             });
 
             gsap.to(".spanFast", {
-                duration : .4,
-                x : -positionFast,
+                duration: .4,
+                x: -positionFast,
             });
 
             gsap.to(".mouse__cursor", {
-                duration : .3,
-                left : e.pageX,
-                top : e.pageY,
-                xPercent : -50,
-                yPercent : -50,
+                duration: .3,
+                left: e.pageX,
+                top: e.pageY,
+                xPercent: -50,
+                yPercent: -50,
             });
         }
         window.addEventListener('mousemove', mouseMove);
