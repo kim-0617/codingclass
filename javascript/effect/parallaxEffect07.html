@@ -553,7 +553,7 @@ const reveal = document.querySelectorAll('.reveal');
 reveal.forEach((el) => {
     let text = el.innerText;
     if (text) {
-        el.innerHTML = "<span>" + text + "</span>";
+        el.innerHTML = "&lt;span&gt;" + text + "&lt;/span&gt;";
     }
 });
 
@@ -921,6 +921,7 @@ scroll()
 
         function scroll() {
             let scrollTop = window.scrollY;
+            document.querySelector('.scroll span').innerText = Math.ceil(scrollTop);
             reveal.forEach((el, index) => {
                 let revealOffset = el.offsetTop + el.parentElement.offsetTop;
                 let revealDelay = el.dataset.delay;
